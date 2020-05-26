@@ -154,3 +154,153 @@ def resnet_v2_50(input_shape,
     :param input_shape: tuple, i.e., (height, width, channel)
     :param kernel_size: int, default 3.
     :param include_root: bool, default True.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return: a Keras model instance.
+    """
+    input_x = Input(shape=input_shape)
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
+
+    if include_root:
+        x = Conv2D(64, (7, 7), strides=(2, 2), padding="same", name="conv1", use_bias=False,
+                   activation=None, kernel_initializer=kernel_initializer,
+                   kernel_regularizer=l2(weight_decay))(x)
+        x = MaxPooling2D((3, 3), (2, 2), padding="same")(x)
+
+    x = residual_bottleneck(x, bottleneck_param(scope="block1", base_depth=64, kernel_size=kernel_size,
+                                                num_units=3, stride=2, rate=1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = residual_bottleneck(x, bottleneck_param(scope="block2", base_depth=128, kernel_size=kernel_size,
+                                                num_units=4, stride=2, rate=1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = residual_bottleneck(x, bottleneck_param(scope="block3", base_depth=256, kernel_size=kernel_size,
+                                                num_units=6, stride=1, rate=2),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = residual_bottleneck(x, bottleneck_param(scope="block4", base_depth=512, kernel_size=kernel_size,
+                                                num_units=3, stride=1, rate=4),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(x)
+    x = Activation("relu")(x)
+
+    model = Model(input_x, x)
+    return model
+
+
+def resnet_v2_101(input_shape,
+                  kernel_size=3,
+                  include_root=True,
+                  weight_decay=1e-4,
+                  kernel_initializer="he_normal",
+                  bn_epsilon=1e-3,
+                  bn_momentum=0.99):
+    """ Build a Resnet_v2_101 encoder
+    :param input_shape: tuple, i.e., (height, width, channel)
+    :param kernel_size: int, default 3.
+    :param include_root: bool, default True.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return: a Keras model instance.
+    """
+    input_x = Input(shape=input_shape)
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
+
+    if include_root:
+        x = Conv2D(64, (7, 7), strides=(2, 2), padding="same", name="conv1", use_bias=False,
+                   activation=None, kernel_initializer=kernel_initializer,
+                   kernel_regularizer=l2(weight_decay))(x)
+        x = MaxPooling2D((3, 3), (2, 2), padding="same")(x)
+
+    x = residual_bottleneck(x, bottleneck_param(scope="block1", base_depth=64, kernel_size=kernel_size,
+                                                num_units=3, stride=2, rate=1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = residual_bottleneck(x, bottleneck_param(scope="block2", base_depth=128, kernel_size=kernel_size,
+                                                num_units=4, stride=2, rate=1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = residual_bottleneck(x, bottleneck_param(scope="block3", base_depth=256, kernel_size=kernel_size,
+                                                num_units=23, stride=1, rate=2),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = residual_bottleneck(x, bottleneck_param(scope="block4", base_depth=512, kernel_size=kernel_size,
+                                                num_units=3, stride=1, rate=4),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(x)
+    x = Activation("relu")(x)
+
+    model = Model(input_x, x)
+    return model
+
+
+def resnet_v2_152(input_shape,
+                  kernel_size=3,
+                  include_root=True,
+                  weight_decay=1e-4,
+                  kernel_initializer="he_normal",
+                  bn_epsilon=1e-3,
+                  bn_momentum=0.99):
+    """ Build a Resnet_v2_152 encoder
+    :param input_shape: tuple, i.e., (height, width, channel)
+    :param kernel_size: int, default 3.
+    :param include_root: bool, default True.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return: a Keras model instance.
+    """
+    input_x = Input(shape=input_shape)
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
+
+    if include_root:
+        x = Conv2D(64, (7, 7), strides=(2, 2), padding="same", name="conv1", use_bias=False,
+                   activation=None, kernel_initializer=kernel_initializer,
+                   kernel_regularizer=l2(weight_decay))(x)
+        x = MaxPooling2D((3, 3), (2, 2), padding="same")(x)
+
+    x = residual_bottleneck(x, bottleneck_param(scope="block1", base_depth=64, kernel_size=kernel_size,
+                                                num_units=3, stride=2, rate=1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = residual_bottleneck(x, bottleneck_param(scope="block2", base_depth=128, kernel_size=kernel_size,
+                                                num_units=8, stride=2, rate=1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = residual_bottleneck(x, bottleneck_param(scope="block3", base_depth=256, kernel_size=kernel_size,
+                                                num_units=36, stride=1, rate=2),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = residual_bottleneck(x, bottleneck_param(scope="block4", base_depth=512, kernel_size=kernel_size,
+                                                num_units=3, stride=1, rate=4),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(x)
+    x = Activation("relu")(x)
+
+    model = Model(input_x, x)
+    return model
+
+
+def resnet_v2_200(input_shape,
+                  kernel_size=3,
+                  include_root=True,
+                  weight_decay=1e-4,
+                  kernel_initializer="he_normal",
+                  bn_epsilon=1e-3,
+                  bn_momentum=0.99):
+    """ Build a Resnet_v2_200 encoder
