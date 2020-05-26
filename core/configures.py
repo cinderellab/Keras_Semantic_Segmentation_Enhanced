@@ -121,3 +121,51 @@ class TrainingConfig(object):
     batch_size = 2
     epoch = 2
     steps_per_epoch = 0
+    steps_per_epoch_val = 0
+    verbose = 1
+    early_stop_patience = 0
+    debug = False
+    model_summary = False
+
+
+class PredictingConfig(object):
+    """
+    # Args:
+        mode: ['stride', 'per_image']
+    """
+    model_name = 'deeplab_v3p'
+    encoder_name = 'xception_41'
+    model_path = 'F:\ChinaBuilding\BingAerialBuilding\\USA\\train_val\models\\deeplab_v3p_usa.h5'
+    image_dir = 'F:\ChinaBuilding\BingAerialBuilding\\USA\\test\image'
+    preds_dir = 'F:\ChinaBuilding\BingAerialBuilding\\USA\\test\preds'
+    dataset_name = 'usa'
+    image_height = 256
+    image_width = 256
+    image_channel = 3
+    mode = 'stride'
+    stride = 64
+    to_prob = False
+    geo = True
+    plot = True
+
+
+class EvaluatingConfig(object):
+    """
+    # Args:
+        mode: one of ["global", "per_image"]
+        ignore_0: only valid if "mode" is global
+    """
+    preds_dir = 'F:\ChinaBuilding\BingAerialBuilding\\USA\\test\preds'
+    label_dir = 'F:\ChinaBuilding\BingAerialBuilding\\USA\\test\label_index'
+    dataset_name = 'usa'
+    mode = 'global'
+    ignore_0 = False
+
+
+color2index_config = Color2IndexConfig()
+net_config = NetConfig()
+augment_config = AugmentConfig()
+generate_dadaset_config = GenerateDataSetConfig()
+training_config = TrainingConfig()
+predicting_config = PredictingConfig()
+evaluating_config = EvaluatingConfig()
