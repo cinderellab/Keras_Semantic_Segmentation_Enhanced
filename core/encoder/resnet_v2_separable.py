@@ -15,4 +15,8 @@ def residual_block(inputs,
                    stride=1,
                    rate=1,
                    block_name="block1",
-                   unit_name="
+                   unit_name="unit1",
+                   weight_decay=1e-4,
+                   kernel_initializer="he_normal",
+                   bn_epsilon=1e-3,
+                   bn_momen
