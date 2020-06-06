@@ -10,4 +10,9 @@ from keras.regularizers import l2
 
 def residual_block(inputs,
                    base_depth,
-           
+                   depth,
+                   kernel_size,
+                   stride=1,
+                   rate=1,
+                   block_name="block1",
+                   unit_name="
