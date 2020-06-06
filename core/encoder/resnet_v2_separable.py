@@ -19,4 +19,6 @@ def residual_block(inputs,
                    weight_decay=1e-4,
                    kernel_initializer="he_normal",
                    bn_epsilon=1e-3,
-                   bn_momen
+                   bn_momentum=0.99):
+    """Implementation of a residual block, with 3 conv layers. Each convolutional layer is followed
+        with a batch normalizat
