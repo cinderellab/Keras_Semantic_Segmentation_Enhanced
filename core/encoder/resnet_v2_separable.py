@@ -21,4 +21,7 @@ def residual_block(inputs,
                    bn_epsilon=1e-3,
                    bn_momentum=0.99):
     """Implementation of a residual block, with 3 conv layers. Each convolutional layer is followed
-        with a batch normalizat
+        with a batch normalization layer and a relu layer.
+    The corresponding kernel sizes are (1, kernel_size, 1),
+        corresponding strides are (1->stride->1),
+        corresponding fi
