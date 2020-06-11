@@ -32,4 +32,6 @@ def residual_block(inputs,
     :param depth: int, output depth.
     :param kernel_size: int.
     :param stride: int, default 1.
-    :param rate: in
+    :param rate: int, dilation rate, default 1.
+    :param block_name: string, name of the bottleneck block, default "block1".
+    :param unit_name: string, name of the unit(re
