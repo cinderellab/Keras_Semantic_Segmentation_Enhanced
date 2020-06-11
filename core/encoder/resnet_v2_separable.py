@@ -26,4 +26,6 @@ def residual_block(inputs,
         corresponding strides are (1->stride->1),
         corresponding filters are (base_depth, base_depth, depth).
     If the depth of the inputs is equal to the 'depth', this is a identity block, else a convolutional
-     
+        block.
+    :param inputs: 4-D tensor, shape of (batch_size, height, width, channel).
+    :param base_depth: int, base depth of the 
