@@ -34,4 +34,7 @@ def residual_block(inputs,
     :param stride: int, default 1.
     :param rate: int, dilation rate, default 1.
     :param block_name: string, name of the bottleneck block, default "block1".
-    :param unit_name: string, name of the unit(re
+    :param unit_name: string, name of the unit(residual block), default "unit1".
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: 
