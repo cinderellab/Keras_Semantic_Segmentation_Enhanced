@@ -46,4 +46,6 @@ def residual_block(inputs,
     conv_name_base = block_name+"_"+unit_name+"_conv"
     bn_name_base = block_name+"_"+unit_name+"_bn"
 
-    # pre-activation and batch normal
+    # pre-activation and batch normalization
+    preact = BatchNormalization(name=bn_name_base+"0", epsilon=bn_epsilon, momentum=bn_momentum)(inputs)
+    preact = Activatio
