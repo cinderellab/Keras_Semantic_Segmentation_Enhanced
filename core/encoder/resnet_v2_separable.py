@@ -42,4 +42,8 @@ def residual_block(inputs,
 
     :return: 4-D tensor, shape of (batch_size, height, width, channel).
     """
-    depth_in = 
+    depth_in = int(inputs.shape[-1])
+    conv_name_base = block_name+"_"+unit_name+"_conv"
+    bn_name_base = block_name+"_"+unit_name+"_bn"
+
+    # pre-activation and batch normal
