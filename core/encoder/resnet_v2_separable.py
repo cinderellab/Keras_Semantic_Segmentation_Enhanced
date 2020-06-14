@@ -37,4 +37,9 @@ def residual_block(inputs,
     :param unit_name: string, name of the unit(residual block), default "unit1".
     :param weight_decay: float, default 1e-4.
     :param kernel_initializer: string, default "he_normal".
-    :param bn_epsilon: 
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return: 4-D tensor, shape of (batch_size, height, width, channel).
+    """
+    depth_in = 
