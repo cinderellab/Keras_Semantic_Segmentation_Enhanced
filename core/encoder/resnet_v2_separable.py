@@ -48,4 +48,7 @@ def residual_block(inputs,
 
     # pre-activation and batch normalization
     preact = BatchNormalization(name=bn_name_base+"0", epsilon=bn_epsilon, momentum=bn_momentum)(inputs)
-    preact = Activatio
+    preact = Activation("relu")(preact)
+    # determine convolutional or identity connection
+    if depth_in == depth:
+        x_shortcut = MaxPooling2D(pool_size=(1, 1), strides=
