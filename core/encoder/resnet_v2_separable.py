@@ -53,4 +53,6 @@ def residual_block(inputs,
     if depth_in == depth:
         x_shortcut = MaxPooling2D(pool_size=(1, 1), strides=stride)(inputs) if stride > 1 else inputs
     else:
-        x_shortcut = Conv2D(depth, (1, 1), strides=(stride, stride), name=conv_name_bas
+        x_shortcut = Conv2D(depth, (1, 1), strides=(stride, stride), name=conv_name_base + "short",
+                            use_bias=False, activation=None, kernel_initializer=kernel_initializer,
+             
