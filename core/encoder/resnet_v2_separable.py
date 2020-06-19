@@ -55,4 +55,6 @@ def residual_block(inputs,
     else:
         x_shortcut = Conv2D(depth, (1, 1), strides=(stride, stride), name=conv_name_base + "short",
                             use_bias=False, activation=None, kernel_initializer=kernel_initializer,
-             
+                            kernel_regularizer=l2(weight_decay))(preact)
+        x_shortcut = BatchNormalization(name=bn_name_base + "short", epsilon=bn_epsilon,
+  
