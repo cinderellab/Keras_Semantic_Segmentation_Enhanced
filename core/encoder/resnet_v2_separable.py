@@ -85,4 +85,7 @@ def residual_bottleneck(inputs,
                         kernel_initializer="he_normal",
                         bn_epsilon=1e-3,
                         bn_momentum=0.99):
-    """ Building a res-net bottleneck(or a stage) according to t
+    """ Building a res-net bottleneck(or a stage) according to the parameters generated from function
+        'bottleneck_param()'
+    :param inputs: 4-D tensor, shape of (batch_size, height, width, depth).
+    :p
