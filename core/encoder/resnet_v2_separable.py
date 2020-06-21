@@ -82,4 +82,7 @@ def residual_block(inputs,
 def residual_bottleneck(inputs,
                         params_list,
                         weight_decay=1e-4,
-                        kernel_initiali
+                        kernel_initializer="he_normal",
+                        bn_epsilon=1e-3,
+                        bn_momentum=0.99):
+    """ Building a res-net bottleneck(or a stage) according to t
