@@ -79,4 +79,7 @@ def residual_block(inputs,
     return output
 
 
-def 
+def residual_bottleneck(inputs,
+                        params_list,
+                        weight_decay=1e-4,
+                        kernel_initiali
