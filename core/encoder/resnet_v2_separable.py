@@ -66,4 +66,6 @@ def residual_block(inputs,
     x = Activation("relu")(x)
 
     x = Conv2D(base_depth, (kernel_size, kernel_size), strides=(stride, stride), dilation_rate=rate,
-               padding="same", name=conv_name_base + "2b", use
+               padding="same", name=conv_name_base + "2b", use_bias=False, activation=None,
+               kernel_initializer=kernel_initializer, kernel_regularizer=l2(weight_decay))(x)
+    x = BatchNormalization(name=bn
