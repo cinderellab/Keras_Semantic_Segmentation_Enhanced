@@ -94,4 +94,9 @@ def residual_bottleneck(inputs,
     :param bn_epsilon: float, default 1e-3.
     :param bn_momentum: float, default 0.99.
 
-    :return: 4-D tensor, shape of (batch_size, height, wi
+    :return: 4-D tensor, shape of (batch_size, height, width, depth).
+    """
+
+    x = inputs
+    for i, param in enumerate(params_list):
+        x = residual_block(x, base_depth=param["base_depth"], depth=param["depth"],
