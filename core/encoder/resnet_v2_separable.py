@@ -88,4 +88,6 @@ def residual_bottleneck(inputs,
     """ Building a res-net bottleneck(or a stage) according to the parameters generated from function
         'bottleneck_param()'
     :param inputs: 4-D tensor, shape of (batch_size, height, width, depth).
-    :p
+    :param params_list: list, each element of the list is used to build a residual block.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "
