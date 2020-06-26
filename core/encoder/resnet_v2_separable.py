@@ -101,4 +101,6 @@ def residual_bottleneck(inputs,
     for i, param in enumerate(params_list):
         x = residual_block(x, base_depth=param["base_depth"], depth=param["depth"],
                            kernel_size=param["kernel_size"], stride=param["stride"],
-                           rate=param["rate"], unit_n
+                           rate=param["rate"], unit_name="unit"+str(i+1),
+                           block_name=param["block_name"], weight_decay=weight_decay,
+                           kernel_initiali
