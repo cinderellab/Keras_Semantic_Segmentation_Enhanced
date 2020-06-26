@@ -109,4 +109,9 @@ def residual_bottleneck(inputs,
 
 
 def bottleneck_param(scope,
-  
+                     base_depth=64,
+                     kernel_size=3,
+                     num_units=3,
+                     stride=2,
+                     rate=1):
+    
