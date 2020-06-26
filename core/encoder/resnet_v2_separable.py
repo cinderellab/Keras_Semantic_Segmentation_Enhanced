@@ -103,4 +103,10 @@ def residual_bottleneck(inputs,
                            kernel_size=param["kernel_size"], stride=param["stride"],
                            rate=param["rate"], unit_name="unit"+str(i+1),
                            block_name=param["block_name"], weight_decay=weight_decay,
-                           kernel_initiali
+                           kernel_initializer=kernel_initializer, bn_epsilon=bn_epsilon,
+                           bn_momentum=bn_momentum)
+    return x
+
+
+def bottleneck_param(scope,
+  
