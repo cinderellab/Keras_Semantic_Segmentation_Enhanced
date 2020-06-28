@@ -114,4 +114,6 @@ def bottleneck_param(scope,
                      num_units=3,
                      stride=2,
                      rate=1):
-    
+    """ Generate parameters for each stage in a res-net.
+    :param scope: string, the name of the stage(bottleneck), e.g, "block1".
+    :param base_depth: int, the base de
