@@ -116,4 +116,6 @@ def bottleneck_param(scope,
                      rate=1):
     """ Generate parameters for each stage in a res-net.
     :param scope: string, the name of the stage(bottleneck), e.g, "block1".
-    :param base_depth: int, the base de
+    :param base_depth: int, the base depth of each residual block, default 64.
+    :param kernel_size: int, default 3.
+    :param num_units: int, the total number of residual blo
