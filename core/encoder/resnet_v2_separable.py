@@ -126,4 +126,9 @@ def bottleneck_param(scope,
     :return: list of parameters, can be passed to the function 'ResidualBottleneck(...)'
     """
     return [{
-        "base_depth": bas
+        "base_depth": base_depth,
+        "depth": base_depth*4,
+        "kernel_size": kernel_size,
+        "stride": 1,
+        "rate": rate,
+        "block_name
