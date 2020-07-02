@@ -121,4 +121,9 @@ def bottleneck_param(scope,
     :param num_units: int, the total number of residual blocks in this stage, default 3.
     :param stride: int, the stride of the middle convolution layer in each residual block,
         default 2
-    :param
+    :param rate: int, default 1.
+
+    :return: list of parameters, can be passed to the function 'ResidualBottleneck(...)'
+    """
+    return [{
+        "base_depth": bas
