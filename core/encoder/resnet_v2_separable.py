@@ -136,4 +136,11 @@ def bottleneck_param(scope,
         "base_depth": base_depth,
         "depth": base_depth*4,
         "kernel_size": kernel_size,
-   
+        "stride": stride,
+        "rate": rate,
+        "block_name": scope
+    }]
+
+
+def resnet_v2_50_separable(input_shape,
+                         
