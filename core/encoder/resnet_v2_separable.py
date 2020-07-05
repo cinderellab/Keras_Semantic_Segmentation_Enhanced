@@ -143,4 +143,7 @@ def bottleneck_param(scope,
 
 
 def resnet_v2_50_separable(input_shape,
-                         
+                           kernel_size=3,
+                           include_root=True,
+                           weight_decay=1e-4,
+                           kernel_initial
