@@ -131,4 +131,9 @@ def bottleneck_param(scope,
         "kernel_size": kernel_size,
         "stride": 1,
         "rate": rate,
-        "block_name
+        "block_name": scope
+    }]*(num_units-1) + [{
+        "base_depth": base_depth,
+        "depth": base_depth*4,
+        "kernel_size": kernel_size,
+   
