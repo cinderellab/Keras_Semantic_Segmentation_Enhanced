@@ -155,4 +155,10 @@ def resnet_v2_50_separable(input_shape,
     :param include_root: bool, default True.
     :param weight_decay: float, default 1e-4.
     :param kernel_initializer: string, default "he_normal".
-    :param bn_epsilon: float, defaul
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return: a Keras model instance.
+    """
+    input_x = Input(shape=input_shape)
+  
