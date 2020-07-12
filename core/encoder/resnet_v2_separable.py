@@ -164,4 +164,6 @@ def resnet_v2_50_separable(input_shape,
     x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
 
     if include_root:
-        x = Conv2D(64, (7, 7), strides=(2, 2), padding
+        x = Conv2D(64, (7, 7), strides=(2, 2), padding="same", name="conv1", use_bias=False,
+                   activation=None, kernel_initializer=kernel_initializer,
+                   kernel_regularizer=l2(weight_decay))(x)
