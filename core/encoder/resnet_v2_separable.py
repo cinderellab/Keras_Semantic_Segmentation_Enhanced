@@ -161,4 +161,7 @@ def resnet_v2_50_separable(input_shape,
     :return: a Keras model instance.
     """
     input_x = Input(shape=input_shape)
-  
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
+
+    if include_root:
+        x = Conv2D(64, (7, 7), strides=(2, 2), padding
