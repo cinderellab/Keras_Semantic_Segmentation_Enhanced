@@ -184,4 +184,12 @@ def resnet_v2_50_separable(input_shape,
     x = residual_bottleneck(x, bottleneck_param(scope="block4", base_depth=512, kernel_size=kernel_size,
                                                 num_units=3, stride=1, rate=4),
                             weight_decay=weight_decay, kernel_initializer=kernel_initializer,
-                            bn_epsilon=bn_epsilon, bn_mome
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(x)
+    x = Activation("relu")(x)
+
+    return Model(input_x, x)
+
+
+def resnet
