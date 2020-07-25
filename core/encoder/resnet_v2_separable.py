@@ -195,4 +195,7 @@ def resnet_v2_50_separable(input_shape,
 def resnet_v2_101_separable(input_shape,
                             kernel_size=3,
                             include_root=True,
-                            weight_decay
+                            weight_decay=1e-4,
+                            kernel_initializer="he_normal",
+                            bn_epsilon=1e-3,
+                            bn_momentum=0.99):
