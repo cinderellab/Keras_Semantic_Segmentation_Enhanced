@@ -192,4 +192,7 @@ def resnet_v2_50_separable(input_shape,
     return Model(input_x, x)
 
 
-def resnet
+def resnet_v2_101_separable(input_shape,
+                            kernel_size=3,
+                            include_root=True,
+                            weight_decay
