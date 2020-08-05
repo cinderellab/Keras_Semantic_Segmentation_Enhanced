@@ -250,4 +250,7 @@ def resnet_v2_152_separable(input_shape,
                             bn_epsilon=1e-3,
                             bn_momentum=0.99):
     """ Build a Resnet_v2_152_separable encoder
-    :param input_
+    :param input_shape: tuple, i.e., (height, width, channel)
+    :param kernel_size: int, default 3.
+    :param include_root: bool, default True.
+    :param weight_decay: float
