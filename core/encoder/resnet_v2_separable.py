@@ -253,4 +253,7 @@ def resnet_v2_152_separable(input_shape,
     :param input_shape: tuple, i.e., (height, width, channel)
     :param kernel_size: int, default 3.
     :param include_root: bool, default True.
-    :param weight_decay: float
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, defau
