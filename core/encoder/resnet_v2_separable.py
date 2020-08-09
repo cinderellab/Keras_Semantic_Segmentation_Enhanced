@@ -267,4 +267,7 @@ def resnet_v2_152_separable(input_shape,
         x = Conv2D(64, (7, 7), strides=(2, 2), padding="same", name="conv1", use_bias=False,
                    activation=None, kernel_initializer=kernel_initializer,
                    kernel_regularizer=l2(weight_decay))(x)
-        x = MaxPooling2D((3, 3), (2, 2), padding="sa
+        x = MaxPooling2D((3, 3), (2, 2), padding="same")(x)
+
+    x = residual_bottleneck(x, bottleneck_param(scope="block1", base_depth=64, kernel_size=kernel_size,
+                              
