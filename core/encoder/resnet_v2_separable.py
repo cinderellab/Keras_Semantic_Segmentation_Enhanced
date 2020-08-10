@@ -273,4 +273,6 @@ def resnet_v2_152_separable(input_shape,
                                                 num_units=3, stride=2, rate=1),
                             weight_decay=weight_decay, kernel_initializer=kernel_initializer,
                             bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
-    x = residual_bottleneck(x, bottleneck_param(scope="block2", base_depth=128, kernel_size=kerne
+    x = residual_bottleneck(x, bottleneck_param(scope="block2", base_depth=128, kernel_size=kernel_size,
+                                                num_units=8, stride=2, rate=1),
+                            weight_decay=weig
