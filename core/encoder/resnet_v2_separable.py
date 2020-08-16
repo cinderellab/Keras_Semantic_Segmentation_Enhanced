@@ -279,4 +279,6 @@ def resnet_v2_152_separable(input_shape,
                             bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
     x = residual_bottleneck(x, bottleneck_param(scope="block3", base_depth=256, kernel_size=kernel_size,
                                                 num_units=36, stride=1, rate=2),
-                 
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+   
