@@ -288,3 +288,10 @@ def resnet_v2_152_separable(input_shape,
 
     x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(x)
     x = Activation("relu")(x)
+
+    return Model(input_x, x)
+
+
+def resnet_v2_200_separable(input_shape,
+                            kernel_size=3,
+                            include_roo
