@@ -294,4 +294,7 @@ def resnet_v2_152_separable(input_shape,
 
 def resnet_v2_200_separable(input_shape,
                             kernel_size=3,
-                            include_roo
+                            include_root=True,
+                            weight_decay=1e-4,
+                            kernel_initializer="he_normal",
+                  
