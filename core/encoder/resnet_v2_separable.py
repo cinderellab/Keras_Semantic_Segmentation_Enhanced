@@ -297,4 +297,7 @@ def resnet_v2_200_separable(input_shape,
                             include_root=True,
                             weight_decay=1e-4,
                             kernel_initializer="he_normal",
-                  
+                            bn_epsilon=1e-3,
+                            bn_momentum=0.99):
+    """ Build a Resnet_v2_200_separable encoder
+    :param input_shape: t
