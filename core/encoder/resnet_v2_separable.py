@@ -319,4 +319,6 @@ def resnet_v2_200_separable(input_shape,
                    kernel_regularizer=l2(weight_decay))(x)
         x = MaxPooling2D((3, 3), (2, 2), padding="same")(x)
 
-    x = residual_bottleneck(x, bottleneck_param(scope="block1", base_depth=64, kernel_size=ke
+    x = residual_bottleneck(x, bottleneck_param(scope="block1", base_depth=64, kernel_size=kernel_size,
+                                                num_units=3, stride=2, rate=1),
+                            weight_decay=weight_decay, kern
