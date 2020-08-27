@@ -336,4 +336,7 @@ def resnet_v2_200_separable(input_shape,
                             weight_decay=weight_decay, kernel_initializer=kernel_initializer,
                             bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
 
-    x = BatchNorma
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(x)
+    x = Activation("relu")(x)
+
+    return Model(input_x, x)
