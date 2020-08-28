@@ -13,4 +13,7 @@ def SemanticSegmentationModel(model_name,
                               n_class,
                               encoder_name,
                               encoder_weights=None,
-                              init
+                              init_filters=64,
+                              weight_decay=1e-4,
+                              kernel_initializer="he_normal",
+                 
