@@ -10,4 +10,7 @@ from .srinets import sri_net
 
 def SemanticSegmentationModel(model_name,
                               input_shape,
-                     
+                              n_class,
+                              encoder_name,
+                              encoder_weights=None,
+                              init
