@@ -22,4 +22,6 @@ def SemanticSegmentationModel(model_name,
                               upscaling_method="bilinear"):
     """ the main api of model builder.
     :param model_name: string, name of FCN model.
-    :param input_shape: tuple, i.e., (he
+    :param input_shape: tuple, i.e., (height, width, channel).
+    :param n_class: int, number of classes, at least 2.
+    :param encoder_name: string, name of the encoder
