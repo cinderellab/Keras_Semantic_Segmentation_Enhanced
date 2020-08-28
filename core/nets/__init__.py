@@ -24,4 +24,6 @@ def SemanticSegmentationModel(model_name,
     :param model_name: string, name of FCN model.
     :param input_shape: tuple, i.e., (height, width, channel).
     :param n_class: int, number of classes, at least 2.
-    :param encoder_name: string, name of the encoder
+    :param encoder_name: string, name of the encoder.
+    :param encoder_weights: string, path of the encoder.
+    :param init_filters: int, initial filters, only used for some of the models like
