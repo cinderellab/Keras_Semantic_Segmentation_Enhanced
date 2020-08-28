@@ -16,4 +16,7 @@ def SemanticSegmentationModel(model_name,
                               init_filters=64,
                               weight_decay=1e-4,
                               kernel_initializer="he_normal",
-                 
+                              bn_epsilon=1e-3,
+                              bn_momentum=0.99,
+                              dropout=0.5,
+                              up
