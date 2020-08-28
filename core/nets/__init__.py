@@ -19,4 +19,7 @@ def SemanticSegmentationModel(model_name,
                               bn_epsilon=1e-3,
                               bn_momentum=0.99,
                               dropout=0.5,
-                              up
+                              upscaling_method="bilinear"):
+    """ the main api of model builder.
+    :param model_name: string, name of FCN model.
+    :param input_shape: tuple, i.e., (he
