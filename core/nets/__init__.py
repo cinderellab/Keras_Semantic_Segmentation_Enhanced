@@ -26,4 +26,7 @@ def SemanticSegmentationModel(model_name,
     :param n_class: int, number of classes, at least 2.
     :param encoder_name: string, name of the encoder.
     :param encoder_weights: string, path of the encoder.
-    :param init_filters: int, initial filters, only used for some of the models like
+    :param init_filters: int, initial filters, only used for some of the models like U-Net, default 64.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: flo
