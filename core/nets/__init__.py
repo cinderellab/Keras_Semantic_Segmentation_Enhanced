@@ -32,4 +32,10 @@ def SemanticSegmentationModel(model_name,
     :param bn_epsilon: float, default 1e-3.
     :param bn_momentum: float, default 0.99.
     :param dropout: float, default 0.5.
-    :param upscaling_method: string, method for up-sampling, 
+    :param upscaling_method: string, method for up-sampling, one of ['bilinear', 'conv'], default "conv".
+
+    :return: a Keras Model instance.
+    """
+    model_name = model_name.lower()
+    if model_name == "unet":
+   
