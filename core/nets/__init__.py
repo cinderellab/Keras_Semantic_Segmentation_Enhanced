@@ -38,4 +38,5 @@ def SemanticSegmentationModel(model_name,
     """
     model_name = model_name.lower()
     if model_name == "unet":
-   
+        model = UNet(input_shape=input_shape, n_class=n_class,
+                     weight_decay=weight_decay, kernel_initializer=kernel_initi
