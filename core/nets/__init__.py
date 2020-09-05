@@ -29,4 +29,7 @@ def SemanticSegmentationModel(model_name,
     :param init_filters: int, initial filters, only used for some of the models like U-Net, default 64.
     :param weight_decay: float, default 1e-4.
     :param kernel_initializer: string, default "he_normal".
-    :param bn_epsilon: flo
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+    :param dropout: float, default 0.5.
+    :param upscaling_method: string, method for up-sampling, 
