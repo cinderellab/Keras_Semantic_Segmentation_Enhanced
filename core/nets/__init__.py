@@ -52,4 +52,6 @@ def SemanticSegmentationModel(model_name,
                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
                        bn_momentum=bn_momentum, bn_epsilon=bn_epsilon, preset_model="MobileUNet-Skip")
     elif model_name == "pspnet":
-        model = PSPNet(input_shape=input_sha
+        model = PSPNet(input_shape=input_shape, n_class=n_class,
+                       encoder_name=encoder_name, encoder_weights=encoder_weights,
+                       weigh
