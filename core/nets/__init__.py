@@ -44,4 +44,6 @@ def SemanticSegmentationModel(model_name,
                      init_filters=init_filters, dropout=dropout)
     elif model_name == "resunet":
         model = ResUNet(input_shape=input_shape, n_class=n_class,
-                        weight_dec
+                        weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                       bn_momentum=bn_momentum, bn_epsilon=bn_epsilon,
+      
