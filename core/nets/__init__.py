@@ -48,4 +48,6 @@ def SemanticSegmentationModel(model_name,
                        bn_momentum=bn_momentum, bn_epsilon=bn_epsilon,
                         init_filters=init_filters, dropout=dropout)
     elif model_name == "mobile_unet":
-        model = MobileUNet(input_shape=inpu
+        model = MobileUNet(input_shape=input_shape, n_class=n_class,
+                           weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                       bn_momentu
