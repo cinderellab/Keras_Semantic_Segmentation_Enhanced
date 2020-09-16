@@ -60,4 +60,6 @@ def SemanticSegmentationModel(model_name,
         model = RefineNet(input_shape=input_shape, n_class=n_class,
                           encoder_name=encoder_name, encoder_weights=encoder_weights,
                           weight_decay=weight_decay, kernel_initializer=kernel_initializer,
-                          bn_momentum=bn
+                          bn_momentum=bn_momentum, bn_epsilon=bn_epsilon,
+                          init_filters=init_filters, upscaling_method=upscaling_method)
+    elif model_nam
