@@ -62,4 +62,6 @@ def SemanticSegmentationModel(model_name,
                           weight_decay=weight_decay, kernel_initializer=kernel_initializer,
                           bn_momentum=bn_momentum, bn_epsilon=bn_epsilon,
                           init_filters=init_filters, upscaling_method=upscaling_method)
-    elif model_nam
+    elif model_name == "deeplab_v3":
+        model = Deeplab_v3(input_shape=input_shape, n_class=n_class,
+                           encoder_name=encoder_name, encoder_weigh
