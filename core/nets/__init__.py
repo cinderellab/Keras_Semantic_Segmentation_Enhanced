@@ -81,4 +81,7 @@ def SemanticSegmentationModel(model_name,
         model = FCN_8s(input_shape=input_shape, n_class=n_class,
                        encoder_name=encoder_name, encoder_weights=encoder_weights,
                        weight_decay=weight_decay, kernel_initializer=kernel_initializer,
-                       bn_momentum=bn_momentum, bn_epsilon=b
+                       bn_momentum=bn_momentum, bn_epsilon=bn_epsilon, dropout=dropout)
+    elif model_name == "fcn_16s":
+        model = FCN_16s(input_shape=input_shape, n_class=n_class,
+                        encoder_
