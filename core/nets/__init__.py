@@ -95,4 +95,6 @@ def SemanticSegmentationModel(model_name,
     elif model_name == "segnet":
         model = SegNet(input_shape=input_shape, n_class=n_class,
                        encoder_name=encoder_name, encoder_weights=encoder_weights,
-     
+                       weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                       bn_momentum=bn_momentum, bn_epsilon=bn_epsilon)
+    elif model
