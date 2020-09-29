@@ -43,3 +43,49 @@ def DenseASPP(input_shape,
                                      bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
     d_3 = bn_act_conv_block(d_3_features, n_filters=64, rate=3, kernel_size=(3, 3),
                             weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    ### Second block, rate = 6
+    d_4 = Concatenate()([init_features, d_3])
+    d_4 = bn_act_conv_block(d_4, n_filters=256, kernel_size=(1, 1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    d_4 = bn_act_conv_block(d_4, n_filters=64, rate=6, kernel_size=(3, 3),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    ### Third block, rate = 12
+    d_5 = Concatenate()([init_features, d_3, d_4])
+    d_5 = bn_act_conv_block(d_5, n_filters=256, kernel_size=(1, 1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    d_5 = bn_act_conv_block(d_5, n_filters=64, rate=12, kernel_size=(3, 3),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    ### Fourth block, rate = 18
+    d_6 = Concatenate()([init_features, d_3, d_4, d_5])
+    d_6 = bn_act_conv_block(d_6, n_filters=256, kernel_size=(1, 1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    d_6 = bn_act_conv_block(d_6, n_filters=64, rate=18, kernel_size=(3, 3),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    ### Fifth block, rate = 24
+    d_7 = Concatenate()([init_features, d_3, d_4, d_5, d_6])
+    d_7 = bn_act_conv_block(d_7, n_filters=256, kernel_size=(1, 1),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    d_7 = bn_act_conv_block(d_7, n_filters=64, rate=24, kernel_size=(3, 3),
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    full_block = Concatenate()([init_features, d_3, d_4, d_5, d_6, d_7])
+
+    output = Conv2D(n_class, (1, 1), activation=None,
+                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(full_block)
+    output = BilinearUpSampling(target_size=(input_shape[0], input_shape[1]))(output)
+    output = Activation("softmax")(output)
+
+    return Model(encoder.input, output)
