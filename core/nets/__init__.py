@@ -106,3 +106,5 @@ def SemanticSegmentationModel(model_name,
         raise ValueError("Invalid model_name: {}. Expected to be one of ['fcn_8s', 'fcn_16s', 'fcn_32s', 'segnet', "
                          "'unet', 'resunet', 'mobile_unet', 'pspnet', 'refinenet', 'deeplab_v3, 'deeplab_v3p', "
                          "'dense_aspp']!!!".format(model_name))
+
+    return model
