@@ -101,3 +101,49 @@ def PSPNet(input_shape,
     encoder = build_encoder(input_shape, encoder_name, encoder_weights=encoder_weights,
                             weight_decay=weight_decay, kernel_initializer=kernel_initializer,
                             bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    features = encoder.get_layer(scope_table[encoder_name]["pool4"]).output
+    feature_map_shape = (int(input_shape[0]/16), int(input_shape[1]/16))
+
+    features = pyramid_scene_pooling(features, feature_map_shape,
+                                     weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    features = Conv2D(512, (3, 3), padding="same", use_bias=False, activation=None,
+                      kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(features)
+    features = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(features)
+    features = Activation("relu")(features)
+
+    # upsample
+    if upscaling_method == "conv":
+        features = bn_act_convtranspose(features, 512, (3, 3), 2,
+                                        weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                        bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+        features = bn_act_conv_block(features, 512, (3, 3),
+                                     weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+        features = bn_act_convtranspose(features, 256, (3, 3), 2,
+                                        weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                        bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+        features = bn_act_conv_block(features, 256, (3, 3),
+                                     weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+        features = bn_act_convtranspose(features, 128, (3, 3), 2,
+                                        weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                        bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+        features = bn_act_conv_block(features, 128, (3, 3),
+                                     weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+        features = bn_act_convtranspose(features, 64, (3, 3), 2,
+                                        weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                        bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+        features = bn_act_conv_block(features, 64, (3, 3),
+                                     weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    else:
+        features = BilinearUpSampling(target_size=(input_shape[0], input_shape[1]))(features)
+
+    output = Conv2D(n_class, (1, 1), activation=None,
+                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(features)
+    output = Activation("softmax")(output)
+
+    return Model(encoder.input, output)
