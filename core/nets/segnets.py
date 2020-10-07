@@ -55,3 +55,36 @@ def SegNet(input_shape,
     :param n_class: int, number of class, must >= 2.
     :param encoder_name: string, name of encoder.
     :param encoder_weights: string, path of weights, default None.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return: a Keras Model instance.
+    """
+    encoder = build_encoder(input_shape, encoder_name, encoder_weights=encoder_weights,
+                            weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                            bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    net = encoder.get_layer(scope_table["pool5"]).output
+
+    x = UpSampling2D()(net)
+    x = conv_bn_pool(x, 3, 512, pooling=False, weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = UpSampling2D()(x)
+    x = conv_bn_pool(x, 3, 512, pooling=False, weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = UpSampling2D()(x)
+    x = conv_bn_pool(x, 3, 256, pooling=False, weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = UpSampling2D()(x)
+    x = conv_bn_pool(x, 2, 128, pooling=False, weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = UpSampling2D()(x)
+    x = conv_bn_pool(x, 2, 64, pooling=False, weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+
+    output = Conv2D(n_class, (1, 1), strides=(1, 1), activation=None,
+                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(x)
+    output = Activation("softmax")(output)
+
+    return Model(encoder.input, output)
