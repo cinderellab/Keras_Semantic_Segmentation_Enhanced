@@ -16,4 +16,7 @@ def UNet(input_shape,
          kernel_initializer="he_normal",
          bn_epsilon=1e-3,
          bn_momentum=0.99,
-         init_fi
+         init_filters=64,
+         dropout=0.5):
+    """ Implementation of U-Net for semantic segmentation.
+        ref: Ronneberger O , Fischer P , Brox T
