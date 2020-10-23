@@ -21,4 +21,7 @@ def UNet(input_shape,
     """ Implementation of U-Net for semantic segmentation.
         ref: Ronneberger O , Fischer P , Brox T . U-Net: Convolutional Networks for Biomedical Image Segmentation[J].
              arXiv preprint arXiv: 1505.04597, 2015.
-    :param input_shape: tuple, i.e., 
+    :param input_shape: tuple, i.e., (width, height, channel).
+    :param n_class: int, number of classes, at least 2.
+    :param weight_decay: float, default 1e-4.
+    :
