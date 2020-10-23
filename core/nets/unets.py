@@ -19,4 +19,6 @@ def UNet(input_shape,
          init_filters=64,
          dropout=0.5):
     """ Implementation of U-Net for semantic segmentation.
-        ref: Ronneberger O , Fischer P , Brox T
+        ref: Ronneberger O , Fischer P , Brox T . U-Net: Convolutional Networks for Biomedical Image Segmentation[J].
+             arXiv preprint arXiv: 1505.04597, 2015.
+    :param input_shape: tuple, i.e., 
