@@ -27,4 +27,9 @@ def UNet(input_shape,
     :param kernel_initializer: string, default "he_normal".
     :param bn_epsilon: float, default 1e-3.
     :param bn_momentum: float, default 0.99.
-    :param init_fil
+    :param init_filters: int, initial filters, default 64.
+    :param dropout: float, default 0.5.
+
+    :return: a Keras Model instance.
+    """
+    input_x = Input(shape=input_shape
