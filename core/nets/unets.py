@@ -32,4 +32,7 @@ def UNet(input_shape,
 
     :return: a Keras Model instance.
     """
-    input_x = Input(shape=input_shape
+    input_x = Input(shape=input_shape)
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
+
+    conv1 = Conv2D(init_filters * 1, (3, 3), activatio
