@@ -42,4 +42,6 @@ def UNet(input_shape,
                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(conv1)
     pool1 = MaxPooling2D()(conv1)
 
-    conv2 = Conv2D(init_filters * 2, (3, 3), activation='relu', p
+    conv2 = Conv2D(init_filters * 2, (3, 3), activation='relu', padding='same',
+                   kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(pool1)
+    conv
