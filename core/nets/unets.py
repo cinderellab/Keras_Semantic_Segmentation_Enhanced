@@ -52,4 +52,5 @@ def UNet(input_shape,
     conv3 = Conv2D(init_filters * 4, (3, 3), activation='relu', padding='same',
                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(pool2)
     conv3 = Dropout(dropout)(conv3)
- 
+    conv3 = Conv2D(init_filters * 4, (3, 3), activation='relu', padding='same',
+                   kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initi
