@@ -67,4 +67,6 @@ def UNet(input_shape,
                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(pool4)
     conv5 = Dropout(dropout)(conv5)
     conv5 = Conv2D(init_filters * 16, (3, 3), activation='relu', padding='same',
-   
+                   kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(conv5)
+
+    up1 = Concatenate()([Conv2DTranspose(init_filters * 8, (3,
