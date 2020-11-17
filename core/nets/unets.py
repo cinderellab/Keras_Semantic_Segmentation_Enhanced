@@ -111,4 +111,6 @@ def UNet(input_shape,
     return Model(input_x, output)
 
 
-#################
+################################################ ResUNet ################
+# def convolution_block(x, filters, size, strides=(1, 1), padding='same', activation=True):
+#     x = Conv2D(filters,
