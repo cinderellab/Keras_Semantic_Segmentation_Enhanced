@@ -102,4 +102,7 @@ def UNet(input_shape,
     conv9 = Conv2D(init_filters, (3, 3), activation='relu', padding='same',
                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(up4)
     conv9 = Conv2D(init_filters, (3, 3), activation='relu', padding='same',
-                   kernel_regularizer=l2(weight_decay), kernel_ini
+                   kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(conv9)
+
+    output = Conv2D(n_class, (1, 1), activation=None,
+                    kernel_regularizer=l2(weight_decay), kernel_
