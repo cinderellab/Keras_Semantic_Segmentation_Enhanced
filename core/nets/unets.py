@@ -105,4 +105,10 @@ def UNet(input_shape,
                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(conv9)
 
     output = Conv2D(n_class, (1, 1), activation=None,
-                    kernel_regularizer=l2(weight_decay), kernel_
+                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(conv9)
+    output = Activation("softmax")(output)
+
+    return Model(input_x, output)
+
+
+#################
