@@ -113,4 +113,7 @@ def UNet(input_shape,
 
 ################################################ ResUNet ################
 # def convolution_block(x, filters, size, strides=(1, 1), padding='same', activation=True):
-#     x = Conv2D(filters,
+#     x = Conv2D(filters, size, strides=strides, padding=padding)(x)
+#     if activation == True:
+#         x = BatchNormalization()(x)
+#         x = Activation("relu")(x)
