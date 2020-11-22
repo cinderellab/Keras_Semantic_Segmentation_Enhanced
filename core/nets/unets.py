@@ -117,3 +117,9 @@ def UNet(input_shape,
 #     if activation == True:
 #         x = BatchNormalization()(x)
 #         x = Activation("relu")(x)
+#     return x
+#
+#
+# def residual_block(blockInput, num_filters=16, batch_activate=False):
+#     x = BatchNormalization()(blockInput)
+#     x = Ac
