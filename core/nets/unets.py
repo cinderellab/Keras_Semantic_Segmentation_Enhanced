@@ -122,4 +122,7 @@ def UNet(input_shape,
 #
 # def residual_block(blockInput, num_filters=16, batch_activate=False):
 #     x = BatchNormalization()(blockInput)
-#     x = Ac
+#     x = Activation("relu")(x)
+#     x = convolution_block(x, num_filters, (3, 3))
+#     x = convolution_block(x, num_filters, (3, 3), activation=False)
+#     x 
