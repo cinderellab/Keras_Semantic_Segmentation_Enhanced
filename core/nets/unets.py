@@ -129,4 +129,7 @@ def UNet(input_shape,
 #     if batch_activate:
 #         x = BatchNormalization()(x)
 #         x = Activation("relu")(x)
-#   
+#     return x
+
+
+def convolutional_residual_block(inputs, n_filters, weight_decay=1e-4, kernel_initializer="he_normal", bn_epsilon=1e-3, bn_momentum=0.99):
