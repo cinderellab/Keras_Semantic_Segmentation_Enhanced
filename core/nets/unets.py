@@ -133,3 +133,5 @@ def UNet(input_shape,
 
 
 def convolutional_residual_block(inputs, n_filters, weight_decay=1e-4, kernel_initializer="he_normal", bn_epsilon=1e-3, bn_momentum=0.99):
+    x = conv_bn_act_block(inputs, n_filters, weight_decay, kernel_initializer, bn_epsilon, bn_momentum)
+    x = conv_bn_act_block(x, n_filters, weight_decay, kernel
