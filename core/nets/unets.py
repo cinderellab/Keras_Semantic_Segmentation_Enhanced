@@ -125,4 +125,8 @@ def UNet(input_shape,
 #     x = Activation("relu")(x)
 #     x = convolution_block(x, num_filters, (3, 3))
 #     x = convolution_block(x, num_filters, (3, 3), activation=False)
-#     x 
+#     x = Add()([x, blockInput])
+#     if batch_activate:
+#         x = BatchNormalization()(x)
+#         x = Activation("relu")(x)
+#   
