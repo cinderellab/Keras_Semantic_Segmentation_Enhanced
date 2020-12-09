@@ -142,4 +142,10 @@ def convolutional_residual_block(inputs, n_filters, weight_decay=1e-4, kernel_in
     x = conv_bn_act_block(_x, n_filters, weight_decay, kernel_initializer, bn_epsilon, bn_momentum)
     x = conv_bn_act_block(x, n_filters, weight_decay, kernel_initializer, bn_epsilon, bn_momentum)
     x = Conv2D(n_filters, kernel_size=(3, 3), padding="same", activation=None, use_bias=False,
-               kernel_regularizer=l2(weight_decay), kernel_initi
+               kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(x)
+    x = Add()([_x, x])
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(x)
+    x = Activation("relu")
+
+    return x
+
