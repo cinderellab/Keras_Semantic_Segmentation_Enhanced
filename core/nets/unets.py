@@ -149,3 +149,11 @@ def convolutional_residual_block(inputs, n_filters, weight_decay=1e-4, kernel_in
 
     return x
 
+
+
+def ResUNet(input_shape,
+            n_class,
+            weight_decay=1e-4,
+            kernel_initializer="he_normal",
+            bn_epsilon=1e-3,
+  
