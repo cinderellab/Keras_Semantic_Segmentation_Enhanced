@@ -160,4 +160,6 @@ def ResUNet(input_shape,
             init_filters=64,
             dropout=0.5):
     """ modification of U-Net.
-        repla
+        replace the Conv+BN+Act with Residual Convolutions.
+    :param input_shape: tuple, i.e., (width, height, channel).
+    :param n_class: int, number of cla
