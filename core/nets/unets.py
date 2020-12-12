@@ -162,4 +162,7 @@ def ResUNet(input_shape,
     """ modification of U-Net.
         replace the Conv+BN+Act with Residual Convolutions.
     :param input_shape: tuple, i.e., (width, height, channel).
-    :param n_class: int, number of cla
+    :param n_class: int, number of classes, at least 2.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3
