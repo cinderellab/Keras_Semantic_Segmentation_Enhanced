@@ -156,4 +156,8 @@ def ResUNet(input_shape,
             weight_decay=1e-4,
             kernel_initializer="he_normal",
             bn_epsilon=1e-3,
-  
+            bn_momentum=0.99,
+            init_filters=64,
+            dropout=0.5):
+    """ modification of U-Net.
+        repla
