@@ -165,4 +165,9 @@ def ResUNet(input_shape,
     :param n_class: int, number of classes, at least 2.
     :param weight_decay: float, default 1e-4.
     :param kernel_initializer: string, default "he_normal".
-    :param bn_epsilon: float, default 1e-3
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+    :param init_filters: int, initial filters, default 64.
+    :param dropout: float, default 0.5.
+
+    :return: 
