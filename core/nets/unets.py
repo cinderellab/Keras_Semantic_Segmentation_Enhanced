@@ -170,4 +170,7 @@ def ResUNet(input_shape,
     :param init_filters: int, initial filters, default 64.
     :param dropout: float, default 0.5.
 
-    :return: 
+    :return: a Keras Model instance.
+    """
+    input_x = Input(shape=input_shape)
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_
