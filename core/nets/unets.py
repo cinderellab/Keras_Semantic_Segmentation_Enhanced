@@ -173,4 +173,7 @@ def ResUNet(input_shape,
     :return: a Keras Model instance.
     """
     input_x = Input(shape=input_shape)
-    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
+
+    conv1 = convolutional_residual_block(x, init_filters*1, weight_decay,
+                                         kernel_initializer, bn_epsilon, bn_
