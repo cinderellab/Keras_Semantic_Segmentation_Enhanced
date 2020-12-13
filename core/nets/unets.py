@@ -186,4 +186,8 @@ def ResUNet(input_shape,
     pool2 = Dropout(dropout)(pool2)
 
     conv3 = convolutional_residual_block(pool2, init_filters*4, weight_decay,
-               
+                                         kernel_initializer, bn_epsilon, bn_momentum)
+    pool3 = MaxPooling2D((2, 2))(conv3)
+    pool3 = Dropout(dropout)(pool3)
+
+    
