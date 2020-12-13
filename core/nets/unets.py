@@ -180,4 +180,7 @@ def ResUNet(input_shape,
     pool1 = MaxPooling2D((2, 2))(conv1)
     pool1 = Dropout(dropout / 2)(pool1)
 
-    conv2 = convolutional_residual_block(pool1
+    conv2 = convolutional_residual_block(pool1, init_filters*2, weight_decay,
+                                         kernel_initializer, bn_epsilon, bn_momentum)
+    pool2 = MaxPooling2D((2, 2))(conv2)
+    pool
