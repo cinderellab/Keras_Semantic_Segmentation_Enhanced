@@ -176,4 +176,8 @@ def ResUNet(input_shape,
     x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
 
     conv1 = convolutional_residual_block(x, init_filters*1, weight_decay,
-                                         kernel_initializer, bn_epsilon, bn_
+                                         kernel_initializer, bn_epsilon, bn_momentum)
+    pool1 = MaxPooling2D((2, 2))(conv1)
+    pool1 = Dropout(dropout / 2)(pool1)
+
+    conv2 = convolutional_residual_block(pool1
