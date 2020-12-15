@@ -213,3 +213,5 @@ def ResUNet(input_shape,
                                           kernel_initializer, bn_epsilon, bn_momentum)
 
     deconv2 = Conv2DTranspose(init_filters * 2, (3, 3), strides=(2, 2), padding="same",
+                              kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(uconv3)
+    uconv2 = Concatenate()([deconv2, co
