@@ -224,4 +224,7 @@ def ResUNet(input_shape,
                               kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(uconv2)
     uconv1 = Concatenate()([deconv1, conv1])
     uconv1 = Dropout(dropout)(uconv1)
-    uconv1 = convolutional_residual_block(uconv1, init_filt
+    uconv1 = convolutional_residual_block(uconv1, init_filters*1, weight_decay,
+                                          kernel_initializer, bn_epsilon, bn_momentum)
+
+    output = Conv2D(n_class, (1, 1), paddin
