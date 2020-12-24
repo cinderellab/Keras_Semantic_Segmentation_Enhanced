@@ -227,4 +227,6 @@ def ResUNet(input_shape,
     uconv1 = convolutional_residual_block(uconv1, init_filters*1, weight_decay,
                                           kernel_initializer, bn_epsilon, bn_momentum)
 
-    output = Conv2D(n_class, (1, 1), paddin
+    output = Conv2D(n_class, (1, 1), padding="same", activation=None,
+                    kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(uconv1)
+    output = Activation("softmax")
