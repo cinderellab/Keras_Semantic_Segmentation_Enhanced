@@ -229,4 +229,9 @@ def ResUNet(input_shape,
 
     output = Conv2D(n_class, (1, 1), padding="same", activation=None,
                     kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(uconv1)
-    output = Activation("softmax")
+    output = Activation("softmax")(output)
+
+    return Model(input_x, output)
+
+
+# # # ===============================================================================================
