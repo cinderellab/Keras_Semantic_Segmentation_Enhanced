@@ -241,4 +241,6 @@ def DepthwiseSeparableConvBlock(inputs,
                                 kernel_initializer="he_normal",
                                 bn_epsilon=1e-3,
                                 bn_momentum=0.99):
-    """ Depthwis
+    """ Depthwise separable convolutional block
+    :param inputs: 4-D tensor, shape of (batch_size, hwight, width, channel).
+    :param n_filte
