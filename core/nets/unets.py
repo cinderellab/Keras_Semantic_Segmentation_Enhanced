@@ -246,4 +246,9 @@ def DepthwiseSeparableConvBlock(inputs,
     :param n_filters: int, number of filters.
     :param weight_decay: float, default 1e-4.
     :param kernel_initializer: string, default "he_normal".
-    :param bn_epsi
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return: 4-D tensor, shape of (batch_size, height, width, channel).
+    """
+    x = SeparableConv2D(inpu
