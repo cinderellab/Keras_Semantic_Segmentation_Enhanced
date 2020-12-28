@@ -243,4 +243,7 @@ def DepthwiseSeparableConvBlock(inputs,
                                 bn_momentum=0.99):
     """ Depthwise separable convolutional block
     :param inputs: 4-D tensor, shape of (batch_size, hwight, width, channel).
-    :param n_filte
+    :param n_filters: int, number of filters.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsi
