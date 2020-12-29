@@ -251,4 +251,5 @@ def DepthwiseSeparableConvBlock(inputs,
 
     :return: 4-D tensor, shape of (batch_size, height, width, channel).
     """
-    x = SeparableConv2D(inpu
+    x = SeparableConv2D(inputs, (3, 3), activation=None, padding="same", depth_multiplier=1,
+                        kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(inputs
