@@ -257,4 +257,12 @@ def DepthwiseSeparableConvBlock(inputs,
     x = Activation("relu")(x)
     x = Conv2D(n_filters, (1, 1), activation=None,
                kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(x)
-    x = BatchNormalization(epsilon=bn_epsilon, momentum=
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(x)
+    x = Activation("relu")(x)
+    return x
+
+
+def MobileUNet(input_shape,
+               n_class,
+               weight_decay=1e-4,
+   
