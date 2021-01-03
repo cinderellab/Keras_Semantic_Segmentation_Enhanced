@@ -269,4 +269,7 @@ def MobileUNet(input_shape,
                bn_epsilon=1e-3,
                bn_momentum=0.99,
                preset_model="MobileUNet-Skip"):
-   
+    """
+    :param input_shape: 3-D tuple, i.e., (height, width, channel).
+    :param n_class: int, number of classes, at least 2.
+    :param weight_decay: float, de
