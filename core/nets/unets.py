@@ -292,4 +292,5 @@ def MobileUNet(input_shape,
     input_x = Input(shape=input_shape)
     x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
 
-    x = conv_
+    x = conv_bn_act_block(x, 64, weight_decay=weight_decay,
+                          kernel_initializer=kernel_initializer, bn_epsilon=bn_e
