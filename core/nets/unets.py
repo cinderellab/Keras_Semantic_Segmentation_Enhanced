@@ -272,4 +272,7 @@ def MobileUNet(input_shape,
     """
     :param input_shape: 3-D tuple, i.e., (height, width, channel).
     :param n_class: int, number of classes, at least 2.
-    :param weight_decay: float, de
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3.
+    :par
