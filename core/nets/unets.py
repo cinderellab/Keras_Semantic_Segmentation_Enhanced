@@ -293,4 +293,5 @@ def MobileUNet(input_shape,
     x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
 
     x = conv_bn_act_block(x, 64, weight_decay=weight_decay,
-                          kernel_initializer=kernel_initializer, bn_epsilon=bn_e
+                          kernel_initializer=kernel_initializer, bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = DepthwiseSeparableConvBlock(x, 64, weight_decay=weight_decay, kernel_initializer=kernel_initialize
