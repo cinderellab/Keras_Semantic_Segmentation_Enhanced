@@ -289,4 +289,7 @@ def MobileUNet(input_shape,
             "Unsupported MobileUNet model '%s'. This function only supports MobileUNet and MobileUNet-Skip" % (
                 preset_model))
 
-  
+    input_x = Input(shape=input_shape)
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(input_x)
+
+    x = conv_
