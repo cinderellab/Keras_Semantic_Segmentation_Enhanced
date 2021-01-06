@@ -286,4 +286,7 @@ def MobileUNet(input_shape,
         has_skip = True
     else:
         raise ValueError(
-     
+            "Unsupported MobileUNet model '%s'. This function only supports MobileUNet and MobileUNet-Skip" % (
+                preset_model))
+
+  
