@@ -280,4 +280,10 @@ def MobileUNet(input_shape,
 
     :return: a Keras Model instance.
     """
-    if preset_model == 
+    if preset_model == "MobileUNet":
+        has_skip = False
+    elif preset_model == "MobileUNet-Skip":
+        has_skip = True
+    else:
+        raise ValueError(
+     
