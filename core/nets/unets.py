@@ -275,4 +275,9 @@ def MobileUNet(input_shape,
     :param weight_decay: float, default 1e-4.
     :param kernel_initializer: string, default "he_normal".
     :param bn_epsilon: float, default 1e-3.
-    :par
+    :param bn_momentum: float, default 0.99.
+    :param preset_model: string, "MobileUNet-Skip" or "MobileUNet".
+
+    :return: a Keras Model instance.
+    """
+    if preset_model == 
