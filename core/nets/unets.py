@@ -299,4 +299,5 @@ def MobileUNet(input_shape,
     x = MaxPooling2D()(x)
     skip_1 = x
 
-    x = Depth
+    x = DepthwiseSeparableConvBlock(x, 128, weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+                                    bn_epsilon=bn_epsilon, bn_mom
