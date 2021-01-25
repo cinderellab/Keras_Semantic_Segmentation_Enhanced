@@ -316,4 +316,6 @@ def MobileUNet(input_shape,
     skip_3 = x
 
     x = DepthwiseSeparableConvBlock(x, 512, weight_decay=weight_decay, kernel_initializer=kernel_initializer,
-                                    bn_epsilon=bn_ep
+                                    bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
+    x = DepthwiseSeparableConvBlock(x, 512, weight_decay=weight_decay, kernel_initializer=kernel_initializer,
+          
