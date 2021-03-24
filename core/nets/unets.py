@@ -365,4 +365,5 @@ def MobileUNet(input_shape,
     if has_skip:
         x = Add()([x, skip_2])
 
-    x = bn_act_convtranspose(x, 128, kernel_size=3, sc
+    x = bn_act_convtranspose(x, 128, kernel_size=3, scale=2, weight_decay=weight_decay,
+                             kernel_initializer=kernel_initializer, bn_epsilon=bn_epsilon, bn_momentu
