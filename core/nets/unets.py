@@ -384,4 +384,7 @@ def MobileUNet(input_shape,
                                     bn_epsilon=bn_epsilon, bn_momentum=bn_momentum)
 
     x = Conv2D(n_class, (1, 1), activation=None,
-               kernel_regularizer=l2(weight_decay), kernel_
+               kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(x)
+    output = Activation("softmax")(x)
+
+    return Model(input_x, output)
