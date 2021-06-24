@@ -204,3 +204,16 @@ class ImageDataGenerator(object):
 
         # Returns
             A randomly transformed version of the input (same shape).
+        """
+        assert x.shape[self.row_axis] == y.shape[self.row_axis] and x.shape[self.col_axis] == y.shape[
+            self.col_axis], 'DATA ERROR: Different shape of data and label!\ndata shape: %s, label shape: %s' % (
+            str(x.shape), str(y.shape))
+
+        params = self.get_random_transform(x.shape, seed)
+        x, y = self.apply_transform(x, y, params, cval, label_cval)
+
+        return x, y
+
+
+    # def set_ch_mean(self, ch_mean):
+    #     self.ch_mean = ch_mean
