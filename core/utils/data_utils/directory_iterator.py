@@ -136,3 +136,51 @@ class SegDirectoryIterator(Iterator):
             ### 2. do padding if applying cropping
             img_h, img_w, img_c = _image.shape
             if self.crop_mode in ["random", "center"]:
+                pad_h = max(self.target_size[0] - img_h, 0)
+                pad_w = max(self.target_size[1] - img_w, 0)
+                _image = np.lib.pad(_image,
+                                    ((pad_h//2, pad_h - pad_h//2), (pad_w//2, pad_w - pad_w//2), (0, 0)),
+                                    'constant', constant_values=self.cval)  # change 255 to 0
+                _label = np.lib.pad(_label, ((pad_h // 2, pad_h - pad_h // 2), (pad_w // 2, pad_w - pad_w // 2), (0, 0)),
+                                    'constant', constant_values=self.label_cval)
+
+            ## 3. do cropping from the padded image/label
+            if self.crop_mode == 'center':
+                _image, _label = image_centercrop(_image, _label, self.target_size[0], self.target_size[1])
+            elif self.crop_mode == 'random':
+                _image, _label = image_randomcrop(_image, _label, self.target_size[0], self.target_size[1])
+
+            ### 4. do data augmentation for rgb images
+            if self.image_color_mode=="rgb":
+                _image, _label = self.seg_data_generator.random_transform(_image,
+                                                                          _label,
+                                                                          cval=self.cval,
+                                                                          label_cval=self.label_cval,
+                                                                          seed=None)
+            # we do not apply a normalization here since a BN is firstly adopted in the FCN.
+            ### 5.1. clip the label values to a valid range
+            _label = np.clip(_label, 0, self.n_class - 1).astype(np.uint8)
+
+            ### 5.2. save the generated images to local dir
+            if self.debug:
+                #time_flag = "_{}".format(datetime.datetime.now().strftime("%y%m%d%H%M%S"))
+                plot_image_label(_image/255, _label, vmin=0, vmax=self.n_class - 1, names=NAME_MAP[self.dataset_name])
+                #save_to_image(_image, os.path.join(self.save_image_path, self.base_fnames[ind] + time_flag + self.image_suffix))
+                #save_to_image(_label, os.path.join(self.save_label_path, self.base_fnames[ind] + time_flag + self.label_suffix))
+
+            if self.feed_onehot_label:
+                _label = to_categorical(_label, self.n_class, dtype="uint8")
+                assert _label.shape==(self.target_size[0], self.target_size[1], self.n_class)
+            batch_image.append(_image)
+            batch_label.append(_label)
+
+        batch_image = np.stack(batch_image, axis=0)
+        batch_label = np.stack(batch_label, axis=0)
+
+        return (batch_image, batch_label)
+
+
+    def next(self):
+        with self.lock:
+            index_array = next(self.index_generator)
+        return self._get_batches_of_transformed_samples(index_array)
