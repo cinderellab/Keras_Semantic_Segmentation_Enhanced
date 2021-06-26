@@ -108,3 +108,18 @@ def generate_dataset_main(dataset_name, args):
     image_dir = args["image_dir"]
     label_dir = args["label_dir"]
     image_paths = [os.path.join(image_dir, fn) for fn in os.listdir(image_dir)]
+    label_paths = [os.path.join(label_dir, fn) for fn in os.listdir(label_dir)]
+    if dataset_name=="voc" or dataset_name=="ade20k":
+        image_paths = [os.path.join(image_dir, fn.replace(".png", ".jpg")) for fn in os.listdir(label_dir)]
+    if args["method"] == "random":
+        generate_dataset_random(image_paths=image_paths, label_paths=label_paths,
+                                image_num_per_tile=args["image_number_per_tile"],
+                                dst_dir=args["dst_dir"], augmentations=args["augmentations"],
+                                img_h=args["image_height"], img_w=args["image_width"], use_gdal=args["use_gdal"],
+                                label_is_gray=args["label_is_gray"])
+    else:
+        generate_dataset_scan(image_paths=image_paths, label_paths=label_paths,
+                              stride=args["stride"],
+                              dst_dir=args["dst_dir"], augmentations=args["augmentations"],
+                              img_h=args["image_height"], img_w=args["image_width"], use_gdal=args["use_gdal"],
+                              label_is_gray=args["label_is_gray"])
