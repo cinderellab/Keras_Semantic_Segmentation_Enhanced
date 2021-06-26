@@ -149,3 +149,61 @@ def image_addnoise(image, label, factor=10, min_value=0, max_value=255):
     :param image: numpy array
     :param label: numpy array
     :param factor: the sigma of the guess noise added the src image
+    :return: the processed images
+    """
+    noise = np.random.randn(image.shape[0], image.shape[1], image.shape[2])*factor
+    image = np.clip(image+noise, min_value, max_value)
+    return image, label
+
+
+def image_rotate(image, label, angle=5):
+    """ rotate the src and label images
+    :param image: numpy array
+    :param label: numpy array
+    :param angle: the rotation angle
+    :return: the processed numpy arrays
+    """
+    image = array_to_img(image.astype(np.uint8), scale=False, dtype=np.uint8)
+    label = array_to_img(label.astype(np.uint8), scale=False, dtype=np.uint8)
+    return np.array(image.rotate(angle), dtype=np.uint8), np.array(label.rotate(angle), dtype=np.uint8)
+
+
+def image_blur(image, label, ksize=(3, 3)):
+    image = cv2.blur(image, ksize)
+    return image, label
+
+
+def __test(src_img, label_img, da_func):
+    src_img_da, label_img_da = da_func(src_img, label_img)
+
+    plt.subplot(2, 2, 1)
+    plt.imshow(src_img)
+    plt.subplot(2, 2, 2)
+    plt.imshow(label_img)
+    plt.subplot(2, 2, 3)
+    plt.imshow(src_img_da)
+    plt.subplot(2, 2, 4)
+    plt.imshow(label_img_da)
+    plt.show()
+
+
+def my_apply_affine_transform(x, y, rotate_angle, x_shift, y_shift, zoom_x, zoom_y, cval=0, label_cval=0):
+    """ affine transform including rotate, shift and scale. """
+    if x.ndim==3:
+        cval = (cval, cval, cval)
+    if y.ndim == 2:
+        y = np.expand_dims(y, -1)
+    if rotate_angle!=0:
+        x, y = image_rotate(x, y, rotate_angle)
+    if y.ndim == 2:
+        y = np.expand_dims(y, -1)
+    if x_shift!=0 or y_shift!=0:
+        x, y = image_shift(x, y, x_shift, y_shift, image_background_value=cval, label_background_value=label_cval)
+    if y.ndim == 2:
+        y = np.expand_dims(y, -1)
+    if zoom_x!=1 or zoom_y!=1:
+        x, y = image_scale(x, y, zoom_x, zoom_y, cval, label_cval)
+
+    return x, y
+
+
