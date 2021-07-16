@@ -12,4 +12,7 @@ from keras.preprocessing.image import load_img, img_to_array
 
 def _load_image_gdal(image_path, value_scale=1.0):
     """ using gdal to read image, especially for remote sensing multi-spectral images
-    :param image_p
+    :param image_path: string, image path
+    :param value_scale: float, default 1.0. the data array will divided by the 'value_scale'
+
+    :return: array of shape (heig
