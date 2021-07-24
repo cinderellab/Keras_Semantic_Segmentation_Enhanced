@@ -25,4 +25,10 @@ def _load_image_gdal(image_path, value_scale=1.0):
     img=np.zeros((row, col, band))
     for i in range(band):
         dt = ds.GetRasterBand(i+1)
-        img[:,:,i] = dt.ReadAsArray(0, 0,
+        img[:,:,i] = dt.ReadAsArray(0, 0, col, row)
+
+    return img / value_scale
+
+
+def load_image(image_path, is_gray=False, value_scale=1, target_size=None, use_gdal=False):
+    "
