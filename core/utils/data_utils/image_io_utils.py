@@ -22,4 +22,7 @@ def _load_image_gdal(image_path, value_scale=1.0):
     row=ds.RasterYSize
     band=ds.RasterCount
 
-    img=np.ze
+    img=np.zeros((row, col, band))
+    for i in range(band):
+        dt = ds.GetRasterBand(i+1)
+        img[:,:,i] = dt.ReadAsArray(0, 0,
