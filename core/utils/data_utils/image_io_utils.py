@@ -31,4 +31,7 @@ def _load_image_gdal(image_path, value_scale=1.0):
 
 
 def load_image(image_path, is_gray=False, value_scale=1, target_size=None, use_gdal=False):
-    "
+    """ load image
+    :param image_path: string, image path
+    :param is_gray: bool, default False
+    :param value_scale: float, default 1. the data array
