@@ -43,4 +43,8 @@ def load_image(image_path, is_gray=False, value_scale=1, target_size=None, use_g
     """
     assert value_scale!=0
     if use_gdal:
-        # if use gdal, r
+        # if use gdal, resize and gray are valid
+        return _load_image_gdal(image_path, value_scale) / value_scale
+    if is_gray:
+        try:
+            img = i
