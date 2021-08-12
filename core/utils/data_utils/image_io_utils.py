@@ -37,4 +37,10 @@ def load_image(image_path, is_gray=False, value_scale=1, target_size=None, use_g
     :param value_scale: float, default 1. the data array will divided by the 'value_scale'
     :param target_size: tuple, default None. target spatial size to resize. If None, no resize will be performed.
     :param use_gdal: bool, default False.  whether use gdal to load data,  this is usually used for loading
-    multi-spectral images, or images 
+    multi-spectral images, or images with geo-spatial information
+
+    :return: array of shape (height, width, band)
+    """
+    assert value_scale!=0
+    if use_gdal:
+        # if use gdal, r
