@@ -47,4 +47,6 @@ def load_image(image_path, is_gray=False, value_scale=1, target_size=None, use_g
         return _load_image_gdal(image_path, value_scale) / value_scale
     if is_gray:
         try:
-            img = i
+            img = img_to_array(load_img(image_path, color_mode="grayscale", target_size=target_size))
+        except:
+            img = cv2.imread(image_path, cv2
