@@ -49,4 +49,8 @@ def load_image(image_path, is_gray=False, value_scale=1, target_size=None, use_g
         try:
             img = img_to_array(load_img(image_path, color_mode="grayscale", target_size=target_size))
         except:
-            img = cv2.imread(image_path, cv2
+            img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+            if target_size is not None:
+                img = cv2.resize(img, target_size)
+                img = np.expand_dims(img, axis=-1)
+    el
