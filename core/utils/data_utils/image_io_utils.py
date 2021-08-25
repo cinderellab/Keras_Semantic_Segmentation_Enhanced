@@ -53,4 +53,8 @@ def load_image(image_path, is_gray=False, value_scale=1, target_size=None, use_g
             if target_size is not None:
                 img = cv2.resize(img, target_size)
                 img = np.expand_dims(img, axis=-1)
-    el
+    else:
+        try:
+            img = img_to_array(load_img(image_path, target_size=target_size))
+        except:
+            img = cv2.cvtColor(cv2.imread(image_path)
