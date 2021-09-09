@@ -57,4 +57,11 @@ def load_image(image_path, is_gray=False, value_scale=1, target_size=None, use_g
         try:
             img = img_to_array(load_img(image_path, target_size=target_size))
         except:
-            img = cv2.cvtColor(cv2.imread(image_path)
+            img = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
+            if target_size is not None:
+                img = cv2.resize(img, target_size)
+
+    return img / value_scale
+
+
+def get_image_info(image_path, get_rows=Fals
