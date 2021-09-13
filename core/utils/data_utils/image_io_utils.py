@@ -66,4 +66,9 @@ def load_image(image_path, is_gray=False, value_scale=1, target_size=None, use_g
 
 def get_image_info(image_path, get_rows=False, get_cols=False, get_bands=False, get_geotransform=False, get_projection=False, get_nodatavalue=False):
     """ get the basic information of a image
-    :p
+    :param image_path: string
+        image path
+    :param get_rows: bool, default False
+        whether to get rows
+    :param get_cols: bool, default False
+        whether
