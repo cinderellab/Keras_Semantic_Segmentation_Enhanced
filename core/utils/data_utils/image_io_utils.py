@@ -75,4 +75,7 @@ def get_image_info(image_path, get_rows=False, get_cols=False, get_bands=False, 
     :param get_bands: bool, default False
         whether to get bands
     :param get_geotransform: bool, default False
-        whether to get g
+        whether to get geo-transform
+    :param get_projection: bool, default False
+        whether to get spatial reference system
+    :param get_nodatavalue: bool, default False
