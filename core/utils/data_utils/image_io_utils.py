@@ -71,4 +71,8 @@ def get_image_info(image_path, get_rows=False, get_cols=False, get_bands=False, 
     :param get_rows: bool, default False
         whether to get rows
     :param get_cols: bool, default False
-        whether
+        whether to get cols
+    :param get_bands: bool, default False
+        whether to get bands
+    :param get_geotransform: bool, default False
+        whether to get g
