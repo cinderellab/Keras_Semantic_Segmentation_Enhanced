@@ -79,3 +79,11 @@ def get_image_info(image_path, get_rows=False, get_cols=False, get_bands=False, 
     :param get_projection: bool, default False
         whether to get spatial reference system
     :param get_nodatavalue: bool, default False
+        whether to get no-data value
+
+    :return: dict
+    """
+    ds = gdal.Open(image_path, gdal.GA_ReadOnly)
+    tif_info = dict()
+
+ 
