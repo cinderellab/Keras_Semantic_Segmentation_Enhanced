@@ -86,4 +86,9 @@ def get_image_info(image_path, get_rows=False, get_cols=False, get_bands=False, 
     ds = gdal.Open(image_path, gdal.GA_ReadOnly)
     tif_info = dict()
 
- 
+    if get_rows:
+        tif_info["rows"] = ds.RasterYSize
+    if get_cols:
+        tif_info["cols"] = ds.RasterXSize
+    if get_bands:
+        tif_i
