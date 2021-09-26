@@ -91,4 +91,8 @@ def get_image_info(image_path, get_rows=False, get_cols=False, get_bands=False, 
     if get_cols:
         tif_info["cols"] = ds.RasterXSize
     if get_bands:
-        tif_i
+        tif_info["bands"] = ds.RasterCount
+    if get_geotransform:
+        tif_info["geotransform"] = ds.GetGeoTransform()
+    if get_projection:
+        tif_info["projectio
