@@ -95,4 +95,12 @@ def get_image_info(image_path, get_rows=False, get_cols=False, get_bands=False, 
     if get_geotransform:
         tif_info["geotransform"] = ds.GetGeoTransform()
     if get_projection:
-        tif_info["projectio
+        tif_info["projection"] = ds.GetProjection()
+    if get_nodatavalue:
+        tif_info["nodatavalue"] = ds.GetRasterBand(1).GetNoDataValue()
+
+    del ds
+    return tif_info
+
+
+de
