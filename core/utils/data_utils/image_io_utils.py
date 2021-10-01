@@ -103,4 +103,7 @@ def get_image_info(image_path, get_rows=False, get_cols=False, get_bands=False, 
     return tif_info
 
 
-de
+def save_to_image(arr, image_path):
+    """ save common-formatted images
+    :param arr: array of shape (height, width, 3) or (height, width)
+    :param image
