@@ -106,4 +106,11 @@ def get_image_info(image_path, get_rows=False, get_cols=False, get_bands=False, 
 def save_to_image(arr, image_path):
     """ save common-formatted images
     :param arr: array of shape (height, width, 3) or (height, width)
-    :param image
+    :param image_path: string
+
+    :return: None
+    """
+    Image.fromarray(arr.astype(np.uint8)).save(image_path)
+
+
+def save_to_image_gdal(arr, image_path, da
