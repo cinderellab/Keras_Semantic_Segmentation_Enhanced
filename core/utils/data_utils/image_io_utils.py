@@ -121,4 +121,6 @@ def save_to_image_gdal(arr, image_path, datatype=gdal.GDT_Byte, geoTransform = (
     :param geoTransform: tuple, default (0,1,0,0,0,-1)
         the geo-transform parameters.
     :param proj: string, default None
-        the spatial projection wkt string. 
+        the spatial projection wkt string. If None, no spatial projection will added to the output image
+    :param nodata: float, default None
+        no-data value. If None, no no-da
