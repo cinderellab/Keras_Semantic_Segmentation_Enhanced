@@ -118,4 +118,7 @@ def save_to_image_gdal(arr, image_path, datatype=gdal.GDT_Byte, geoTransform = (
     :param arr: array of shape (height, width, 3) or (height, width)
     :param image_path: string
     :param datatype: data type of the geo-tiff image, default gdal.GDT_Byte.
-    :param geoT
+    :param geoTransform: tuple, default (0,1,0,0,0,-1)
+        the geo-transform parameters.
+    :param proj: string, default None
+        the spatial projection wkt string. 
