@@ -130,4 +130,8 @@ def save_to_image_gdal(arr, image_path, datatype=gdal.GDT_Byte, geoTransform = (
     datatype = gdal.GDT_Byte if datatype is None else datatype
 
     if arr.ndim == 2:
-        arr = np.exp
+        arr = np.expand_dims(arr, -1)
+    if arr.ndim != 3:
+        raise ValueError("[save_to_image_gdal: the input array must have 2 or 3 dimensions!!!]")
+
+    nBands = a
