@@ -134,4 +134,9 @@ def save_to_image_gdal(arr, image_path, datatype=gdal.GDT_Byte, geoTransform = (
     if arr.ndim != 3:
         raise ValueError("[save_to_image_gdal: the input array must have 2 or 3 dimensions!!!]")
 
-    nBands = a
+    nBands = arr.shape[-1]
+    nRows, nCols = arr.shape[:2]
+
+    driver = gdal.GetDriverByName("GTiff")
+    if os.path.exists(image_path):
+        os.remove(image_p
