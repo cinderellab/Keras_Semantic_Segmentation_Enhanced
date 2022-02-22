@@ -139,4 +139,9 @@ def save_to_image_gdal(arr, image_path, datatype=gdal.GDT_Byte, geoTransform = (
 
     driver = gdal.GetDriverByName("GTiff")
     if os.path.exists(image_path):
-        os.remove(image_p
+        os.remove(image_path)
+
+    outRaster = driver.Create(image_path, nCols, nRows, nBands, datatype)
+    outRaster.SetGeoTransform(geoTransform)
+    if proj is not None:
+        o
