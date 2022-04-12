@@ -144,4 +144,6 @@ def save_to_image_gdal(arr, image_path, datatype=gdal.GDT_Byte, geoTransform = (
     outRaster = driver.Create(image_path, nCols, nRows, nBands, datatype)
     outRaster.SetGeoTransform(geoTransform)
     if proj is not None:
-        o
+        outRasterSRS = osr.SpatialReference()
+        outRasterSRS.ImportFromWkt(proj)
+        outRaster.SetProjection(outRasterSRS.Export
