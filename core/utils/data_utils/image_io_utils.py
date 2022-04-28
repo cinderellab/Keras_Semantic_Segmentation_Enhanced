@@ -146,4 +146,9 @@ def save_to_image_gdal(arr, image_path, datatype=gdal.GDT_Byte, geoTransform = (
     if proj is not None:
         outRasterSRS = osr.SpatialReference()
         outRasterSRS.ImportFromWkt(proj)
-        outRaster.SetProjection(outRasterSRS.Export
+        outRaster.SetProjection(outRasterSRS.ExportToWkt())
+
+    for _bandNum in range(nBands):
+        outBand = outRaster.GetRasterBand(_bandNum+1)
+        if nodata is not None:
+            outBand.SetNoD
