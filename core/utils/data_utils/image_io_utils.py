@@ -151,4 +151,6 @@ def save_to_image_gdal(arr, image_path, datatype=gdal.GDT_Byte, geoTransform = (
     for _bandNum in range(nBands):
         outBand = outRaster.GetRasterBand(_bandNum+1)
         if nodata is not None:
-            outBand.SetNoD
+            outBand.SetNoDataValue(nodata)
+        outBand.WriteArray(arr[:,:, _bandNum])
+        outBand.FlushCache()
