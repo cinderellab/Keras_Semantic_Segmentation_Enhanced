@@ -7,4 +7,6 @@ def color_to_index(color_array, color_mapping, to_sparse=True):
         :param colour_mapping: array of shape (n_class,) or (n_class, 3), where n_class is the [total] class number
             Note: the first element is the color of background (label 0).
             e.g., if colour_mapping=[0, 255], pixel equal to 255 are assigned with 1, otherwise 0
-            if colour_mapping=[[0, 0, 0], [255,255,255]], pixel equal to [255
+            if colour_mapping=[[0, 0, 0], [255,255,255]], pixel equal to [255, 255, 255] are assigned with 1, otherwise 0
+        :param to_sparse: bool, optional, default True
+            whether to apply a arg
