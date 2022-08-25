@@ -9,4 +9,7 @@ def color_to_index(color_array, color_mapping, to_sparse=True):
             e.g., if colour_mapping=[0, 255], pixel equal to 255 are assigned with 1, otherwise 0
             if colour_mapping=[[0, 0, 0], [255,255,255]], pixel equal to [255, 255, 255] are assigned with 1, otherwise 0
         :param to_sparse: bool, optional, default True
-            whether to apply a arg
+            whether to apply a argmax on the last axis to obtain sparse label array
+
+        :return: array of shape (height, width, n_class+1)
+        NOTE: if a pixel value pair
