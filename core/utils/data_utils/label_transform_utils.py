@@ -18,4 +18,7 @@ def color_to_index(color_array, color_mapping, to_sparse=True):
     if len(color_mapping)<2:
         raise ValueError("Invalid length of color map: {}. Expected >= 2!".format(len(color_mapping)))
 
-    onehot_array = [np.zeros((color_ar
+    onehot_array = [np.zeros((color_array.shape[0], color_array.shape[1]), dtype=np.uint8)]
+    for color in color_mapping[1:]:
+        _equal = np.equal(color_array, color)
+        onehot_a
