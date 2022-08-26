@@ -12,4 +12,7 @@ def color_to_index(color_array, color_mapping, to_sparse=True):
             whether to apply a argmax on the last axis to obtain sparse label array
 
         :return: array of shape (height, width, n_class+1)
-        NOTE: if a pixel value pair
+        NOTE: if a pixel value pair is not in the colour_mapping, the value of that pixel in the final one-hot array will be [0, 0, ..., 0]
+    """
+    assert color_mapping is not None
+    if len(color_ma
