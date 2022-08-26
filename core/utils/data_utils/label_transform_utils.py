@@ -15,4 +15,7 @@ def color_to_index(color_array, color_mapping, to_sparse=True):
         NOTE: if a pixel value pair is not in the colour_mapping, the value of that pixel in the final one-hot array will be [0, 0, ..., 0]
     """
     assert color_mapping is not None
-    if len(color_ma
+    if len(color_mapping)<2:
+        raise ValueError("Invalid length of color map: {}. Expected >= 2!".format(len(color_mapping)))
+
+    onehot_array = [np.zeros((color_ar
