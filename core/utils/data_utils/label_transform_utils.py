@@ -42,4 +42,8 @@ def index_to_color(label_array, color_mapping):
 
     :return: array of shape(height, width, 3) or (height, width), depending on the dimension of color_mapping
     """
-    assert color_ma
+    assert color_mapping is not None
+    assert label_array.ndim==2
+
+    color_mapping = np.array(color_mapping)
+    if color_mapping.ndim==1 or (color_mapping.ndi
