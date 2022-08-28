@@ -35,4 +35,7 @@ def color_to_index(color_array, color_mapping, to_sparse=True):
 
 def index_to_color(label_array, color_mapping):
     """ encode the 2-dim label array to colorful images
-    :param label_array: array of shape (
+    :param label_array: array of shape (height, width)
+        2-dim label array
+    :param color_mapping: array of shape (n_class,) or (n_class, 3)
+        refer to the one in function 'color_t
