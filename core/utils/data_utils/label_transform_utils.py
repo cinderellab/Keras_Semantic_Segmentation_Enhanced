@@ -38,4 +38,8 @@ def index_to_color(label_array, color_mapping):
     :param label_array: array of shape (height, width)
         2-dim label array
     :param color_mapping: array of shape (n_class,) or (n_class, 3)
-        refer to the one in function 'color_t
+        refer to the one in function 'color_to_label'
+
+    :return: array of shape(height, width, 3) or (height, width), depending on the dimension of color_mapping
+    """
+    assert color_ma
