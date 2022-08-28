@@ -24,4 +24,6 @@ def color_to_index(color_array, color_mapping, to_sparse=True):
         onehot_array.append(np.all(_equal, axis=-1).astype(np.uint8))
     onehot_array = np.stack(onehot_array, axis=-1).astype(np.uint8)
 
-    # if the color is not in the colour_mapping, assi
+    # if the color is not in the colour_mapping, assign 0 to represent background
+    all_zeros = np.zeros(len(color_mapping), dtype=np.uint8)
+    onehot_array[:, :, 0] = np.where(np.all(np.equa
