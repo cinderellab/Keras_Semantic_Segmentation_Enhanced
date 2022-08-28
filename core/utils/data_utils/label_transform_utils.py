@@ -26,4 +26,8 @@ def color_to_index(color_array, color_mapping, to_sparse=True):
 
     # if the color is not in the colour_mapping, assign 0 to represent background
     all_zeros = np.zeros(len(color_mapping), dtype=np.uint8)
-    onehot_array[:, :, 0] = np.where(np.all(np.equa
+    onehot_array[:, :, 0] = np.where(np.all(np.equal(onehot_array, all_zeros), axis=-1), 1, 0)
+
+    if to_sparse:
+        onehot_array = np.argmax(onehot_array, axis=-1).astype(np.uint8)
+    return onehot_a
