@@ -30,4 +30,9 @@ def color_to_index(color_array, color_mapping, to_sparse=True):
 
     if to_sparse:
         onehot_array = np.argmax(onehot_array, axis=-1).astype(np.uint8)
-    return onehot_a
+    return onehot_array
+
+
+def index_to_color(label_array, color_mapping):
+    """ encode the 2-dim label array to colorful images
+    :param label_array: array of shape (
