@@ -46,4 +46,7 @@ def index_to_color(label_array, color_mapping):
     assert label_array.ndim==2
 
     color_mapping = np.array(color_mapping)
-    if color_mapping.ndim==1 or (color_mapping.ndi
+    if color_mapping.ndim==1 or (color_mapping.ndim==2 and color_mapping.shape[1]==3):
+        return color_mapping[label_array.astype(np.uint8)]
+    else:
+        raise ValueError("Invalid color_mapping 
