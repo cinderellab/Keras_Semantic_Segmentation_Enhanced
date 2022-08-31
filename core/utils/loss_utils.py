@@ -11,4 +11,6 @@ def log_loss(y_true, y_pred):
 # TODO: TO BE TESTED
 # binary dice loss
 def _dice_coef_binary(y_true, y_pred, smooth=1):
-    intersection
+    intersection = K.sum(y_true * y_pred, axis=[1,2,3])
+    union = K.sum(y_true, axis=[1,2,3]) + K.sum(y_pred, axis=[1,2,3])
+    return K.mean( (2. * intersection + smooth) / (union
