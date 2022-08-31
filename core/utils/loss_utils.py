@@ -13,4 +13,11 @@ def log_loss(y_true, y_pred):
 def _dice_coef_binary(y_true, y_pred, smooth=1):
     intersection = K.sum(y_true * y_pred, axis=[1,2,3])
     union = K.sum(y_true, axis=[1,2,3]) + K.sum(y_pred, axis=[1,2,3])
-    return K.mean( (2. * intersection + smooth) / (union
+    return K.mean( (2. * intersection + smooth) / (union + smooth), axis=0)
+
+
+def dice_coef_loss_binary(y_true, y_pred):
+    return 1 - _dice_coef_binary(y_true, y_pred, smooth=1)
+
+
+# y_true and y_pred should be o
