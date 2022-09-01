@@ -36,4 +36,8 @@ def dice_coef_loss_multiclass(y_true, y_pred):
     return 1 - _dice_coef_multiclass(y_true, y_pred, smooth=1)
 
 
-def focal_
+def focal_loss(y_true, y_pred):
+    gamma = 2
+    alpha = 0.25
+    pt_1 = tf.where(tf.equal(y_true, 1), y_pred, tf.ones_like(y_pred))
+    pt_0 = tf.where(tf.equal(y_true, 0), y
