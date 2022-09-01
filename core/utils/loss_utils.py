@@ -27,3 +27,6 @@ def _dice_coef_multiclass(y_true, y_pred, smooth=1):
     mean_loss = 0
     for i in range(y_pred.shape(-1)):
         intersection = K.sum(y_true[:,:,:,i] * y_pred[:,:,:,i], axis=[1,2,3])
+        union = K.sum(y_true[:,:,:,i], axis=[1,2,3]) + K.sum(y_pred[:,:,:,i], axis=[1,2,3])
+        mean_loss += (2. * intersection + smooth) / (union + smooth)
+    retu
