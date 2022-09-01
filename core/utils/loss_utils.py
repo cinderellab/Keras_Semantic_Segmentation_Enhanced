@@ -23,4 +23,7 @@ def dice_coef_loss_binary(y_true, y_pred):
 # y_true and y_pred should be one-hot
 # y_true.shape = (None,Width,Height,Channel)
 # y_pred.shape = (None,Width,Height,Channel)
-def _dice_coef_multiclass(y_true, y_p
+def _dice_coef_multiclass(y_true, y_pred, smooth=1):
+    mean_loss = 0
+    for i in range(y_pred.shape(-1)):
+        intersection = K.sum(y_true[:,:,:,i] * y_pred[:,:,:,i], axis=[1,2,3])
