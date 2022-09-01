@@ -20,4 +20,7 @@ def dice_coef_loss_binary(y_true, y_pred):
     return 1 - _dice_coef_binary(y_true, y_pred, smooth=1)
 
 
-# y_true and y_pred should be o
+# y_true and y_pred should be one-hot
+# y_true.shape = (None,Width,Height,Channel)
+# y_pred.shape = (None,Width,Height,Channel)
+def _dice_coef_multiclass(y_true, y_p
