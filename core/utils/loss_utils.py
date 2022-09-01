@@ -29,4 +29,11 @@ def _dice_coef_multiclass(y_true, y_pred, smooth=1):
         intersection = K.sum(y_true[:,:,:,i] * y_pred[:,:,:,i], axis=[1,2,3])
         union = K.sum(y_true[:,:,:,i], axis=[1,2,3]) + K.sum(y_pred[:,:,:,i], axis=[1,2,3])
         mean_loss += (2. * intersection + smooth) / (union + smooth)
-    retu
+    return K.mean(mean_loss, axis=0)
+
+
+def dice_coef_loss_multiclass(y_true, y_pred):
+    return 1 - _dice_coef_multiclass(y_true, y_pred, smooth=1)
+
+
+def focal_
