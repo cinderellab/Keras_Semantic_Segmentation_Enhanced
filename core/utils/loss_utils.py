@@ -49,4 +49,7 @@ def focal_loss(y_true, y_pred):
         (1 - alpha) * K.pow(pt_0, gamma) * K.log(1. - pt_0))
 
 
-def categorical_crossentropy_seg(y_tru
+def categorical_crossentropy_seg(y_true, y_pred):
+    """
+    :param y_true: tensor of shape (batch_size, height, width, n_class)
+    :param y_pred: tensor of shape (batch_size, height, width,
