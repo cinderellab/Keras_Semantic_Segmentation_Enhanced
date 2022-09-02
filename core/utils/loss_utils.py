@@ -52,4 +52,10 @@ def focal_loss(y_true, y_pred):
 def categorical_crossentropy_seg(y_true, y_pred):
     """
     :param y_true: tensor of shape (batch_size, height, width, n_class)
-    :param y_pred: tensor of shape (batch_size, height, width,
+    :param y_pred: tensor of shape (batch_size, height, width, n_class)
+        probability predictions after softmax
+    :return: categorical cross-entropy
+    """
+    n_class = K.int_shape(y_pred)[-1]
+
+    y_tr
