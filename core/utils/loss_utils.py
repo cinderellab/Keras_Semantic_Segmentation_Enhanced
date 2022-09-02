@@ -58,4 +58,8 @@ def categorical_crossentropy_seg(y_true, y_pred):
     """
     n_class = K.int_shape(y_pred)[-1]
 
-    y_tr
+    y_true = K.reshape(y_true, (-1, n_class))
+    y_pred = K.log(K.reshape(y_pred, (-1, n_class)))
+
+    cross_entropy = -K.sum(y_true * y_pred, axis=1)
+    cross_entr
