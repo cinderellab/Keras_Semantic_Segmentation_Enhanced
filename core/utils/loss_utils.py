@@ -45,4 +45,8 @@ def focal_loss(y_true, y_pred):
     pt_1 = K.clip(pt_1, 1e-3, .999)
     pt_0 = K.clip(pt_0, 1e-3, .999)
 
-    return -K.sum(alpha * K.pow(1. - pt_1, 
+    return -K.sum(alpha * K.pow(1. - pt_1, gamma) * K.log(pt_1)) - K.sum(
+        (1 - alpha) * K.pow(pt_0, gamma) * K.log(1. - pt_0))
+
+
+def categorical_crossentropy_seg(y_tru
