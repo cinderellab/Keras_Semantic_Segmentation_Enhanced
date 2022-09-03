@@ -76,4 +76,9 @@ def sparse_categorical_crossentropy_seg(y_true, y_pred):
     n_class = K.int_shape(y_pred)[-1]
 
     y_true = K.one_hot(tf.to_int32(K.flatten(y_true)), n_class)
-    y_pred = K.log(K.reshape(y
+    y_pred = K.log(K.reshape(y_pred, (-1, n_class)))
+
+    cross_entropy = -K.sum(y_true * y_pred, axis=1)
+    cross_entropy_mean = K.mean(cross_entropy)
+
+    return cross
