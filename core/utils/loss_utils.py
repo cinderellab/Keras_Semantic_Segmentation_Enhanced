@@ -81,4 +81,11 @@ def sparse_categorical_crossentropy_seg(y_true, y_pred):
     cross_entropy = -K.sum(y_true * y_pred, axis=1)
     cross_entropy_mean = K.mean(cross_entropy)
 
-    return cross
+    return cross_entropy_mean
+
+
+def lovasz_grad(gt_sorted):
+    """
+    Computes gradient of the Lovasz extension w.r.t sorted errors
+    See Alg. 1 in paper
+    ""
