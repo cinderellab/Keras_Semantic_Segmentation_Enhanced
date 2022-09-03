@@ -62,4 +62,10 @@ def categorical_crossentropy_seg(y_true, y_pred):
     y_pred = K.log(K.reshape(y_pred, (-1, n_class)))
 
     cross_entropy = -K.sum(y_true * y_pred, axis=1)
-    cross_entr
+    cross_entropy_mean = K.mean(cross_entropy)
+
+    return cross_entropy_mean
+
+
+def sparse_categorical_crossentropy_seg(y_true, y_pred):
+    """ calculate cross-entropy of the one-hot predicti
