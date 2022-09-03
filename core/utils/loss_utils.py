@@ -68,4 +68,7 @@ def categorical_crossentropy_seg(y_true, y_pred):
 
 
 def sparse_categorical_crossentropy_seg(y_true, y_pred):
-    """ calculate cross-entropy of the one-hot predicti
+    """ calculate cross-entropy of the one-hot prediction and the sparse gt.
+    :param y_true: tensor of shape (batch_size, height, width)
+    :param y_pred: tensor of shape (batch_size, height, width, n_class)
+    :r
