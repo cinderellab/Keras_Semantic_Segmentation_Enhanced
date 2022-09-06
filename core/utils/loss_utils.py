@@ -103,4 +103,6 @@ def lovasz_grad(gt_sorted):
 def lovasz_hinge(logits, labels, per_image=True, ignore=None):
     """
     Binary Lovasz hinge loss
-      logits: [B, H, W
+      logits: [B, H, W] Variable, logits at each pixel (between -\infty and +\infty)
+      labels: [B, H, W] Tensor, binary ground truth masks (0 or 1)
+      per_image: compute the loss
