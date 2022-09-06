@@ -105,4 +105,10 @@ def lovasz_hinge(logits, labels, per_image=True, ignore=None):
     Binary Lovasz hinge loss
       logits: [B, H, W] Variable, logits at each pixel (between -\infty and +\infty)
       labels: [B, H, W] Tensor, binary ground truth masks (0 or 1)
-      per_image: compute the loss
+      per_image: compute the loss per image instead of per batch
+      ignore: void class id
+    """
+    if per_image:
+        def treat_image(log_lab):
+            log, lab = log_lab
+            log, lab =
