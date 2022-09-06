@@ -111,4 +111,6 @@ def lovasz_hinge(logits, labels, per_image=True, ignore=None):
     if per_image:
         def treat_image(log_lab):
             log, lab = log_lab
-            log, lab =
+            log, lab = tf.expand_dims(log, 0), tf.expand_dims(lab, 0)
+            log, lab = flatten_binary_scores(log, lab, ignore)
+            return lovasz_hinge_flat(log, lab
