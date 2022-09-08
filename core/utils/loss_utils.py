@@ -123,4 +123,6 @@ def lovasz_hinge(logits, labels, per_image=True, ignore=None):
 
 def lovasz_hinge_flat(logits, labels):
     """
-    B
+    Binary Lovasz hinge loss
+      logits: [P] Variable, logits at each prediction (between -\infty and +\infty)
+      labels: [P] Ten
