@@ -113,4 +113,7 @@ def lovasz_hinge(logits, labels, per_image=True, ignore=None):
             log, lab = log_lab
             log, lab = tf.expand_dims(log, 0), tf.expand_dims(lab, 0)
             log, lab = flatten_binary_scores(log, lab, ignore)
-            return lovasz_hinge_flat(log, lab
+            return lovasz_hinge_flat(log, lab)
+        losses = tf.map_fn(treat_image, (logits, labels), dtype=tf.float32)
+        loss = tf.reduce_mean(losses)
+    els
