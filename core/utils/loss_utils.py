@@ -125,4 +125,9 @@ def lovasz_hinge_flat(logits, labels):
     """
     Binary Lovasz hinge loss
       logits: [P] Variable, logits at each prediction (between -\infty and +\infty)
-      labels: [P] Ten
+      labels: [P] Tensor, binary ground truth labels (0 or 1)
+      ignore: label to ignore
+    """
+
+    def compute_loss():
+        labelsf = tf.cast(labels, log
