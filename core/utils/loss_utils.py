@@ -130,4 +130,7 @@ def lovasz_hinge_flat(logits, labels):
     """
 
     def compute_loss():
-        labelsf = tf.cast(labels, log
+        labelsf = tf.cast(labels, logits.dtype)
+        signs = 2. * labelsf - 1.
+        errors = 1. - logits * tf.stop_gradient(signs)
+        errors_sorted, perm = tf.nn.top_k(errors, k=tf.shap
