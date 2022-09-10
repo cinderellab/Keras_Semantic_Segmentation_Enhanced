@@ -133,4 +133,7 @@ def lovasz_hinge_flat(logits, labels):
         labelsf = tf.cast(labels, logits.dtype)
         signs = 2. * labelsf - 1.
         errors = 1. - logits * tf.stop_gradient(signs)
-        errors_sorted, perm = tf.nn.top_k(errors, k=tf.shap
+        errors_sorted, perm = tf.nn.top_k(errors, k=tf.shape(errors)[0], name="descending_sort")
+        gt_sorted = tf.gather(labelsf, perm)
+        grad = lovasz_grad(gt_sorted)
+        loss = tf.tensordot(tf.nn.relu(errors
