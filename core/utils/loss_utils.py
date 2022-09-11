@@ -151,4 +151,8 @@ def lovasz_hinge_flat(logits, labels):
 
 def flatten_binary_scores(scores, labels, ignore=None):
     """
-    Flatten
+    Flattens predictions in the batch (binary case)
+    Remove labels equal to 'ignore'
+    """
+    scores = tf.reshape(scores, (-1,))
+    labels = tf.resha
