@@ -155,4 +155,8 @@ def flatten_binary_scores(scores, labels, ignore=None):
     Remove labels equal to 'ignore'
     """
     scores = tf.reshape(scores, (-1,))
-    labels = tf.resha
+    labels = tf.reshape(labels, (-1,))
+    if ignore is None:
+        return scores, labels
+    valid = tf.not_equal(labels, ignore)
+    vscores = tf.boolean_mask(scores, valid,
