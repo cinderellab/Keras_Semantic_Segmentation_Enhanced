@@ -164,4 +164,5 @@ def flatten_binary_scores(scores, labels, ignore=None):
     return vscores, vlabels
 
 
-# ------------------------
+# --------------------------- MULTICLASS LOSSES ---------------------------
+def sparse_lovasz_softmax(labels, probas, classes='all', per_image=False, ignore=0, order='B
