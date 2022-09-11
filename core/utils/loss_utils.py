@@ -159,4 +159,9 @@ def flatten_binary_scores(scores, labels, ignore=None):
     if ignore is None:
         return scores, labels
     valid = tf.not_equal(labels, ignore)
-    vscores = tf.boolean_mask(scores, valid,
+    vscores = tf.boolean_mask(scores, valid, name='valid_scores')
+    vlabels = tf.boolean_mask(labels, valid, name='valid_labels')
+    return vscores, vlabels
+
+
+# ------------------------
