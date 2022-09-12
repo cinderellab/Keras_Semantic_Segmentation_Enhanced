@@ -170,4 +170,7 @@ def sparse_lovasz_softmax(labels, probas, classes='all', per_image=False, ignore
     Multi-class Lovasz-Softmax loss
       probas: [B, H, W, C] or [B, C, H, W] Variable, class probabilities at each prediction (between 0 and 1)
       labels: [B, H, W] Tensor, ground truth labels (between 0 and C - 1)
-      classes: 'all' for all, 'present' for classes prese
+      classes: 'all' for all, 'present' for classes present in labels, or a list of classes to average.
+      per_image: compute the loss per image instead of per batch
+      ignore: void class labels
+    
