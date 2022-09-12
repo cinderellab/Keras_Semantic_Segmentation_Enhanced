@@ -188,4 +188,7 @@ def sparse_lovasz_softmax(labels, probas, classes='all', per_image=False, ignore
     return loss
 
 
-def lovasz_softmax_flat(prob
+def lovasz_softmax_flat(probas, labels, classes='all'):
+    """
+    Multi-class Lovasz-Softmax loss
+      probas: [P, C] Variable, class probabilities at each 
