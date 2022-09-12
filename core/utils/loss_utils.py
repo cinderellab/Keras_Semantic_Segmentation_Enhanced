@@ -173,4 +173,9 @@ def sparse_lovasz_softmax(labels, probas, classes='all', per_image=False, ignore
       classes: 'all' for all, 'present' for classes present in labels, or a list of classes to average.
       per_image: compute the loss per image instead of per batch
       ignore: void class labels
-    
+      order: use BHWC or BCHW
+    """
+    if per_image:
+        def treat_image(prob_lab):
+            prob, lab = prob_lab
+            prob, lab = t
