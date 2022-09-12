@@ -180,4 +180,6 @@ def sparse_lovasz_softmax(labels, probas, classes='all', per_image=False, ignore
             prob, lab = prob_lab
             prob, lab = tf.expand_dims(prob, 0), tf.expand_dims(lab, 0)
             prob, lab = flatten_probas(prob, lab, ignore, order)
-            return lovasz_softmax_fla
+            return lovasz_softmax_flat(prob, lab, classes=classes)
+        losses = tf.map_fn(treat_image, (probas, labels), dtype=tf.float32)
+        loss = tf.reduce_mean(losse
