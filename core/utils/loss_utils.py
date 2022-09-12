@@ -168,4 +168,6 @@ def flatten_binary_scores(scores, labels, ignore=None):
 def sparse_lovasz_softmax(labels, probas, classes='all', per_image=False, ignore=0, order='BHWC'):
     """
     Multi-class Lovasz-Softmax loss
-      probas: [B, H, W, C] or [B, C, H, W] Variable, class probabilities at each predic
+      probas: [B, H, W, C] or [B, C, H, W] Variable, class probabilities at each prediction (between 0 and 1)
+      labels: [B, H, W] Tensor, ground truth labels (between 0 and C - 1)
+      classes: 'all' for all, 'present' for classes prese
