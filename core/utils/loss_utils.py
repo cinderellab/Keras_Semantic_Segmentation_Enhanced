@@ -193,4 +193,8 @@ def lovasz_softmax_flat(probas, labels, classes='all'):
     Multi-class Lovasz-Softmax loss
       probas: [P, C] Variable, class probabilities at each prediction (between 0 and 1)
       labels: [P] Tensor, ground truth labels (between 0 and C - 1)
-      classes: 'all' for a
+      classes: 'all' for all, 'present' for classes present in labels, or a list of classes to average.
+    """
+    C = probas.shape[1]
+    losses = []
+    presen
