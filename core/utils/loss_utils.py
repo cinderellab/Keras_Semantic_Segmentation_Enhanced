@@ -197,4 +197,7 @@ def lovasz_softmax_flat(probas, labels, classes='all'):
     """
     C = probas.shape[1]
     losses = []
-    presen
+    present = []
+    class_to_sum = list(range(C)) if classes in ['all', 'present'] else classes
+    for c in class_to_sum:
+        fg = tf.cast(tf.equal(labels, c), pro
