@@ -200,4 +200,7 @@ def lovasz_softmax_flat(probas, labels, classes='all'):
     present = []
     class_to_sum = list(range(C)) if classes in ['all', 'present'] else classes
     for c in class_to_sum:
-        fg = tf.cast(tf.equal(labels, c), pro
+        fg = tf.cast(tf.equal(labels, c), probas.dtype)  # foreground for class c
+        if classes == 'present':
+            present.append(tf.reduce_sum(fg) > 0)
+        errors = tf
