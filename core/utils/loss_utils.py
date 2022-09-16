@@ -212,4 +212,8 @@ def lovasz_softmax_flat(probas, labels, classes='all'):
                       )
     if len(class_to_sum) == 1:  # short-circuit mean when only one class
         return losses[0]
-    losses_tensor = tf.stack(loss
+    losses_tensor = tf.stack(losses)
+    if classes == 'present':
+        present = tf.stack(present)
+        losses_tensor = tf.boolean_mask(losses_tensor, present)
+    loss 
