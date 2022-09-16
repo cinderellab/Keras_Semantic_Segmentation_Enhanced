@@ -227,4 +227,7 @@ def flatten_probas(probas, labels, ignore=None, order='BHWC'):
     if order == 'BCHW':
         probas = tf.transpose(probas, (0, 2, 3, 1), name="BCHW_to_BHWC")
         order = 'BHWC'
-    if order != 'BHWC'
+    if order != 'BHWC':
+        raise NotImplementedError('Order {} unknown'.format(order))
+    C = probas.shape[3]
+    probas = tf.reshape(probas, (-1, C))
