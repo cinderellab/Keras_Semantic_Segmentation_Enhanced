@@ -231,3 +231,8 @@ def flatten_probas(probas, labels, ignore=None, order='BHWC'):
         raise NotImplementedError('Order {} unknown'.format(order))
     C = probas.shape[3]
     probas = tf.reshape(probas, (-1, C))
+    labels = tf.reshape(labels, (-1,))
+    if ignore is None:
+        return probas, labels
+    valid = tf.not_equal(labels, ignore)
+    vprobas = tf.boolean_mask(probas,
