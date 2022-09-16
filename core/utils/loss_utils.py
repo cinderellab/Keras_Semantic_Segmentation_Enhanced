@@ -223,4 +223,8 @@ def lovasz_softmax_flat(probas, labels, classes='all'):
 def flatten_probas(probas, labels, ignore=None, order='BHWC'):
     """
     Flattens predictions in the batch
-  
+    """
+    if order == 'BCHW':
+        probas = tf.transpose(probas, (0, 2, 3, 1), name="BCHW_to_BHWC")
+        order = 'BHWC'
+    if order != 'BHWC'
