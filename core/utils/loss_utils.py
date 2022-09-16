@@ -203,4 +203,7 @@ def lovasz_softmax_flat(probas, labels, classes='all'):
         fg = tf.cast(tf.equal(labels, c), probas.dtype)  # foreground for class c
         if classes == 'present':
             present.append(tf.reduce_sum(fg) > 0)
-        errors = tf
+        errors = tf.abs(fg - probas[:, c])
+        errors_sorted, perm = tf.nn.top_k(errors, k=tf.shape(errors)[0], name="descending_sort_{}".format(c))
+        fg_sorted = tf.gather(fg, perm)
+   
