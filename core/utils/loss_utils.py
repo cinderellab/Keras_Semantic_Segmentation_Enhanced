@@ -209,3 +209,7 @@ def lovasz_softmax_flat(probas, labels, classes='all'):
         grad = lovasz_grad(fg_sorted)
         losses.append(
             tf.tensordot(errors_sorted, tf.stop_gradient(grad), 1, name="loss_class_{}".format(c))
+                      )
+    if len(class_to_sum) == 1:  # short-circuit mean when only one class
+        return losses[0]
+    losses_tensor = tf.stack(loss
