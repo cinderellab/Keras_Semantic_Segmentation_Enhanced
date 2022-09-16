@@ -216,4 +216,11 @@ def lovasz_softmax_flat(probas, labels, classes='all'):
     if classes == 'present':
         present = tf.stack(present)
         losses_tensor = tf.boolean_mask(losses_tensor, present)
-    loss 
+    loss = tf.reduce_mean(losses_tensor)
+    return loss
+
+
+def flatten_probas(probas, labels, ignore=None, order='BHWC'):
+    """
+    Flattens predictions in the batch
+  
