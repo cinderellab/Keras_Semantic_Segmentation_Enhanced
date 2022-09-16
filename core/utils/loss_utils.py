@@ -206,4 +206,6 @@ def lovasz_softmax_flat(probas, labels, classes='all'):
         errors = tf.abs(fg - probas[:, c])
         errors_sorted, perm = tf.nn.top_k(errors, k=tf.shape(errors)[0], name="descending_sort_{}".format(c))
         fg_sorted = tf.gather(fg, perm)
-   
+        grad = lovasz_grad(fg_sorted)
+        losses.append(
+            tf.tensordot(errors_sorted, tf.stop_gradient(grad), 1, name="loss_class_{}".format(c))
