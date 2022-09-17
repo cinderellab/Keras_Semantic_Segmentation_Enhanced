@@ -235,4 +235,9 @@ def flatten_probas(probas, labels, ignore=None, order='BHWC'):
     if ignore is None:
         return probas, labels
     valid = tf.not_equal(labels, ignore)
-    vprobas = tf.boolean_mask(probas,
+    vprobas = tf.boolean_mask(probas, valid, name='valid_probas')
+    vlabels = tf.boolean_mask(labels, valid, name='valid_labels')
+    return vprobas, vlabels
+
+
+def lovasz_so
