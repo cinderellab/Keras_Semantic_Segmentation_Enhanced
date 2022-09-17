@@ -16,4 +16,9 @@ def compute_accuracy(y_true, y_pred, n_class):
     y_pred = y_pred.reshape(-1)
 
     labels = np.asarray([i for i in range(n_class)])
-    _mat = conf
+    _mat = confusion_matrix(y_true, y_pred, labels=labels)
+    metrics = np.zeros(n_class)
+
+    for i in range(n_class):
+        t_count = np.sum(_mat, axis=1)[i]
+  
