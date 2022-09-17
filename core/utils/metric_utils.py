@@ -21,4 +21,7 @@ def compute_accuracy(y_true, y_pred, n_class):
 
     for i in range(n_class):
         t_count = np.sum(_mat, axis=1)[i]
-  
+        metrics[i] = np.nan if t_count == 0 else _mat[i][i] / t_count
+
+    avg_macro_metric = np.nanmean(metrics)
+    avg_micro_metric = np.sum(_mat.diago
