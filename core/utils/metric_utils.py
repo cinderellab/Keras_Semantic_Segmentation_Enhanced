@@ -7,4 +7,7 @@ def compute_accuracy(y_true, y_pred, n_class):
     :param y_true: 1-D array or 2-D array.
     :param y_pred: 1-D array or 2-D array.
     :param n_class: int, total number of class of the dataset, for example 21 for VOC2012.
-    :
+    :return:
+        metrics: array, shape=[n_class].
+        avg_macro_metric: float, macro average accuracy.
+        avg_micro_metric: float, micro av
