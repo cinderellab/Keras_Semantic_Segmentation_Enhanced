@@ -10,4 +10,10 @@ def compute_accuracy(y_true, y_pred, n_class):
     :return:
         metrics: array, shape=[n_class].
         avg_macro_metric: float, macro average accuracy.
-        avg_micro_metric: float, micro av
+        avg_micro_metric: float, micro average accuracy.
+    """
+    y_true = y_true.reshape(-1)
+    y_pred = y_pred.reshape(-1)
+
+    labels = np.asarray([i for i in range(n_class)])
+    _mat = conf
