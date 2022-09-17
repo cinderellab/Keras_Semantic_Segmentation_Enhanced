@@ -240,4 +240,7 @@ def flatten_probas(probas, labels, ignore=None, order='BHWC'):
     return vprobas, vlabels
 
 
-def lovasz_so
+def lovasz_softmax(y_true, y_pred):
+    y_true = K.expand_dims(K.argmax(y_true, axis=-1), -1)
+    # l_pred = tf.cast(y_pred, y_true.dtype)
+    return sparse_lovasz_softmax(y
