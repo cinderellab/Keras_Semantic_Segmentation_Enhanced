@@ -28,4 +28,7 @@ def compute_accuracy(y_true, y_pred, n_class):
     return metrics, avg_macro_metric, avg_micro_metric
 
 
-def compute_precision_recall_f1(y_t
+def compute_precision_recall_f1(y_true, y_pred, n_class, avg="weighted"):
+    """ compute the precision, recall and f1-score.
+    :param y_true: 1-D array or 2-D array.
+    
