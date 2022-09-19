@@ -37,4 +37,8 @@ def compute_precision_recall_f1(y_true, y_pred, n_class, avg="weighted"):
 
     :return:
         precision_metrics: array, shape=[n_class].
-        recall_metrics: array, sh
+        recall_metrics: array, shape=[n_class].
+        f1_metrics: array, shape=[n_class].
+        precision: float, average precision.
+        recall: float, average recall.
+        f1: float, 
