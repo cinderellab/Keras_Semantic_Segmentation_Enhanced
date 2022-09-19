@@ -41,4 +41,10 @@ def compute_precision_recall_f1(y_true, y_pred, n_class, avg="weighted"):
         f1_metrics: array, shape=[n_class].
         precision: float, average precision.
         recall: float, average recall.
-        f1: float, 
+        f1: float, average f1-score.
+    """
+    precision_metrics = np.zeros(n_class)
+    recall_metrics = np.zeros(n_class)
+    f1_metrics = np.zeros(n_class)
+
+    y_t
