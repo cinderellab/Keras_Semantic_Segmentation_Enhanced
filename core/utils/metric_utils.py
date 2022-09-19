@@ -47,4 +47,9 @@ def compute_precision_recall_f1(y_true, y_pred, n_class, avg="weighted"):
     recall_metrics = np.zeros(n_class)
     f1_metrics = np.zeros(n_class)
 
-    y_t
+    y_true = y_true.reshape(-1)
+    y_pred = y_pred.reshape(-1)
+    unique_labels = np.unique(y_true)
+
+    for i in range(n_class):
+        _y_true 
