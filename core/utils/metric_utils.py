@@ -52,4 +52,6 @@ def compute_precision_recall_f1(y_true, y_pred, n_class, avg="weighted"):
     unique_labels = np.unique(y_true)
 
     for i in range(n_class):
-        _y_true 
+        _y_true = np.where(y_true==i, 1, 0)
+        _y_pred = np.where(y_pred==i, 1, 0)
+        precision_metrics[i] = precision_score(_y_true, _y_pred) if i in unique_labels else np.
