@@ -59,4 +59,9 @@ def compute_precision_recall_f1(y_true, y_pred, n_class, avg="weighted"):
         f1_metrics[i] = f1_score(_y_true, _y_pred) if i in unique_labels else np.nan
 
     precision, recall, f1, _ = precision_recall_fscore_support(y_true, y_pred, labels=unique_labels, average=avg)
-    return preci
+    return precision_metrics, recall_metrics, f1_metrics, precision, recall, f1
+
+
+
+def compute_miou(y_true, y_pred, n_class):
+    """ compute mean IoU.
