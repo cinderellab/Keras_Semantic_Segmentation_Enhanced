@@ -89,4 +89,7 @@ def compute_miou(y_true, y_pred, n_class):
     return IoUs, mIoU
 
 
-def compute_metrics
+def compute_metrics_per_image(y_true, y_pred, n_class, avg="weighted"):
+    """ compute mean IoU.
+    :param y_true: 1-D array or 2-D array.
+    :param y_pred: 1-D
