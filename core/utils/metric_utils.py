@@ -82,4 +82,11 @@ def compute_miou(y_true, y_pred, n_class):
         _y_pred = np.where(y_pred == i, 1, 0)
 
         I[i] = float(np.sum(np.logical_and(_y_true, _y_pred)))
-        U[i] = 
+        U[i] = float(np.sum(np.logical_or(_y_true, _y_pred)))
+        IoUs[i] = I[i] / U[i] if U[i]>0 else np.nan
+
+    mIoU = np.nanmean(IoUs)
+    return IoUs, mIoU
+
+
+def compute_metrics
