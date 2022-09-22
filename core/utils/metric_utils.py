@@ -56,4 +56,7 @@ def compute_precision_recall_f1(y_true, y_pred, n_class, avg="weighted"):
         _y_pred = np.where(y_pred==i, 1, 0)
         precision_metrics[i] = precision_score(_y_true, _y_pred) if i in unique_labels else np.nan
         recall_metrics[i] = recall_score(_y_true, _y_pred) if i in unique_labels else np.nan
-        f1_metrics[i] = f1_score(_y_true, _y_pred) if i i
+        f1_metrics[i] = f1_score(_y_true, _y_pred) if i in unique_labels else np.nan
+
+    precision, recall, f1, _ = precision_recall_fscore_support(y_true, y_pred, labels=unique_labels, average=avg)
+    return preci
