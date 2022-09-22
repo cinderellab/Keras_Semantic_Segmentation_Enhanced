@@ -65,3 +65,6 @@ def compute_precision_recall_f1(y_true, y_pred, n_class, avg="weighted"):
 
 def compute_miou(y_true, y_pred, n_class):
     """ compute mean IoU.
+    :param y_true: 1-D array or 2-D array.
+    :param y_pred: 1-D array or 2-D array.
+    :param n_class: int, total number of class of the dataset, for example 2
