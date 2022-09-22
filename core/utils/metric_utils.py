@@ -73,4 +73,9 @@ def compute_miou(y_true, y_pred, n_class):
         mIoU: float, mean IoU.
     """
     I = np.zeros(n_class)
-    U = np.zeros(n
+    U = np.zeros(n_class)
+    IoUs = [np.nan for i in range(n_class)]
+
+    unique_labels = np.unique(y_true).astype(np.int)
+    for i in unique_labels:
+        _y_true = np.where
