@@ -78,4 +78,8 @@ def compute_miou(y_true, y_pred, n_class):
 
     unique_labels = np.unique(y_true).astype(np.int)
     for i in unique_labels:
-        _y_true = np.where
+        _y_true = np.where(y_true == i, 1, 0)
+        _y_pred = np.where(y_pred == i, 1, 0)
+
+        I[i] = float(np.sum(np.logical_and(_y_true, _y_pred)))
+        U[i] = 
