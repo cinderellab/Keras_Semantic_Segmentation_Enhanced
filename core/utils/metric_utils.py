@@ -94,4 +94,8 @@ def compute_metrics_per_image(y_true, y_pred, n_class, avg="weighted"):
     :param y_true: 1-D array or 2-D array.
     :param y_pred: 1-D array or 2-D array.
     :param n_class: int, total number of class of the dataset, for example 21 for VOC2012.
-    :param avg: string,
+    :param avg: string, average methods, one of ["micro", "macro", "weighted"].
+    :return:
+        dict, consists of multi metrics
+    """
+    accs, macro_metric, micro_metric = com
