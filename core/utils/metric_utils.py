@@ -99,4 +99,6 @@ def compute_metrics_per_image(y_true, y_pred, n_class, avg="weighted"):
         dict, consists of multi metrics
     """
     accs, macro_metric, micro_metric = compute_accuracy(y_true, y_pred, n_class=n_class)
-    precisions, recalls, f1s, precision, recall, f1 = compute_precision_recall_f1(y_true, y_pred, n_class=n
+    precisions, recalls, f1s, precision, recall, f1 = compute_precision_recall_f1(y_true, y_pred, n_class=n_class, avg=avg)
+    ious, mIoU = compute_miou(y_true, y_pred, n_class=n_class)
+    return {"accuracies_per_class": accs, "macro_accuracy": ma
