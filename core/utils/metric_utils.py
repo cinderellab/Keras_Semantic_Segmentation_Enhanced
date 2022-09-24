@@ -114,4 +114,7 @@ def compute_global_metrics(mat):
     :param mat: 2-D array, while rows==cols, confusion matrix.
     :return: dict
 
-    for exampl
+    for example:
+        >> a = np.random.randint(0, 2, (10, 10))
+        >> b = np.random.randint(0, 2, (10, 10))
+        >> mat = confusion_matrix(a.reshape(-1), b
