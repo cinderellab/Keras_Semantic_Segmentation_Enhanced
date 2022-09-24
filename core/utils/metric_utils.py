@@ -110,4 +110,8 @@ def compute_metrics_per_image(y_true, y_pred, n_class, avg="weighted"):
 
 
 def compute_global_metrics(mat):
-    """ 
+    """ compute all the metrics according a confusion matrix.
+    :param mat: 2-D array, while rows==cols, confusion matrix.
+    :return: dict
+
+    for exampl
