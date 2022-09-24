@@ -103,4 +103,11 @@ def compute_metrics_per_image(y_true, y_pred, n_class, avg="weighted"):
     ious, mIoU = compute_miou(y_true, y_pred, n_class=n_class)
     return {"accuracies_per_class": accs, "macro_accuracy": macro_metric, "micro_accuracy": micro_metric,
             "precisions_per_class": precisions, "precision": precision,
-            "recalls_per_class": recalls, "reca
+            "recalls_per_class": recalls, "recall": recall,
+            "f1s_pre_class": f1s, "f1": f1,
+            "ious_per_class": ious, "miou": mIoU}
+
+
+
+def compute_global_metrics(mat):
+    """ 
