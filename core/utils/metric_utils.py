@@ -117,4 +117,10 @@ def compute_global_metrics(mat):
     for example:
         >> a = np.random.randint(0, 2, (10, 10))
         >> b = np.random.randint(0, 2, (10, 10))
-        >> mat = confusion_matrix(a.reshape(-1), b
+        >> mat = confusion_matrix(a.reshape(-1), b.reshape(-1))
+        >> print(compute_global_metrics(mat))
+    """
+    n_class = mat.shape[0]
+
+    # compute accuracy
+    accs = np.zeros(n_class)
