@@ -124,3 +124,8 @@ def compute_global_metrics(mat):
 
     # compute accuracy
     accs = np.zeros(n_class)
+
+    for i in range(n_class):
+        t_count = np.sum(mat, axis=1)[i]
+        accs[i] = np.nan if t_count == 0 else mat[i][i] / t_count
+    a
