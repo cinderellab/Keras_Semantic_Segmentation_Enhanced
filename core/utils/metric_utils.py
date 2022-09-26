@@ -128,4 +128,7 @@ def compute_global_metrics(mat):
     for i in range(n_class):
         t_count = np.sum(mat, axis=1)[i]
         accs[i] = np.nan if t_count == 0 else mat[i][i] / t_count
-    a
+    avg_macro_acc = np.nanmean(accs)
+    avg_micro_acc = np.sum(mat.diagonal(offset=0, axis1=0, axis2=1)) / np.sum(mat)
+
+    # compute precision, recall
