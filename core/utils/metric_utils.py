@@ -131,4 +131,7 @@ def compute_global_metrics(mat):
     avg_macro_acc = np.nanmean(accs)
     avg_micro_acc = np.sum(mat.diagonal(offset=0, axis1=0, axis2=1)) / np.sum(mat)
 
-    # compute precision, recall
+    # compute precision, recall, f1-score
+    precisions = np.diagonal(mat) / np.sum(mat, axis=0)
+    precisions[np.sum(mat, axis=1)==0] = 1e-8
+    recalls = np.diagonal
