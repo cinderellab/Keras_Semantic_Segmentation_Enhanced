@@ -139,4 +139,9 @@ def compute_global_metrics(mat):
     f1s = 2*precisions*recalls / (precisions + recalls)
     precision = np.sum(np.sum(mat, axis=1) / np.sum(mat) * precisions)
     recall = np.sum(np.sum(mat, axis=1) / np.sum(mat) * recalls)
-    f1 = 2*precision*recall / (precisio
+    f1 = 2*precision*recall / (precision + recall)
+    # compute IoU
+    I = np.diag(mat)
+    U = np.sum(mat, axis=0) + np.sum(mat, axis=1) - I
+    ious = I / U
+    ious[np.sum(mat, axis=1) 
