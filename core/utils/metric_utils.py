@@ -137,4 +137,6 @@ def compute_global_metrics(mat):
     recalls = np.diagonal(mat) / np.sum(mat, axis=1)
     recalls[np.sum(mat, axis=1) == 0] = 1e-8
     f1s = 2*precisions*recalls / (precisions + recalls)
-    precision = np.sum(np.su
+    precision = np.sum(np.sum(mat, axis=1) / np.sum(mat) * precisions)
+    recall = np.sum(np.sum(mat, axis=1) / np.sum(mat) * recalls)
+    f1 = 2*precision*recall / (precisio
