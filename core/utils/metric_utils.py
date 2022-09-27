@@ -144,4 +144,7 @@ def compute_global_metrics(mat):
     I = np.diag(mat)
     U = np.sum(mat, axis=0) + np.sum(mat, axis=1) - I
     ious = I / U
-    ious[np.sum(mat, axis=1) 
+    ious[np.sum(mat, axis=1) == 0] = np.nan
+    miou = np.nanmean(ious)
+
+    return {"macro_avg_acc": avg_macro_acc, "micro_avg_acc": avg
