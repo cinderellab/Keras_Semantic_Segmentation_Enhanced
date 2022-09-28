@@ -147,4 +147,8 @@ def compute_global_metrics(mat):
     ious[np.sum(mat, axis=1) == 0] = np.nan
     miou = np.nanmean(ious)
 
-    return {"macro_avg_acc": avg_macro_acc, "micro_avg_acc": avg
+    return {"macro_avg_acc": avg_macro_acc, "micro_avg_acc": avg_micro_acc,
+            "precisions": precisions, "precision": precision,
+            "recalls": recalls, "recall": recall,
+            "f1s": f1s, "f1": f1,
+  
