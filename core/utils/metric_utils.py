@@ -151,4 +151,4 @@ def compute_global_metrics(mat):
             "precisions": precisions, "precision": precision,
             "recalls": recalls, "recall": recall,
             "f1s": f1s, "f1": f1,
-  
+            "ious": ious, "miou": miou}
