@@ -11,4 +11,9 @@ import tensorflow as tf
 class BilinearUpSampling(Layer):
     def __init__(self, target_size, **kwargs):
         super(BilinearUpSampling, self).__init__(**kwargs)
-        se
+        self.target_size = target_size
+
+    def compute_output_shape(self, input_shape):
+        return (input_shape[0], self.target_size[0], self.target_size[1], input_shape[-1])
+
+  
