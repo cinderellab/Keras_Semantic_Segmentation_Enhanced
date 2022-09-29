@@ -16,4 +16,7 @@ class BilinearUpSampling(Layer):
     def compute_output_shape(self, input_shape):
         return (input_shape[0], self.target_size[0], self.target_size[1], input_shape[-1])
 
-  
+    def _resize_function(self, inputs):
+        return tf.cast(tf.image.resize_bilinear(inputs, self.target_size, align_corners=True), dtype=tf.float32)
+
+    def c
