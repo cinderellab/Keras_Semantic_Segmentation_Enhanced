@@ -36,4 +36,8 @@ def separable_conv_bn(x,
                       rate=1,
                       depth_activation=False,
                       weight_decay=1e-4,
-                      kernel_initializer="he_nor
+                      kernel_initializer="he_normal",
+                      bn_epsilon=1e-3,
+                      bn_momentum=0.99):
+    """ Separable convolution, with BN between depthwise and pointwise.
+    :p
