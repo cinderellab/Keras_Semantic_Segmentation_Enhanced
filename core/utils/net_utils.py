@@ -33,4 +33,7 @@ def separable_conv_bn(x,
                       prefix,
                       stride=1,
                       kernel_size=3,
-                      rate=1
+                      rate=1,
+                      depth_activation=False,
+                      weight_decay=1e-4,
+                      kernel_initializer="he_nor
