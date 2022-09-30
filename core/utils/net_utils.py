@@ -24,4 +24,9 @@ class BilinearUpSampling(Layer):
 
     def get_config(self):
         config = {'target_size': self.target_size}
-        base_confi
+        base_config = super(BilinearUpSampling, self).get_config()
+        return dict(list(base_config.items()) + list(config.items()))
+
+
+def separable_conv_bn(x,
+                 
