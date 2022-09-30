@@ -46,4 +46,6 @@ def separable_conv_bn(x,
     :param stride: int, default 1.
     :param kernel_size: int, default 3.
     :param rate: int, default 1.
-   
+    :param depth_activation: bool, whether to add activation after BN, default False.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initial
