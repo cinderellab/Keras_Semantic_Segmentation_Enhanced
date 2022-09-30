@@ -42,4 +42,8 @@ def separable_conv_bn(x,
     """ Separable convolution, with BN between depthwise and pointwise.
     :param x: 4-D tensor, shape of (batch_size, height, width, channel).
     :param n_filters: int, number of filters in pointwise convolution.
-    :param pr
+    :param prefix: string, prefix of name.
+    :param stride: int, default 1.
+    :param kernel_size: int, default 3.
+    :param rate: int, default 1.
+   
