@@ -40,4 +40,6 @@ def separable_conv_bn(x,
                       bn_epsilon=1e-3,
                       bn_momentum=0.99):
     """ Separable convolution, with BN between depthwise and pointwise.
-    :p
+    :param x: 4-D tensor, shape of (batch_size, height, width, channel).
+    :param n_filters: int, number of filters in pointwise convolution.
+    :param pr
