@@ -48,4 +48,8 @@ def separable_conv_bn(x,
     :param rate: int, default 1.
     :param depth_activation: bool, whether to add activation after BN, default False.
     :param weight_decay: float, default 1e-4.
-    :param kernel_initial
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return: 4-D tensor, shape of (batch
