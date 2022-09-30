@@ -29,4 +29,8 @@ class BilinearUpSampling(Layer):
 
 
 def separable_conv_bn(x,
-                 
+                      n_filters,
+                      prefix,
+                      stride=1,
+                      kernel_size=3,
+                      rate=1
