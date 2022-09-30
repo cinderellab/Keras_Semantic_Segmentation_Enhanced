@@ -52,4 +52,10 @@ def separable_conv_bn(x,
     :param bn_epsilon: float, default 1e-3.
     :param bn_momentum: float, default 0.99.
 
-    :return: 4-D tensor, shape of (batch
+    :return: 4-D tensor, shape of (batch_size, height, width, channel)
+    """
+
+    if stride == 1:
+        depth_padding = 'same'
+    else:
+        kernel_size_effective = kernel_size +
