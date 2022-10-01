@@ -85,4 +85,7 @@ def separable_conv_bn(x,
 def atrous_spatial_pyramid_pooling(inputs,
                                    n_filters=256,
                                    rates=[6, 12, 18],
-                             
+                                   imagelevel=True,
+                                   weight_decay=1e-4,
+                                   kernel_initializer="he_normal",
+    
