@@ -74,4 +74,5 @@ def separable_conv_bn(x,
     if depth_activation:
         x = Activation('relu')(x)
     x = Conv2D(n_filters, (1, 1), padding='same', use_bias=False, name=prefix + '_pointwise',
-               k
+               kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(x)
+    x = BatchNormalization(name=prefix + '_pointwise_BN', epsilon=
