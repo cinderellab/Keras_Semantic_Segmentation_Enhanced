@@ -58,4 +58,7 @@ def separable_conv_bn(x,
     if stride == 1:
         depth_padding = 'same'
     else:
-        kernel_size_effective = kernel_size +
+        kernel_size_effective = kernel_size + (kernel_size - 1) * (rate - 1)
+        pad_total = kernel_size_effective - 1
+        pad_beg = pad_total // 2
+        pad_en
