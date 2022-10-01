@@ -68,4 +68,5 @@ def separable_conv_bn(x,
     if not depth_activation:
         x = Activation('relu')(x)
     x = DepthwiseConv2D((kernel_size, kernel_size), strides=(stride, stride), dilation_rate=(rate, rate),
-                        padding=
+                        padding=depth_padding, use_bias=False, name=prefix + '_depthwise',
+                        kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializ
