@@ -82,4 +82,7 @@ def separable_conv_bn(x,
     return x
 
 
-def atrous_spatial_pyramid_pooling(i
+def atrous_spatial_pyramid_pooling(inputs,
+                                   n_filters=256,
+                                   rates=[6, 12, 18],
+                             
