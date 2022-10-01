@@ -75,4 +75,11 @@ def separable_conv_bn(x,
         x = Activation('relu')(x)
     x = Conv2D(n_filters, (1, 1), padding='same', use_bias=False, name=prefix + '_pointwise',
                kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(x)
-    x = BatchNormalization(name=prefix + '_pointwise_BN', epsilon=
+    x = BatchNormalization(name=prefix + '_pointwise_BN', epsilon=bn_epsilon, momentum=bn_momentum)(x)
+    if depth_activation:
+        x = Activation('relu')(x)
+
+    return x
+
+
+def atrous_spatial_pyramid_pooling(i
