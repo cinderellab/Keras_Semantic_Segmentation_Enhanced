@@ -91,4 +91,7 @@ def atrous_spatial_pyramid_pooling(inputs,
                                    bn_epsilon=1e-3,
                                    bn_momentum=0.99):
     """ ASPP consists of one 1×1 convolution and three 3×3 convolutions with rates = (6, 12, 18)
-    when output stride = 16 (all with 256 filters and batch normalization), and (b) the image-leve
+    when output stride = 16 (all with 256 filters and batch normalization), and (b) the image-level features
+    :param inputs: 4-D tensor, shape of (batch_size, height, width, channel).
+    :param n_filters: int, number of filters, default 256.
+    :param r
