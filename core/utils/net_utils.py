@@ -88,4 +88,6 @@ def atrous_spatial_pyramid_pooling(inputs,
                                    imagelevel=True,
                                    weight_decay=1e-4,
                                    kernel_initializer="he_normal",
-    
+                                   bn_epsilon=1e-3,
+                                   bn_momentum=0.99):
+    """ ASPP consists of one 1×1 convolution and
