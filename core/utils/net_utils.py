@@ -106,4 +106,5 @@ def atrous_spatial_pyramid_pooling(inputs,
     branch_features = []
     if imagelevel:
         # image level features
-        image_featu
+        image_feature = AveragePooling2D(pool_size=(int(inputs.shape[1]), int(inputs.shape[2])))(inputs)
+        image_feature = Conv2D(n_filters, (1, 1), use_bias=False
