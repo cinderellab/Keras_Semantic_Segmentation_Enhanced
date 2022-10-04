@@ -101,4 +101,9 @@ def atrous_spatial_pyramid_pooling(inputs,
     :param bn_epsilon: float, default 1e-3.
     :param bn_momentum: float, default 0.99.
 
-    :return: 4-D tensor, sha
+    :return: 4-D tensor, shape of (batch_size, height, width, channel).
+    """
+    branch_features = []
+    if imagelevel:
+        # image level features
+        image_featu
