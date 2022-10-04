@@ -94,4 +94,7 @@ def atrous_spatial_pyramid_pooling(inputs,
     when output stride = 16 (all with 256 filters and batch normalization), and (b) the image-level features
     :param inputs: 4-D tensor, shape of (batch_size, height, width, channel).
     :param n_filters: int, number of filters, default 256.
-    :param r
+    :param rates: list of dilation rates, default [6, 12, 18].
+    :param imagelevel: bool, default True.
+    :param weight_decay: float, default 1e-4.
+    :param kernel_initia
