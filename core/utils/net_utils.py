@@ -97,4 +97,8 @@ def atrous_spatial_pyramid_pooling(inputs,
     :param rates: list of dilation rates, default [6, 12, 18].
     :param imagelevel: bool, default True.
     :param weight_decay: float, default 1e-4.
-    :param kernel_initia
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return: 4-D tensor, sha
