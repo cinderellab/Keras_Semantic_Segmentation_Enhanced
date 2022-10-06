@@ -112,4 +112,8 @@ def atrous_spatial_pyramid_pooling(inputs,
         image_feature = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(image_feature)
         image_feature = Activation("relu")(image_feature)
         image_feature = BilinearUpSampling(target_size=(int(inputs.shape[1]), int(inputs.shape[2])))(image_feature)
-        branch_features.app
+        branch_features.append(image_feature)
+
+    # 1×1 conv
+    atrous_pool_block_1 = Conv2D(n_filters, (1, 1), padding="same", use_bias=False, activation=None,
+                      
