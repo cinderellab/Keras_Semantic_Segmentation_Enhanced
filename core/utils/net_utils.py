@@ -128,4 +128,10 @@ def atrous_spatial_pyramid_pooling(inputs,
         branch_features.append(atrous_pool_block_i)
 
     # concatenate multi-scale features
-   
+    aspp_features = Concatenate()(branch_features)
+    return aspp_features
+
+
+def conv_bn_act_block(inputs,
+                      n_filters,
+           
