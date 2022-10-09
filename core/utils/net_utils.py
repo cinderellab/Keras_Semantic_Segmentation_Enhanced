@@ -117,4 +117,6 @@ def atrous_spatial_pyramid_pooling(inputs,
     # 1×1 conv
     atrous_pool_block_1 = Conv2D(n_filters, (1, 1), padding="same", use_bias=False, activation=None,
                                  kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(inputs)
-    atrous_pool_block_1 = BatchNormalization(epsilon=bn_e
+    atrous_pool_block_1 = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(atrous_pool_block_1)
+    atrous_pool_block_1 = Activation("relu")(atrous_pool_block_1)
+    branch_features.append(atrous_pool_bloc
