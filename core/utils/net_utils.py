@@ -134,4 +134,7 @@ def atrous_spatial_pyramid_pooling(inputs,
 
 def conv_bn_act_block(inputs,
                       n_filters,
-           
+                      weight_decay=1e-4,
+                      kernel_initializer="he_normal",
+                      bn_epsilon=1e-3,
+                      bn_mo
