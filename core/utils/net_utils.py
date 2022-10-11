@@ -137,4 +137,7 @@ def conv_bn_act_block(inputs,
                       weight_decay=1e-4,
                       kernel_initializer="he_normal",
                       bn_epsilon=1e-3,
-                      bn_mo
+                      bn_momentum=0.99):
+    """ Conv + BN + Act
+    :param inputs: 4-D tensor, shape of (batch_size, height, width, channel).
+    :param n_filters: int, numbe
