@@ -146,4 +146,8 @@ def conv_bn_act_block(inputs,
     :param bn_epsilon: float, default 1e-3.
     :param bn_momentum: float, default 0.99.
 
-    :return: 4-D tensor, shape of (batch_size, height, width, chan
+    :return: 4-D tensor, shape of (batch_size, height, width, channel).
+    """
+    x = inputs
+    x = Conv2D(n_filters, (3, 3), strides=(1, 1), padding="same", use_bias=False, activation=None,
+               ker
