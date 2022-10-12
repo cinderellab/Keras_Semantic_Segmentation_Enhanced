@@ -152,3 +152,12 @@ def conv_bn_act_block(inputs,
     x = Conv2D(n_filters, (3, 3), strides=(1, 1), padding="same", use_bias=False, activation=None,
                kernel_initializer=kernel_initializer, kernel_regularizer=l2(weight_decay))(x)
     x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(x)
+    x = Activation("relu")(x)
+
+    return x
+
+
+def bn_act_conv_block(inputs,
+                      n_filters,
+                      kernel_size=3,
+                    
