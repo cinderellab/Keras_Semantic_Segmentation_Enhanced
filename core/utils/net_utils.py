@@ -171,4 +171,8 @@ def bn_act_conv_block(inputs,
     :param kernel_size: int, default 3.
     :param rate: int, default 1.
     :param weight_decay: float, default 1e-4.
-    :param 
+    :param kernel_initializer: string, default "he_normal".
+    :param bn_epsilon: float, default 1e-3.
+    :param bn_momentum: float, default 0.99.
+
+    :return:
