@@ -160,4 +160,8 @@ def conv_bn_act_block(inputs,
 def bn_act_conv_block(inputs,
                       n_filters,
                       kernel_size=3,
-                    
+                      rate=1,
+                      weight_decay=1e-4,
+                      kernel_initializer="he_normal",
+                      bn_epsilon=1e-3,
+                      bn_mom
