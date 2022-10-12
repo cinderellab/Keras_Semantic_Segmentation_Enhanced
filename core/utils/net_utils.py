@@ -175,4 +175,7 @@ def bn_act_conv_block(inputs,
     :param bn_epsilon: float, default 1e-3.
     :param bn_momentum: float, default 0.99.
 
-    :return:
+    :return: 4-D tensor, shape of (batch_size, height, width, channel).
+    """
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(inputs)
+    x = Activati
