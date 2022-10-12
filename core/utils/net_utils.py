@@ -178,4 +178,6 @@ def bn_act_conv_block(inputs,
     :return: 4-D tensor, shape of (batch_size, height, width, channel).
     """
     x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(inputs)
-    x = Activati
+    x = Activation("relu")(x)
+    x = Conv2D(n_filters, kernel_size, padding="same", activation=None, use_bias=False, dilation_rate=rate,
+               k
