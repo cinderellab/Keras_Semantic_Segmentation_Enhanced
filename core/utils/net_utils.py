@@ -180,4 +180,9 @@ def bn_act_conv_block(inputs,
     x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(inputs)
     x = Activation("relu")(x)
     x = Conv2D(n_filters, kernel_size, padding="same", activation=None, use_bias=False, dilation_rate=rate,
-               k
+               kernel_regularizer=l2(weight_decay), kernel_initializer=kernel_initializer)(x)
+    return x
+
+
+def bn_act_convtranspose(inputs,
+        
