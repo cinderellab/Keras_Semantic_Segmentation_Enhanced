@@ -185,4 +185,7 @@ def bn_act_conv_block(inputs,
 
 
 def bn_act_convtranspose(inputs,
-        
+                         n_filters,
+                         kernel_size=3,
+                         scale=2,
+                         weight_decay=
