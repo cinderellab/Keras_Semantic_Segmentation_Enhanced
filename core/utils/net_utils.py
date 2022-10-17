@@ -188,4 +188,8 @@ def bn_act_convtranspose(inputs,
                          n_filters,
                          kernel_size=3,
                          scale=2,
-                         weight_decay=
+                         weight_decay=1e-4,
+                         kernel_initializer="he_normal",
+                         bn_epsilon=1e-3,
+                         bn_momentum=0.99):
+    """ BN
