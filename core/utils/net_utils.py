@@ -198,4 +198,6 @@ def bn_act_convtranspose(inputs,
         :param kernel_size: int, default 3.
         :param scale: int, default 2.
         :param weight_decay: float, default 1e-4.
-        :pa
+        :param kernel_initializer: string, default "he_normal".
+        :param bn_epsilon: float, default 1e-3.
+        :param bn_momentum: float, default 
