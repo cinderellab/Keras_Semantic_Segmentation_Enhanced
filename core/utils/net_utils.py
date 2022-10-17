@@ -194,4 +194,8 @@ def bn_act_convtranspose(inputs,
                          bn_momentum=0.99):
     """ BN + Act + Transpose Conv
         :param inputs: 4-D tensor, shape of (batch_size, height, width, channel).
-        :param n_filters: int, number of convolu
+        :param n_filters: int, number of convolution filters.
+        :param kernel_size: int, default 3.
+        :param scale: int, default 2.
+        :param weight_decay: float, default 1e-4.
+        :pa
