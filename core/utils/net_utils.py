@@ -204,4 +204,7 @@ def bn_act_convtranspose(inputs,
 
         :return: 4-D tensor, shape of (batch_size, height, width, channel).
         """
-    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn
+    x = BatchNormalization(epsilon=bn_epsilon, momentum=bn_momentum)(inputs)
+    x = Activation("relu")(x)
+    x = Conv2DTranspose(n_filters, kernel_size, padding="same", activation=None, use_bias=False,
+      
