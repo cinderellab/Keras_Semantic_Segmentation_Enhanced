@@ -208,4 +208,5 @@ def bn_act_convtranspose(inputs,
     x = Activation("relu")(x)
     x = Conv2DTranspose(n_filters, kernel_size, padding="same", activation=None, use_bias=False,
                         strides=(scale, scale), kernel_regularizer=l2(weight_decay),
-                        kernel_initializer=kernel_initi
+                        kernel_initializer=kernel_initializer)(x)
+    return x
