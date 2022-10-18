@@ -15,4 +15,8 @@ def evaluating_main():
     label_fnames = os.listdir(evaluating_config.label_dir)
     n_class = len(NAME_MAP[evaluating_config.dataset_name])
 
-    if evalu
+    if evaluating_config.mode == "global":
+        mat = np.zeros((n_class, n_class))
+
+        for preds_fname, label_fname in tqdm(zip(preds_fnames, label_fnames)):
+            print(pred
