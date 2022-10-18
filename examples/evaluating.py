@@ -11,4 +11,8 @@ from core.utils.metric_utils import compute_global_metrics, compute_metrics_per_
 
 
 def evaluating_main():
-    preds_fnames = os.listdir(evaluating_config.pred
+    preds_fnames = os.listdir(evaluating_config.preds_dir)
+    label_fnames = os.listdir(evaluating_config.label_dir)
+    n_class = len(NAME_MAP[evaluating_config.dataset_name])
+
+    if evalu
