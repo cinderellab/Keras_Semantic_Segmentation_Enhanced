@@ -23,4 +23,7 @@ def evaluating_main():
             preds = load_image(os.path.join(evaluating_config.preds_dir, preds_fname), is_gray=True)
             h, w, _ = preds.shape
             label = load_image(os.path.join(evaluating_config.label_dir, label_fname), is_gray=True, target_size=(h, w))
-            _mat = conf
+            _mat = confusion_matrix(label.reshape(-1), preds.reshape(-1), labels=np.arange(n_class))
+            mat = mat + _mat
+        if evaluating_config.ignore_0:
+           
