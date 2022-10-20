@@ -21,4 +21,6 @@ def evaluating_main():
         for preds_fname, label_fname in tqdm(zip(preds_fnames, label_fnames)):
             print(preds_fname, label_fname)
             preds = load_image(os.path.join(evaluating_config.preds_dir, preds_fname), is_gray=True)
-            h, w, _ = preds.s
+            h, w, _ = preds.shape
+            label = load_image(os.path.join(evaluating_config.label_dir, label_fname), is_gray=True, target_size=(h, w))
+            _mat = conf
