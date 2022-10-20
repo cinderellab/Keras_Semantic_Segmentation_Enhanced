@@ -19,4 +19,6 @@ def evaluating_main():
         mat = np.zeros((n_class, n_class))
 
         for preds_fname, label_fname in tqdm(zip(preds_fnames, label_fnames)):
-            print(pred
+            print(preds_fname, label_fname)
+            preds = load_image(os.path.join(evaluating_config.preds_dir, preds_fname), is_gray=True)
+            h, w, _ = preds.s
