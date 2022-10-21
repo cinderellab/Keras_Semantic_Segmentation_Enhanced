@@ -31,4 +31,6 @@ def evaluating_main():
 
     elif evaluating_config.mode == "per_image":
         avg_metric = {"accuracies_per_class": np.zeros(n_class), "macro_accuracy": 0., "micro_accuracy": 0.,
-         "precisions_per_class": np.zeros(
+         "precisions_per_class": np.zeros(n_class), "precision": 0.,
+         "recalls_per_class": np.zeros(n_class), "recall": 0.,
+         "f1s_pre_class": np.zeros(n_clas
