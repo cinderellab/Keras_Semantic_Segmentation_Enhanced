@@ -30,4 +30,5 @@ def evaluating_main():
         avg_metric = compute_global_metrics(mat)
 
     elif evaluating_config.mode == "per_image":
-        avg_metr
+        avg_metric = {"accuracies_per_class": np.zeros(n_class), "macro_accuracy": 0., "micro_accuracy": 0.,
+         "precisions_per_class": np.zeros(
