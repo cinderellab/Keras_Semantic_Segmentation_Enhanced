@@ -26,4 +26,8 @@ def evaluating_main():
             _mat = confusion_matrix(label.reshape(-1), preds.reshape(-1), labels=np.arange(n_class))
             mat = mat + _mat
         if evaluating_config.ignore_0:
-           
+            mat = mat[1:, 1:]
+        avg_metric = compute_global_metrics(mat)
+
+    elif evaluating_config.mode == "per_image":
+        avg_metr
