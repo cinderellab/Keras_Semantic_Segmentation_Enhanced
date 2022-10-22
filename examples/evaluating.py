@@ -37,4 +37,6 @@ def evaluating_main():
          "ious_per_class": np.zeros(n_class), "miou": 0.}
         count = {"accuracies_per_class": np.zeros(n_class), "macro_accuracy": 0, "micro_accuracy": 0,
                  "precisions_per_class": np.zeros(n_class), "precision": 0,
-                 "recalls_per_class": np.zeros(n_
+                 "recalls_per_class": np.zeros(n_class), "recall": 0,
+                 "f1s_pre_class": np.zeros(n_class), "f1": 0,
+                 "ious_per_class": np.zeros(n_class), "miou"
