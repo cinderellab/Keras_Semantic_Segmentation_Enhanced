@@ -39,4 +39,6 @@ def evaluating_main():
                  "precisions_per_class": np.zeros(n_class), "precision": 0,
                  "recalls_per_class": np.zeros(n_class), "recall": 0,
                  "f1s_pre_class": np.zeros(n_class), "f1": 0,
-                 "ious_per_class": np.zeros(n_class), "miou"
+                 "ious_per_class": np.zeros(n_class), "miou": 0}
+        for preds_fname, label_fname in zip(preds_fnames, label_fnames):
+            preds = load_image(os.path.join(evaluating_config.pre
