@@ -60,4 +60,8 @@ def evaluating_main():
             if not np.isscalar(avg_metric[key]):
                 for i in range(len(avg_metric[key])):
                     if not np.isnan(avg_metric[key][i]):
-               
+                        avg_metric[key][i] = avg_metric[key][i] / count[key][i]
+            else:
+                avg_metric[key] = avg_metric[key] / count[key]
+    else:
+        raise ValueEr
