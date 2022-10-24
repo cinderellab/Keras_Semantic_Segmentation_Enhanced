@@ -53,4 +53,8 @@ def evaluating_main():
                             avg_metric[key][i] = avg_metric[key][i] + metric[key][i]
                             count[key][i] += 1
                 else:
-          
+                    avg_metric[key] = avg_metric[key] + metric[key]
+                    count[key] += 1
+
+        for key in avg_metric:
+            if not np.iss
