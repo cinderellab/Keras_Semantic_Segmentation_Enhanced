@@ -41,4 +41,6 @@ def evaluating_main():
                  "f1s_pre_class": np.zeros(n_class), "f1": 0,
                  "ious_per_class": np.zeros(n_class), "miou": 0}
         for preds_fname, label_fname in zip(preds_fnames, label_fnames):
-            preds = load_image(os.path.join(evaluating_config.pre
+            preds = load_image(os.path.join(evaluating_config.preds_dir, preds_fname), is_gray=True)
+            h, w, _ = preds.shape
+            label = load_image(os.path.join(evaluating_config.label_dir, label_fna
