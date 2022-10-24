@@ -50,4 +50,7 @@ def evaluating_main():
                 if not np.isscalar(metric[key]):
                     for i in range(len(metric[key])):
                         if not np.isnan(metric[key][i]):
-   
+                            avg_metric[key][i] = avg_metric[key][i] + metric[key][i]
+                            count[key][i] += 1
+                else:
+          
