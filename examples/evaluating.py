@@ -64,4 +64,7 @@ def evaluating_main():
             else:
                 avg_metric[key] = avg_metric[key] / count[key]
     else:
-        raise ValueEr
+        raise ValueError("Invalid 'mode': %s. Expected to be 'global' or 'per_image'!" % evaluating_config.mode)
+
+    for key in avg_metric:
+        print('{:^20s}{}'.format(key, 
