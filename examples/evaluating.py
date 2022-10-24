@@ -47,4 +47,7 @@ def evaluating_main():
 
             metric = compute_metrics_per_image(label, preds, n_class)
             for key in metric:
-                if
+                if not np.isscalar(metric[key]):
+                    for i in range(len(metric[key])):
+                        if not np.isnan(metric[key][i]):
+   
