@@ -67,4 +67,10 @@ def evaluating_main():
         raise ValueError("Invalid 'mode': %s. Expected to be 'global' or 'per_image'!" % evaluating_config.mode)
 
     for key in avg_metric:
-        print('{:^20s}{}'.format(key, 
+        print('{:^20s}{}'.format(key, avg_metric[key]))
+    return avg_metric
+
+
+if __name__ == "__main__":
+    print(">>>> Evaluating...")
+    evaluating_main()
