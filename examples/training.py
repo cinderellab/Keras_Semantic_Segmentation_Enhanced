@@ -10,4 +10,10 @@ from keras.utils.vis_utils import plot_model
 
 from core.configures import training_config, net_config, augment_config
 from core.nets import SemanticSegmentationModel
-from core.utils.data_utils.data_
+from core.utils.data_utils.data_generator import ImageDataGenerator
+
+
+def parse_training_args():
+    def learning_rate_schedule(epoch):
+        lr_base = training_config.base_lr
+        lr_m
