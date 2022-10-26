@@ -161,3 +161,5 @@ def predict_main():
 
 
 if __name__ == "__main__":
+    print(">>>> Predicting...")
+    predict_main()
