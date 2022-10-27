@@ -19,4 +19,8 @@ def parse_training_args():
         lr_min = training_config.min_lr
         epochs = training_config.epoch
         lr_power = training_config.lr_power
-        lr_cycle = training_
+        lr_cycle = training_config.lr_cycle
+        mode = training_config.lr_mode
+        if mode is 'power_decay':
+            # original lr scheduler
+            lr = lr_base * 
