@@ -23,4 +23,7 @@ def parse_training_args():
         mode = training_config.lr_mode
         if mode is 'power_decay':
             # original lr scheduler
-            lr = lr_base * 
+            lr = lr_base * ((1 - float(epoch) / epochs) ** lr_power)
+        elif mode is 'exp_decay':
+            # exponential decay
+            lr = (float(lr_base) ** float(lr_power)) ** float(
