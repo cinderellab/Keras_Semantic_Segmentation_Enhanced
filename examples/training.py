@@ -16,4 +16,7 @@ from core.utils.data_utils.data_generator import ImageDataGenerator
 def parse_training_args():
     def learning_rate_schedule(epoch):
         lr_base = training_config.base_lr
-        lr_m
+        lr_min = training_config.min_lr
+        epochs = training_config.epoch
+        lr_power = training_config.lr_power
+        lr_cycle = training_
