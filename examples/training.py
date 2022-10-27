@@ -26,4 +26,9 @@ def parse_training_args():
             lr = lr_base * ((1 - float(epoch) / epochs) ** lr_power)
         elif mode is 'exp_decay':
             # exponential decay
-            lr = (float(lr_base) ** float(lr_power)) ** float(
+            lr = (float(lr_base) ** float(lr_power)) ** float(epoch + 1)
+
+        elif mode is 'progressive_drops':
+            # drops as progression proceeds, good for sgd
+            if epoch > 0.9 * epochs:
+                lr = 0.0
