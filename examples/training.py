@@ -31,4 +31,9 @@ def parse_training_args():
         elif mode is 'progressive_drops':
             # drops as progression proceeds, good for sgd
             if epoch > 0.9 * epochs:
-                lr = 0.0
+                lr = 0.0001
+            elif epoch > 0.75 * epochs:
+                lr = 0.001
+            elif epoch > 0.5 * epochs:
+                lr = 0.01
+            e
