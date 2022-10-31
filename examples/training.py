@@ -36,4 +36,8 @@ def parse_training_args():
                 lr = 0.001
             elif epoch > 0.5 * epochs:
                 lr = 0.01
-            e
+            else:
+                lr = 0.1
+        elif mode is 'cosine_cycle':
+            lr = ((lr_base - lr_min) / 2) * (np.cos(2 * np.pi * (epoch % lr_cycle / lr_cycle)) + 1)
+        elif m
