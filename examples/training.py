@@ -43,4 +43,10 @@ def parse_training_args():
         elif mode is 'none':
             lr = lr_base
         else:
-            raise ValueError("Invalid learning rate schedule mode: {}. Expected 'power
+            raise ValueError("Invalid learning rate schedule mode: {}. Expected 'power_decay', 'exp_decay', 'adam', "
+                             "'progressive_drops', 'cosine_cycle'.".format(mode))
+
+        return lr
+
+    losses = {
+                'b
