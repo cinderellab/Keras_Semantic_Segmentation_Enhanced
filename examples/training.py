@@ -68,4 +68,6 @@ def parse_training_args():
 
     if not os.path.exists("{}/models".format(training_config.workspace)):
         os.mkdir("{}/models".format(training_config.workspace))
-    if not os.path.exists("{}/logs".for
+    if not os.path.exists("{}/logs".format(training_config.workspace)):
+        os.mkdir("{}/logs".format(training_config.workspace))
+    training_config.load_model_name = "{}/models/{}.h5".f
