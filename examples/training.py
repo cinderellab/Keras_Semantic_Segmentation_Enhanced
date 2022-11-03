@@ -62,4 +62,8 @@ def parse_training_args():
     if training_config.optimizer_name.lower() == "adam":
         training_config.optimizer = Adam(training_config.base_lr)
     elif training_config.optimizer_name.lower() == "rmsprop":
-        training_config.optimizer = RMSprop
+        training_config.optimizer = RMSprop(training_config.base_lr)
+    else:
+        training_config.optimizer = SGD(training_config.base_lr, momentum=0.9)
+
+    if not os.path.exists("{}/models".for
