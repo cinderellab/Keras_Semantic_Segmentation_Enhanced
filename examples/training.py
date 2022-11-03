@@ -57,4 +57,7 @@ def parse_training_args():
                }
 
     training_config.loss = losses[training_config.loss_name]
-    training_config.metr
+    training_config.metric = metrics[training_config.metric_name]
+
+    if training_config.optimizer_name.lower() == "adam":
+        training_config.optimizer = Adam(training_
