@@ -52,4 +52,9 @@ def parse_training_args():
                 'binary_crossentropy': 'binary_crossentropy',
                 'categorical_crossentropy': 'categorical_crossentropy'
               }
-   
+    metrics = {
+                    'acc': 'acc'
+               }
+
+    training_config.loss = losses[training_config.loss_name]
+    training_config.metr
