@@ -60,4 +60,6 @@ def parse_training_args():
     training_config.metric = metrics[training_config.metric_name]
 
     if training_config.optimizer_name.lower() == "adam":
-        training_config.optimizer = Adam(training_
+        training_config.optimizer = Adam(training_config.base_lr)
+    elif training_config.optimizer_name.lower() == "rmsprop":
+        training_config.optimizer = RMSprop
