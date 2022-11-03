@@ -66,4 +66,6 @@ def parse_training_args():
     else:
         training_config.optimizer = SGD(training_config.base_lr, momentum=0.9)
 
-    if not os.path.exists("{}/models".for
+    if not os.path.exists("{}/models".format(training_config.workspace)):
+        os.mkdir("{}/models".format(training_config.workspace))
+    if not os.path.exists("{}/logs".for
