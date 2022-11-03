@@ -49,4 +49,7 @@ def parse_training_args():
         return lr
 
     losses = {
-                'b
+                'binary_crossentropy': 'binary_crossentropy',
+                'categorical_crossentropy': 'categorical_crossentropy'
+              }
+   
