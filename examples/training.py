@@ -72,4 +72,8 @@ def parse_training_args():
         os.mkdir("{}/logs".format(training_config.workspace))
     training_config.load_model_name = "{}/models/{}.h5".format(
         training_config.workspace, training_config.old_model_version)
-    training_config.save_model_name = "{}/models/{}.h5".format
+    training_config.save_model_name = "{}/models/{}.h5".format(
+        training_config.workspace, training_config.new_model_version)
+
+    training_config.callbacks = list()
+    training_config.callba
