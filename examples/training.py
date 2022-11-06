@@ -76,4 +76,5 @@ def parse_training_args():
         training_config.workspace, training_config.new_model_version)
 
     training_config.callbacks = list()
-    training_config.callba
+    training_config.callbacks.append(ModelCheckpoint(training_config.save_model_name, save_best_only=True,
+                                                     sa
