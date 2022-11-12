@@ -79,4 +79,6 @@ def parse_training_args():
     training_config.callbacks.append(ModelCheckpoint(training_config.save_model_name, save_best_only=True,
                                                      save_weights_only=True, verbose=1))
     training_config.callbacks.append(LearningRateScheduler(schedule=learning_rate_schedule, verbose=1))
-    trai
+    training_config.callbacks.append(TensorBoard(log_dir=os.path.join(training_config.workspace, 'logs')))
+    if training_config.early_stop_patience > 0:
+        training_confi
