@@ -81,4 +81,6 @@ def parse_training_args():
     training_config.callbacks.append(LearningRateScheduler(schedule=learning_rate_schedule, verbose=1))
     training_config.callbacks.append(TensorBoard(log_dir=os.path.join(training_config.workspace, 'logs')))
     if training_config.early_stop_patience > 0:
-        training_confi
+        training_config.callbacks.append(EarlyStopping(patience=training_config.early_stop_patience,
+                                                       verbose=1))
+    return trainin
