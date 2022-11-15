@@ -83,4 +83,11 @@ def parse_training_args():
     if training_config.early_stop_patience > 0:
         training_config.callbacks.append(EarlyStopping(patience=training_config.early_stop_patience,
                                                        verbose=1))
-    return trainin
+    return training_config
+
+
+def training_main():
+    """ main api to train a model.
+    """
+    training_config = parse_training_args()
+    # get training and valida
