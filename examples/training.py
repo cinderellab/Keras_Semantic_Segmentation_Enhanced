@@ -94,4 +94,7 @@ def training_main():
     with open(training_config.train_fnames_path, "r", encoding="utf-8") as f:
         train_base_fnames = [line.strip() for line in f]
     if training_config.val_fnames_path is not None and os.path.exists(training_config.val_fnames_path):
-        with open(training_config
+        with open(training_config.val_fnames_path, "r", encoding="utf-8") as f:
+            val_base_fnames = [line.strip() for line in f]
+    else:
+        val_base_fnames = []
