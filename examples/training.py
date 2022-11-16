@@ -98,3 +98,6 @@ def training_main():
             val_base_fnames = [line.strip() for line in f]
     else:
         val_base_fnames = []
+    n_train, n_val = len(train_base_fnames), len(val_base_fnames)
+    # if steps are set to 0, all the samples will be used
+    if training_confi
