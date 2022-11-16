@@ -90,4 +90,6 @@ def training_main():
     """ main api to train a model.
     """
     training_config = parse_training_args()
-    # get training and valida
+    # get training and validation sample names
+    with open(training_config.train_fnames_path, "r", encoding="utf-8") as f:
+        train_base_fnames = [line.strip() for line i
