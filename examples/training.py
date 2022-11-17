@@ -105,4 +105,7 @@ def training_main():
     if training_config.steps_per_epoch_val == 0:
         training_config.steps_per_epoch_val = n_val // training_config.batch_size
     print(">>>> training configurations:")
-    pprint(training_config
+    pprint(training_config.__dict__)
+
+    model = SemanticSegmentationModel(model_name=training_config.model_name,
+                                      input_shape=(
