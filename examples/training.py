@@ -102,4 +102,7 @@ def training_main():
     # if steps are set to 0, all the samples will be used
     if training_config.steps_per_epoch == 0:
         training_config.steps_per_epoch = n_train // training_config.batch_size
-    if training_config.steps_per_epoch_val == 0
+    if training_config.steps_per_epoch_val == 0:
+        training_config.steps_per_epoch_val = n_val // training_config.batch_size
+    print(">>>> training configurations:")
+    pprint(training_config
