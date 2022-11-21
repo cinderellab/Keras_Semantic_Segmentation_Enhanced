@@ -108,4 +108,6 @@ def training_main():
     pprint(training_config.__dict__)
 
     model = SemanticSegmentationModel(model_name=training_config.model_name,
-                                      input_shape=(
+                                      input_shape=(training_config.image_height,
+                                                   training_config.image_width,
+                                                
