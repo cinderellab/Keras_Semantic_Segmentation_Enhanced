@@ -110,4 +110,6 @@ def training_main():
     model = SemanticSegmentationModel(model_name=training_config.model_name,
                                       input_shape=(training_config.image_height,
                                                    training_config.image_width,
-                                                
+                                                   training_config.image_channel),
+                                      n_class=training_config.n_class,
+                                      encoder_name=training_config.
