@@ -112,4 +112,6 @@ def training_main():
                                                    training_config.image_width,
                                                    training_config.image_channel),
                                       n_class=training_config.n_class,
-                                      encoder_name=training_config.
+                                      encoder_name=training_config.encoder_name,
+                                      encoder_weights=training_config.encoder_weights,
+                                      ini
