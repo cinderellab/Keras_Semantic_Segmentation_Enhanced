@@ -114,4 +114,6 @@ def training_main():
                                       n_class=training_config.n_class,
                                       encoder_name=training_config.encoder_name,
                                       encoder_weights=training_config.encoder_weights,
-                                      ini
+                                      init_filters=net_config.init_filters,
+                                      dropout=net_config.dropout,
+                                      weight_deca
