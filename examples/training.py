@@ -118,4 +118,6 @@ def training_main():
                                       dropout=net_config.dropout,
                                       weight_decay=net_config.weight_decay,
                                       kernel_initializer=net_config.kernel_initializer,
-                           
+                                      bn_epsilon=net_config.bn_epsilon,
+                                      bn_momentum=net_config.bn_momentum,
+                                
