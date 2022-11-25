@@ -116,4 +116,6 @@ def training_main():
                                       encoder_weights=training_config.encoder_weights,
                                       init_filters=net_config.init_filters,
                                       dropout=net_config.dropout,
-                                      weight_deca
+                                      weight_decay=net_config.weight_decay,
+                                      kernel_initializer=net_config.kernel_initializer,
+                           
