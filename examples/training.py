@@ -123,4 +123,7 @@ def training_main():
                                       upscaling_method=net_config.upsampling_method)
     # load or build model
     if os.path.exists(training_config.load_model_name):
-        pr
+        print(">>>> load model from ", training_config.load_model_name)
+        model.load_weights(training_config.load_model_name)
+    else:
+        print("
