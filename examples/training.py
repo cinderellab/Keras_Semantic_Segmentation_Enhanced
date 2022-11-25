@@ -120,4 +120,7 @@ def training_main():
                                       kernel_initializer=net_config.kernel_initializer,
                                       bn_epsilon=net_config.bn_epsilon,
                                       bn_momentum=net_config.bn_momentum,
-                                
+                                      upscaling_method=net_config.upsampling_method)
+    # load or build model
+    if os.path.exists(training_config.load_model_name):
+        pr
