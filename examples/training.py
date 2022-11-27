@@ -126,4 +126,6 @@ def training_main():
         print(">>>> load model from ", training_config.load_model_name)
         model.load_weights(training_config.load_model_name)
     else:
-        print("
+        print(">>>> build new model: ", training_config.save_model_name)
+        plot_model(model, training_config.save_model_name.replace(".h5", ".png"), show_shapes=True)
+
