@@ -131,4 +131,9 @@ def training_main():
 
     if training_config.model_summary:
         model.summary()
-    model.compile(loss=training_config.loss, optimizer=training_config.optimizer, metrics=[tra
+    model.compile(loss=training_config.loss, optimizer=training_config.optimizer, metrics=[training_config.metric])
+
+    print("+ " * 80)
+    print("+    training data size = %d" % n_train)
+    print("+    validation data size = %d" % n_val)
+    
