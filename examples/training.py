@@ -129,3 +129,6 @@ def training_main():
         print(">>>> build new model: ", training_config.save_model_name)
         plot_model(model, training_config.save_model_name.replace(".h5", ".png"), show_shapes=True)
 
+    if training_config.model_summary:
+        model.summary()
+    model.compile(loss=training_config.loss, optimizer=training_config.optimizer, metrics=[tra
