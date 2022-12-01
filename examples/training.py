@@ -136,4 +136,5 @@ def training_main():
     print("+ " * 80)
     print("+    training data size = %d" % n_train)
     print("+    validation data size = %d" % n_val)
-    
+    print("+    training iteration/epoch = %d" % training_config.steps_per_epoch)
+    print("+    validation iteration/epoch = %d" % training_config.steps_p
