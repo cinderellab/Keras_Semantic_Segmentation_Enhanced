@@ -145,4 +145,8 @@ def training_main():
                                        horizontal_flip=augment_config.horizontal_flip,
                                        vertical_flip=augment_config.vertical_flip
                                        # TODO: include all the augmentations here
-                             
+                                       )
+    val_datagen = ImageDataGenerator()
+
+    if n_val == 0:
+        print("%s starting training without validation..." % datetime.datetime.now()
