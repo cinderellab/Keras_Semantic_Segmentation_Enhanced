@@ -155,4 +155,6 @@ def training_main():
                 base_fnames=train_base_fnames,
                 image_dir=training_config.image_dir,
                 image_suffix=training_config.image_suffix,
-                image_color_mo
+                image_color_mode=training_config.image_color_mode,
+                label_dir=training_config.label_dir,
+                label_suffix=training_config.
