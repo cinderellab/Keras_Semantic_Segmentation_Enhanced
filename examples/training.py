@@ -141,4 +141,6 @@ def training_main():
     print("+    model save path: %s" % training_config.save_model_name)
     print("+ " * 80)
 
-    train_datagen = ImageDataGenerator(channel_
+    train_datagen = ImageDataGenerator(channel_shift_range=augment_config.channel_shift_range,
+                                       horizontal_flip=augment_config.horizontal_flip,
+       
