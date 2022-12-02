@@ -143,4 +143,6 @@ def training_main():
 
     train_datagen = ImageDataGenerator(channel_shift_range=augment_config.channel_shift_range,
                                        horizontal_flip=augment_config.horizontal_flip,
-       
+                                       vertical_flip=augment_config.vertical_flip
+                                       # TODO: include all the augmentations here
+                             
