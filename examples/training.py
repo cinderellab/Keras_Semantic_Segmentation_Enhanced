@@ -149,4 +149,7 @@ def training_main():
     val_datagen = ImageDataGenerator()
 
     if n_val == 0:
-        print("%s starting training without validation..." % datetime.datetime.now()
+        print("%s starting training without validation..." % datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S"))
+        model.fit_generator(
+            generator=train_datagen.flow_from_directory(
+                base_fnames=train_base_
