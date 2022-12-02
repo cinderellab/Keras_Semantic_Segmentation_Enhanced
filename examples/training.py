@@ -137,4 +137,8 @@ def training_main():
     print("+    training data size = %d" % n_train)
     print("+    validation data size = %d" % n_val)
     print("+    training iteration/epoch = %d" % training_config.steps_per_epoch)
-    print("+    validation iteration/epoch = %d" % training_config.steps_p
+    print("+    validation iteration/epoch = %d" % training_config.steps_per_epoch_val)
+    print("+    model save path: %s" % training_config.save_model_name)
+    print("+ " * 80)
+
+    train_datagen = ImageDataGenerator(channel_
