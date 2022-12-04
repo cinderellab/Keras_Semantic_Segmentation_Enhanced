@@ -163,4 +163,6 @@ def training_main():
                 cval=training_config.cval,
                 label_cval=training_config.label_cval,
                 crop_mode=training_config.crop_mode,
-   
+                target_size=(training_config.image_height, training_config.image_width),
+                batch_size=training_config.batch_size,
+ 
