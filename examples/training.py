@@ -169,4 +169,6 @@ def training_main():
                 debug=training_config.debug,
                 dataset_name=training_config.dataset_name
             ),
-      
+            steps_per_epoch=training_config.steps_per_epoch,
+            validation_steps=training_config.steps_per_epoch_val,
+            epochs=training
