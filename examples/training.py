@@ -178,4 +178,7 @@ def training_main():
     else:
         print("%s starting training and validation..." % datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S"))
         model.fit_generator(
-            generator=train_datagen.flo
+            generator=train_datagen.flow_from_directory(
+                base_fnames=train_base_fnames,
+                image_dir=training_config.image_dir,
+                image_s
