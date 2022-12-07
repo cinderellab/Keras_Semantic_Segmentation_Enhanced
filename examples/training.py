@@ -171,4 +171,9 @@ def training_main():
             ),
             steps_per_epoch=training_config.steps_per_epoch,
             validation_steps=training_config.steps_per_epoch_val,
-            epochs=training
+            epochs=training_config.epoch,
+            callbacks=training_config.callbacks,
+            verbose=training_config.verbose
+        )
+    else:
+        print("%s starting training
