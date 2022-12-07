@@ -176,4 +176,6 @@ def training_main():
             verbose=training_config.verbose
         )
     else:
-        print("%s starting training
+        print("%s starting training and validation..." % datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S"))
+        model.fit_generator(
+            generator=train_datagen.flo
