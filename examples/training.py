@@ -181,4 +181,6 @@ def training_main():
             generator=train_datagen.flow_from_directory(
                 base_fnames=train_base_fnames,
                 image_dir=training_config.image_dir,
-                image_s
+                image_suffix=training_config.image_suffix,
+                image_color_mode=training_config.image_color_mode,
+                label_dir=training_config.l
