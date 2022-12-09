@@ -195,4 +195,7 @@ def training_main():
                 shuffle=True,
                 debug=training_config.debug,
                 dataset_name=training_config.dataset_name
-     
+            ),
+            validation_data=val_datagen.flow_from_directory(
+                base_fnames=val_base_fnames,
+                image_dir=training_config.image
