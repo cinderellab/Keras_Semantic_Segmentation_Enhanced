@@ -192,3 +192,7 @@ def training_main():
                 crop_mode=training_config.crop_mode,
                 target_size=(training_config.image_height, training_config.image_width),
                 batch_size=training_config.batch_size,
+                shuffle=True,
+                debug=training_config.debug,
+                dataset_name=training_config.dataset_name
+     
