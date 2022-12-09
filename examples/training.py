@@ -189,4 +189,6 @@ def training_main():
                 feed_onehot_label=training_config.feed_onehot_label,
                 cval=training_config.cval,
                 label_cval=training_config.label_cval,
-                cro
+                crop_mode=training_config.crop_mode,
+                target_size=(training_config.image_height, training_config.image_width),
+                batch_size=training_config.batch_size,
