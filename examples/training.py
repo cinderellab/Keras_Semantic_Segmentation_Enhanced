@@ -198,4 +198,7 @@ def training_main():
             ),
             validation_data=val_datagen.flow_from_directory(
                 base_fnames=val_base_fnames,
-                image_dir=training_config.image
+                image_dir=training_config.image_dir,
+                image_suffix=training_config.image_suffix,
+                image_color_mode=training_config.image_color_mode,
+                label_
