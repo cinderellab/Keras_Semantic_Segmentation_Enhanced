@@ -183,4 +183,7 @@ def training_main():
                 image_dir=training_config.image_dir,
                 image_suffix=training_config.image_suffix,
                 image_color_mode=training_config.image_color_mode,
-                label_dir=training_config.l
+                label_dir=training_config.label_dir,
+                label_suffix=training_config.label_suffix,
+                n_class=training_config.n_class,
+                feed_onehot_label=t
