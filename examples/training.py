@@ -186,4 +186,7 @@ def training_main():
                 label_dir=training_config.label_dir,
                 label_suffix=training_config.label_suffix,
                 n_class=training_config.n_class,
-                feed_onehot_label=t
+                feed_onehot_label=training_config.feed_onehot_label,
+                cval=training_config.cval,
+                label_cval=training_config.label_cval,
+                cro
