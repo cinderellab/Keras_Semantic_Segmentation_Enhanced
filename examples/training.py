@@ -211,4 +211,7 @@ def training_main():
                 target_size=(training_config.image_height, training_config.image_width),
                 batch_size=training_config.batch_size,
                 shuffle=False),
-            steps_per_epoch=training_co
+            steps_per_epoch=training_config.steps_per_epoch,
+            validation_steps=training_config.steps_per_epoch_val,
+            epochs=training_config.epoch,
+            callbacks=tra
