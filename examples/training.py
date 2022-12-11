@@ -214,4 +214,8 @@ def training_main():
             steps_per_epoch=training_config.steps_per_epoch,
             validation_steps=training_config.steps_per_epoch_val,
             epochs=training_config.epoch,
-            callbacks=tra
+            callbacks=training_config.callbacks,
+            verbose=training_config.verbose
+        )
+
+    print("%s training success!" % datetime.datetime.now()
