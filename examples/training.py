@@ -218,4 +218,8 @@ def training_main():
             verbose=training_config.verbose
         )
 
-    print("%s training success!" % datetime.datetime.now()
+    print("%s training success!" % datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S"))
+
+
+if __name__ == "__main__":
+    training_main()
