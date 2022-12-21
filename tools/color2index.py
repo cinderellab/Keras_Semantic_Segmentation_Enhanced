@@ -16,4 +16,8 @@ from core.utils.data_utils.label_transform_utils import color_to_index, index_to
 def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_path=None, plot=False, names=None):
     """ convert a colorful label image to a gray (1-channel) image
         (positive index from 1~n, 0 represents background.
-        If there is no backgrou
+        If there is no background classes, there will still be 0 values)
+    :param src_path: string
+        path of source label image, rgb/gray color mode
+    :param dst_path: string
+  
