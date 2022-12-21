@@ -20,4 +20,5 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
     :param src_path: string
         path of source label image, rgb/gray color mode
     :param dst_path: string
-  
+        path of destination label image, gray color mode, index from 0 to n (n is the number of non-background classes)
+    :param src_color_mode: string, "
