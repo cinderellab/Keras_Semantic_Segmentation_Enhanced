@@ -31,4 +31,7 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
 
     :return: None
     """
-    if color_mapping is 
+    if color_mapping is None:
+        raise ValueError('Invalid color mapping: None. Expected not None!')
+    if src_color_mode=='rgb':
+        label_color = load_image(src_path, is
