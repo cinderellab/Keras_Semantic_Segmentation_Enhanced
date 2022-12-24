@@ -38,4 +38,6 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
     elif src_color_mode=='gray':
         label_color = load_image(src_path, is_gray=True).astype(np.uint8)
     else:
-      
+        raise ValueError('Invalid src_color_mode: {}. Expected "rgb" or "gray"!'.format(src_color_mode))
+
+    label_index = color_to_index(label_color, col
