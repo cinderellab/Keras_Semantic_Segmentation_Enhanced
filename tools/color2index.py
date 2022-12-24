@@ -42,4 +42,11 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
 
     label_index = color_to_index(label_color, color_mapping, to_sparse=True)
     if np.max(label_index)>=len(color_mapping):
-        raise ValueError('max value is large than: {}：{}'.format(len(colo
+        raise ValueError('max value is large than: {}：{}'.format(len(color_mapping)+1, np.max(label_index)))
+
+    if dst_path:
+        save_to_image(label_index, dst_path)
+
+    if plot:
+        if names is None:
+   
