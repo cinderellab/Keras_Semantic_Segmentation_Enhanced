@@ -21,4 +21,7 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
         path of source label image, rgb/gray color mode
     :param dst_path: string
         path of destination label image, gray color mode, index from 0 to n (n is the number of non-background classes)
-    :param src_color_mode: string, "
+    :param src_color_mode: string, "rgb" or "gray", default "rgb"
+        color mode of the source label image
+    :param color_mapping: list or array, default None
+        a list like [0, 255], [[1, 59, 3]
