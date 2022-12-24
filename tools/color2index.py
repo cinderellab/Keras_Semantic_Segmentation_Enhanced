@@ -24,4 +24,11 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
     :param src_color_mode: string, "rgb" or "gray", default "rgb"
         color mode of the source label image
     :param color_mapping: list or array, default None
-        a list like [0, 255], [[1, 59, 3]
+        a list like [0, 255], [[1, 59, 3], [56, 0, 0]]
+    :param plor: bool, default False
+        whether to plot comparison
+    :param names: list.
+
+    :return: None
+    """
+    if color_mapping is 
