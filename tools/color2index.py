@@ -40,4 +40,6 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
     else:
         raise ValueError('Invalid src_color_mode: {}. Expected "rgb" or "gray"!'.format(src_color_mode))
 
-    label_index = color_to_index(label_color, col
+    label_index = color_to_index(label_color, color_mapping, to_sparse=True)
+    if np.max(label_index)>=len(color_mapping):
+        raise ValueError('max value is large than: {}：{}'.format(len(colo
