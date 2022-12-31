@@ -49,4 +49,6 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
 
     if plot:
         if names is None:
-   
+            names = ['class_{}'.format(i) for i in range(len(color_mapping))]
+        if label_color.shape[-1]==1:
+            label_color = label_c
