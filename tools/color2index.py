@@ -55,4 +55,6 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
         plot_image_label(label_color, label_index, 0, len(color_mapping)-1, names, overlay=False)
 
 
-def convert_index_to_color(src_path, color
+def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, names=None):
+    """ recover label index to colorful image
+    :param src_path: string, path of
