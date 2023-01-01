@@ -51,4 +51,8 @@ def convert_color_to_index(src_path, color_mapping, src_color_mode='rgb', dst_pa
         if names is None:
             names = ['class_{}'.format(i) for i in range(len(color_mapping))]
         if label_color.shape[-1]==1:
-            label_color = label_c
+            label_color = label_color[:, :, 0]
+        plot_image_label(label_color, label_index, 0, len(color_mapping)-1, names, overlay=False)
+
+
+def convert_index_to_color(src_path, color
