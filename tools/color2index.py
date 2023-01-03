@@ -70,4 +70,9 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
     label_color = index_to_color(label_array=label_index, color_mapping=color_mapping).astype(np.uint8)
 
     if dst_path is not None:
-        save_to_image(label_color
+        save_to_image(label_color, dst_path)
+    if plot:
+        grid_spec = gridspec.GridSpec(1, 3, width_ratios=[6, 6, 1])
+
+        plt.subplot(grid_spec[0])
+        plt.imshow(label
