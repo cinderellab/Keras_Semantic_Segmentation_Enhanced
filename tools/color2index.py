@@ -75,4 +75,9 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
         grid_spec = gridspec.GridSpec(1, 3, width_ratios=[6, 6, 1])
 
         plt.subplot(grid_spec[0])
-        plt.imshow(label
+        plt.imshow(label_index, vmin=0, vmax=len(color_mapping)-1)
+        plt.axis('off')
+        plt.title('label index')
+
+        plt.subplot(grid_spec[1])
+        if label_color.ndim == 3:
