@@ -89,4 +89,6 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
         ax = plt.subplot(grid_spec[2])
         if names is None:
             names = ['class_{}'.format(i) for i in range(len(color_mapping))]
-        FULL_LABEL_MAP = np.arange
+        FULL_LABEL_MAP = np.arange(len(names)).reshape(len(names), 1)
+        FULL_COLOR_MAP = index_to_color(FULL_LABEL_MAP, color_mapping)
+        unique_labels = np.unique(label
