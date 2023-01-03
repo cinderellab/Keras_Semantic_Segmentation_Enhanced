@@ -81,3 +81,9 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
 
         plt.subplot(grid_spec[1])
         if label_color.ndim == 3:
+            label_color = label_color / 255
+        plt.imshow(label_color)
+        plt.axis('off')
+        plt.title('colorful label')
+
+        ax = plt.subplo
