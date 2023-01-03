@@ -86,4 +86,7 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
         plt.axis('off')
         plt.title('colorful label')
 
-        ax = plt.subplo
+        ax = plt.subplot(grid_spec[2])
+        if names is None:
+            names = ['class_{}'.format(i) for i in range(len(color_mapping))]
+        FULL_LABEL_MAP = np.arange
