@@ -64,4 +64,6 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
 
     :return: None
     """
-    if color
+    if color_mapping is None:
+        raise ValueError('Invalid color mapping: None. Expected not None!')
+    label_index = load_image(src_path, is_gray=True).astype(np.uint8)[:, :, 0]
