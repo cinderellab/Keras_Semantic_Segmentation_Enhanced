@@ -91,4 +91,8 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
             names = ['class_{}'.format(i) for i in range(len(color_mapping))]
         FULL_LABEL_MAP = np.arange(len(names)).reshape(len(names), 1)
         FULL_COLOR_MAP = index_to_color(FULL_LABEL_MAP, color_mapping)
-        unique_labels = np.unique(label
+        unique_labels = np.unique(label_index)
+        plt.imshow(
+            FULL_COLOR_MAP[unique_labels].astype(np.uint8), interpolation='nearest')
+        ax.yaxis.tick_right()
+        plt.ytic
