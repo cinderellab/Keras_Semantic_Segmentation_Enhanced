@@ -59,4 +59,9 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
     """ recover label index to colorful image
     :param src_path: string, path of source label image, gray colored.
     :param color_mapping: list. for example [0, 255], or [[52, 33, 24], [60, 95, 87]].
-    :param dst_path: stri
+    :param dst_path: string, path of destination image, default None
+    :param plot: bool, whether to plot.
+
+    :return: None
+    """
+    if color
