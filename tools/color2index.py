@@ -67,3 +67,7 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
     if color_mapping is None:
         raise ValueError('Invalid color mapping: None. Expected not None!')
     label_index = load_image(src_path, is_gray=True).astype(np.uint8)[:, :, 0]
+    label_color = index_to_color(label_array=label_index, color_mapping=color_mapping).astype(np.uint8)
+
+    if dst_path is not None:
+        save_to_image(label_color
