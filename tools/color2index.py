@@ -95,4 +95,9 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
         plt.imshow(
             FULL_COLOR_MAP[unique_labels].astype(np.uint8), interpolation='nearest')
         ax.yaxis.tick_right()
-        plt.ytic
+        plt.yticks(range(len(unique_labels)), np.asarray(names)[unique_labels])
+        plt.xticks([], [])
+        ax.tick_params(width=0.0)
+        plt.grid('off')
+
+        
