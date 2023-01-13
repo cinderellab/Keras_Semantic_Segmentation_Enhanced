@@ -100,4 +100,9 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
         ax.tick_params(width=0.0)
         plt.grid('off')
 
-        
+        plt.show()
+
+
+if __name__ == "__main__":
+    color_mapping = COLOR_MAP[color2index_config.dataset_name]
+    name_mapping = NAME_MAP[color2index_config.dataset_n
