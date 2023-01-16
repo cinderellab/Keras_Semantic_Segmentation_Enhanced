@@ -113,4 +113,5 @@ if __name__ == "__main__":
     fnames = os.listdir(src_dir)
     for fname in tqdm(fnames):
         if color2index_config.mode == 'color2index':
-            convert_color_to_index(src_path=os
+            convert_color_to_index(src_path=os.path.join(src_dir, fname.strip()), color_mapping=color_mapping,
+                                   src_color_mode=src_color_mode, dst_
