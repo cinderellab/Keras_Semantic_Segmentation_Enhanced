@@ -105,4 +105,9 @@ def convert_index_to_color(src_path, color_mapping, dst_path=None, plot=False, n
 
 if __name__ == "__main__":
     color_mapping = COLOR_MAP[color2index_config.dataset_name]
-    name_mapping = NAME_MAP[color2index_config.dataset_n
+    name_mapping = NAME_MAP[color2index_config.dataset_name]
+    src_color_mode = color2index_config.color_mode
+    src_dir = color2index_config.src_dir
+    dst_dir = color2index_config.dst_dir
+
+ 
