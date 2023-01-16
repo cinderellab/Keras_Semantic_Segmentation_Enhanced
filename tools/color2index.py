@@ -110,4 +110,7 @@ if __name__ == "__main__":
     src_dir = color2index_config.src_dir
     dst_dir = color2index_config.dst_dir
 
- 
+    fnames = os.listdir(src_dir)
+    for fname in tqdm(fnames):
+        if color2index_config.mode == 'color2index':
+            convert_color_to_index(src_path=os
