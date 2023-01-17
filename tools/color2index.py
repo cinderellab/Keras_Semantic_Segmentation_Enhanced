@@ -118,4 +118,5 @@ if __name__ == "__main__":
                                    plot=color2index_config.show_comparison, names=name_mapping)
         elif color2index_config.mode == 'index2color':
             convert_index_to_color(src_path=os.path.join(src_dir, fname.strip()), color_mapping=color_mapping,
-                         
+                                   dst_path=os.path.join(dst_dir, fname.strip()),
+                                   plot=color2index_config.show_comparison, names=name_mapping)
