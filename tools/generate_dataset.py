@@ -5,4 +5,10 @@ import os
 import sys
 sys.path.append('.')
 
-from core.utils.data_utils.image_io_utils import load_image, save_to_image, save
+from core.utils.data_utils.image_io_utils import load_image, save_to_image, save_to_image_gdal
+from core.configures import generate_dadaset_config
+
+
+def generate_dataset_random(image_paths,
+                            label_paths,
+  
