@@ -11,4 +11,7 @@ from core.configures import generate_dadaset_config
 
 def generate_dataset_random(image_paths,
                             label_paths,
-  
+                            dst_dir = './training',
+                            image_num_per_tile=10,
+                            img_h=256,
+                
