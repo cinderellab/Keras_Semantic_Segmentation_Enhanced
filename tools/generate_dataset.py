@@ -14,4 +14,7 @@ def generate_dataset_random(image_paths,
                             dst_dir = './training',
                             image_num_per_tile=10,
                             img_h=256,
-                
+                            img_w=256,
+                            label_is_gray=True,
+                            use_gdal=False):
+    # Assuming that the source images are common images
