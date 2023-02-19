@@ -19,4 +19,7 @@ def generate_dataset_random(image_paths,
                             use_gdal=False):
     # Assuming that the source images are common images with 3 bands, and the label images are images with 1 or 3 bands.
     # check source directories and create directories to store sample images and gts
-    if no
+    if not os.path.exists('{}/image'.format(dst_dir)):
+        os.mkdir('{}/image'.format(dst_dir))
+    if not os.path.exists('{}/label'.format(dst_dir)):
+        os.mkdir
