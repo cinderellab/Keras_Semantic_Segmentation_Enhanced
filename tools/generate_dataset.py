@@ -22,4 +22,7 @@ def generate_dataset_random(image_paths,
     if not os.path.exists('{}/image'.format(dst_dir)):
         os.mkdir('{}/image'.format(dst_dir))
     if not os.path.exists('{}/label'.format(dst_dir)):
-        os.mkdir
+        os.mkdir('{}/label'.format(dst_dir))
+
+    # number of samples for each image
+    for image_path, label_path in zip(image_paths, label_paths
