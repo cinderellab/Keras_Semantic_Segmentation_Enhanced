@@ -25,4 +25,6 @@ def generate_dataset_random(image_paths,
         os.mkdir('{}/label'.format(dst_dir))
 
     # number of samples for each image
-    for image_path, label_path in zip(image_paths, label_paths
+    for image_path, label_path in zip(image_paths, label_paths):
+        image = load_image(image_path, is_gray=False, use_gdal=use_gdal)
+        label = load_image(label_path, is_gray=label_is_gray, use_
