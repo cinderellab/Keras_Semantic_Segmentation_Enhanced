@@ -31,4 +31,6 @@ def generate_dataset_random(image_paths,
         image_height, image_width, _ = image.shape
         image_tag = os.path.basename(image_path).split('.')[0]
         print('%s: sampling from [%s]...' % (datetime.datetime.now().strftime('%y-%m-%d %H:%M:%S'), image_path))
-        # if the source image/label is too small, pad it with z
+        # if the source image/label is too small, pad it with zeros
+        if image_height < img_h:
+            image = np.pad(image, ((0, img_h-image_height+1), (0, 0), (0, 0)), mode='constan
