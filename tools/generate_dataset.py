@@ -37,4 +37,7 @@ def generate_dataset_random(image_paths,
             label = np.pad(label, ((0, img_h - image_height+1), (0, 0), (0, 0)), mode='constant', constant_values=0)
         if image_width < img_w:
             image = np.pad(image, ((0, 0), (0, img_w - image_width+1), (0, 0)), mode='constant', constant_values=0)
-          
+            label = np.pad(label, ((0, 0), (0, img_w - image_width+1), (0, 0)), mode='constant', constant_values=0)
+
+        l_count=0
+        while l_count < image_num_per_tile:
