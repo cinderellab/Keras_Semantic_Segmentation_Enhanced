@@ -45,4 +45,7 @@ def generate_dataset_random(image_paths,
             x = np.random.randint(0, image.shape[1] - img_w+1)
             y = np.random.randint(0, image.shape[0] - img_h+1)
             src_roi = image[y:y+img_h, x:x+img_w]
-            label_roi = label[y:y+
+            label_roi = label[y:y+img_h, x:x+img_w]
+
+            if src_roi.shape[0]!=img_h or src_roi.shape[1]!=img_w or label_roi.shape[0]!=img_h or label_roi.shape[1]!=img_w:
+                cont
