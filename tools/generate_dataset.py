@@ -42,4 +42,7 @@ def generate_dataset_random(image_paths,
         l_count=0
         while l_count < image_num_per_tile:
             #  randomly select a x and y for the upper left pixel
-            x = np.random.randint(0, image.shape[1] - img_
+            x = np.random.randint(0, image.shape[1] - img_w+1)
+            y = np.random.randint(0, image.shape[0] - img_h+1)
+            src_roi = image[y:y+img_h, x:x+img_w]
+            label_roi = label[y:y+
