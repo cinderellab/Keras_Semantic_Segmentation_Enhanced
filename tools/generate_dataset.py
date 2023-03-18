@@ -53,4 +53,5 @@ def generate_dataset_random(image_paths,
                 save_to_image(src_roi.astype(np.uint8), '{}/image/{}_{}.png'.format(dst_dir, image_tag, l_count))
                 save_to_image(label_roi.astype(np.uint8), '{}/label/{}_{}.png'.format(dst_dir, image_tag, l_count))
             else:
-                save_to
+                save_to_image_gdal(src_roi, '{}/image/{}_{}.tif'.format(dst_dir, image_tag, l_count))
+                save_to_image_gdal(label_roi, '{}/label/{}_{}.tif'
