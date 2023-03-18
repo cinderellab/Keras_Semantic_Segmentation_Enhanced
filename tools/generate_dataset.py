@@ -50,4 +50,7 @@ def generate_dataset_random(image_paths,
             if src_roi.shape[0]!=img_h or src_roi.shape[1]!=img_w or label_roi.shape[0]!=img_h or label_roi.shape[1]!=img_w:
                 continue
             if not use_gdal:
-                save_to_image(src_roi.astype(np.uint8), '{}/image/{}_{}.png'.format(dst_dir, image_tag, 
+                save_to_image(src_roi.astype(np.uint8), '{}/image/{}_{}.png'.format(dst_dir, image_tag, l_count))
+                save_to_image(label_roi.astype(np.uint8), '{}/label/{}_{}.png'.format(dst_dir, image_tag, l_count))
+            else:
+                save_to
