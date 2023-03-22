@@ -60,4 +60,7 @@ def generate_dataset_random(image_paths,
 
 def generate_dataset_scan(image_paths,
                           label_paths,
-           
+                          dst_dir='./training',
+                          stride=256,
+                          img_h=256,
+                          img_w=25
