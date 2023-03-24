@@ -63,4 +63,7 @@ def generate_dataset_scan(image_paths,
                           dst_dir='./training',
                           stride=256,
                           img_h=256,
-                          img_w=25
+                          img_w=256,
+                          label_is_gray=True,
+                          use_gdal=False):
+    # Assuming that the source images ar
