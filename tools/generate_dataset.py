@@ -66,4 +66,6 @@ def generate_dataset_scan(image_paths,
                           img_w=256,
                           label_is_gray=True,
                           use_gdal=False):
-    # Assuming that the source images ar
+    # Assuming that the source images are remote sensing images, and the label images are images with 1 or 3 bands.
+    # check source directories and create directories to store sample images and gts
+    if not os.
