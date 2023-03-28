@@ -71,4 +71,7 @@ def generate_dataset_scan(image_paths,
     if not os.path.exists('{}/image'.format(dst_dir)):
         os.mkdir('{}/image'.format(dst_dir))
     if not os.path.exists('{}/label'.format(dst_dir)):
-        os.mkdir(
+        os.mkdir('{}/label'.format(dst_dir))
+
+    for image_path, label_path in zip(image_paths, label_paths):
+        image = load_image(image_path, is_gray=False, use_gdal=
