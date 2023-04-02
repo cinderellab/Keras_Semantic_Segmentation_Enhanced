@@ -76,4 +76,6 @@ def generate_dataset_scan(image_paths,
     for image_path, label_path in zip(image_paths, label_paths):
         image = load_image(image_path, is_gray=False, use_gdal=use_gdal)
         label = load_image(label_path, is_gray=label_is_gray, use_gdal=use_gdal)
-        image_height, image_width, _ = i
+        image_height, image_width, _ = image.shape
+        image_tag = os.path.basename(image_path).split('.')[0]
+        print('%s: sampling from [%s]...' % (datetime.datetime.now().st
