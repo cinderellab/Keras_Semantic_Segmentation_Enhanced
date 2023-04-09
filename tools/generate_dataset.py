@@ -84,4 +84,5 @@ def generate_dataset_scan(image_paths,
             image = np.pad(image, ((0, img_h-image_height+1), (0, 0), (0, 0)), mode='constant', constant_values=0)
             label = np.pad(label, ((0, img_h - image_height+1), (0, 0), (0, 0)), mode='constant', constant_values=0)
         if image_width < img_w:
-            image = np.pad(image, ((0, 0), (0, img_w - image_width+1), (0, 0))
+            image = np.pad(image, ((0, 0), (0, img_w - image_width+1), (0, 0)), mode='constant', constant_values=0)
+            label = np.pad(label, ((0, 0), (0, img_w - image_width+1), (0, 0)), mode='constant', constant_values
