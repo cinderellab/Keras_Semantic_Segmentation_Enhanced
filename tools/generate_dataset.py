@@ -90,4 +90,6 @@ def generate_dataset_scan(image_paths,
         l_count = 1
         for _row in range(0, image_height, stride):
             for _col in range(0, image_width, stride):
-                src_
+                src_roi = image[_row:_row+img_h, _col: _col+img_w]
+                label_roi = label[_row:_row+img_h, _col:_col+img_w]
+             
