@@ -92,4 +92,7 @@ def generate_dataset_scan(image_paths,
             for _col in range(0, image_width, stride):
                 src_roi = image[_row:_row+img_h, _col: _col+img_w]
                 label_roi = label[_row:_row+img_h, _col:_col+img_w]
-             
+                if src_roi.shape[0]!=img_h or src_roi.shape[1]!=img_w:
+                    continue
+
+                if src_roi.shape[0]!=img_h or src_roi.shape[1]!
