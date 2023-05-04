@@ -95,4 +95,7 @@ def generate_dataset_scan(image_paths,
                 if src_roi.shape[0]!=img_h or src_roi.shape[1]!=img_w:
                     continue
 
-                if src_roi.shape[0]!=img_h or src_roi.shape[1]!
+                if src_roi.shape[0]!=img_h or src_roi.shape[1]!=img_w or label_roi.shape[0]!=img_h or label_roi.shape[1]!=img_w:
+                    continue
+                # save sample images
+    
