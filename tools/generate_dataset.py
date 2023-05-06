@@ -100,4 +100,6 @@ def generate_dataset_scan(image_paths,
                 # save sample images
                 if not use_gdal:
                     save_to_image(src_roi.astype(np.uint8), '{}/image/{}_{}.png'.format(dst_dir, image_tag, l_count))
-                    sa
+                    save_to_image(label_roi.astype(np.uint8), '{}/label/{}_{}.png'.format(dst_dir, image_tag, l_count))
+                else:
+                    save_to_image_gda
