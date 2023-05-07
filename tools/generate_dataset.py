@@ -109,4 +109,6 @@ def generate_dataset_scan(image_paths,
 
 if __name__ == "__main__":
     image_dir = generate_dadaset_config.image_dir
-    label_dir = generate_d
+    label_dir = generate_dadaset_config.label_dir
+    image_paths = [os.path.join(image_dir, fn) for fn in os.listdir(image_dir)]
+    label_paths = [os.path.join(label_dir, fn) for fn in os.l
