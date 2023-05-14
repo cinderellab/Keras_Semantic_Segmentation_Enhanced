@@ -117,4 +117,6 @@ if __name__ == "__main__":
         generate_dataset_random(image_paths=image_paths,
                                 label_paths=label_paths,
                                 image_num_per_tile=generate_dadaset_config.image_number_per_tile,
-                                dst_dir=g
+                                dst_dir=generate_dadaset_config.dst_dir,
+                                img_h=generate_dadaset_config.image_height,
+                                img_w=g
