@@ -115,4 +115,6 @@ if __name__ == "__main__":
 
     if generate_dadaset_config.method == 'random':
         generate_dataset_random(image_paths=image_paths,
-                
+                                label_paths=label_paths,
+                                image_num_per_tile=generate_dadaset_config.image_number_per_tile,
+                                dst_dir=g
