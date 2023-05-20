@@ -119,4 +119,6 @@ if __name__ == "__main__":
                                 image_num_per_tile=generate_dadaset_config.image_number_per_tile,
                                 dst_dir=generate_dadaset_config.dst_dir,
                                 img_h=generate_dadaset_config.image_height,
-                                img_w=g
+                                img_w=generate_dadaset_config.image_width,
+                                use_gdal=generate_dadaset_config.use_gdal,
+                                label_is_gra
