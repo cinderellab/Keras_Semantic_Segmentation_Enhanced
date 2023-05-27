@@ -125,4 +125,6 @@ if __name__ == "__main__":
                                 )
     else:
         generate_dataset_scan(image_paths=image_paths,
-                             
+                              label_paths=label_paths,
+                              stride=generate_dadaset_config.stride,
+                            
