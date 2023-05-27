@@ -127,4 +127,6 @@ if __name__ == "__main__":
         generate_dataset_scan(image_paths=image_paths,
                               label_paths=label_paths,
                               stride=generate_dadaset_config.stride,
-                            
+                              dst_dir=generate_dadaset_config.dst_dir,
+                              img_h=generate_dadaset_config.image_height,
+                              img_w=generate_dada
