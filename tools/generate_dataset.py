@@ -131,4 +131,5 @@ if __name__ == "__main__":
                               img_h=generate_dadaset_config.image_height,
                               img_w=generate_dadaset_config.image_width,
                               use_gdal=generate_dadaset_config.use_gdal,
-                              label_is_gray=generat
+                              label_is_gray=generate_dadaset_config.label_is_gray
+                              )
